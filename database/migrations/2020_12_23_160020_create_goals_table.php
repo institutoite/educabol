@@ -14,7 +14,10 @@ class CreateGoalsTable extends Migration
     public function up()
     {
         Schema::create('goals', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+	        $table->unsignedInteger('course_id');
+	        $table->foreign('course_id')->references('id')->on('courses');
+	        $table->string('goal');
             $table->timestamps();
         });
     }

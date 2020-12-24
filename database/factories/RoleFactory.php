@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Level;
+use App\Role;
 use Faker\Generator as Faker;
 
-$factory->define(Level::class, function (Faker $faker) {
+$factory->define(Role::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
 	    'description' => $faker->sentence
