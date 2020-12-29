@@ -16,5 +16,6 @@ class Controller extends BaseController
     		session()->put('applocale', $language);
 	    }
 	    return back();
-    }
+	}
+
 }

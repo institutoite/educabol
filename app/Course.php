@@ -82,4 +82,8 @@ class Course extends Model
 		return $this->belongsTo(Teacher::class);
 	}
 	
+	public function getCustomRatingAttribute () {
+		return $this->reviews->avg('rating');
+	}
+	
 }

@@ -12,6 +12,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function cursos()
+    {
+    	$cursos = Course::withCount(['students'])
+        ->with('category', 'teacher', 'reviews')
+        ->where('status', Course::PUBLISHED)
+        ->latest()
+        ->paginate(12);
+
+        return view('home.cursos', compact('cursos'));
+    }
+
+
     public function index()
     {
     	$courses = Course::withCount(['students'])
@@ -22,4 +34,6 @@ class HomeController extends Controller
 
         return view('home', compact('courses'));
     }
+
+
 }
