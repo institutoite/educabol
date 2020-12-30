@@ -50,8 +50,14 @@ class Course extends Model
 	const PENDING = 2;
 	const REJECTED = 3;
 
+	protected $withCount = ['reviews', 'students'];
+
 	public function pathAttachment () {
 		return "/images/courses/" . $this->picture;
+	}
+
+	public function getRouteKeyName() {
+		return 'slug';
 	}
 
 	public function category () {
@@ -84,6 +90,14 @@ class Course extends Model
 	
 	public function getCustomRatingAttribute () {
 		return $this->reviews->avg('rating');
+	}
+	
+	public function relatedCourses () {
+		return Course::with('reviews')->whereCategoryId($this->category->id)
+			->where('id', '!=', $this->id)
+			->latest()
+			->limit(6)
+			->get();
 	}
 	
 }

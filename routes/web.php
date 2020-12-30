@@ -6,6 +6,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@cursos');
 
+Route::group(['prefix' => 'courses'], function () {
+	Route::get('/{course}', 'CourseController@show')->name('courses.detail');
+});
+
+
+
 
 
 

@@ -15,7 +15,7 @@
                     {{ $curso->category->name }}
                 </div>
                 <div class="name">
-                    <a href="#">{{ str_limit($curso->description, 20) }}</a> 
+                    <a href="{{ route('courses.detail', $curso->slug) }}">{{ str_limit($curso->name, 20) }}</a> 
                 </div>
                 <div class="border-bt">
                     
