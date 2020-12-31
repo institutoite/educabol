@@ -164,7 +164,7 @@
                         <div class="flat-tabs">
                             <ul class="tab-title type1 clearfix"> 
                                 <li class="item-title  overview">
-                                    <span class="inner">OVERVIEW</span>
+                                    <span class="inner">Contenido</span>
                                 </li>
                                 <li class="item-title curriculum">
                                     <span class="inner">CURRICULUM</span>
@@ -176,92 +176,44 @@
                             <div class="tab-content-wrap">
                                 <div class="tab-content">
                                     <div class="item-content">
-                                        <div class="question-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">What will i learn?</a>
-                                            </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
                                         <div class="certificate-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Certificate of Completion</a>
+                                                <a href="#">Contenido del Curso</a>
                                             </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
                                             <div class="certificate">
                                                 <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
                                                     <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
+                                                        @forelse($course->goals as $goal)
+                                                            
+                                                            <li>{{ $goal->goal }}</li>
+                                                                        
+                                                        @empty
+                                                            <div class="alert alert-dark">
+                                                                <i class="fa fa-info-circle"></i>
+                                                                {{ __("No se han escrito metas para este curso") }}
+                                                            </div>
+                                                        @endforelse
                                                     </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="{{ asset('images/course-single/3.jpg') }}" alt="images">
                                                 </div>
                                             </div>
                                         </div>
                                           
                                         <div class="requirements-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Requirements</a>
+                                                <a href="#">Requisitos para tomar el curso</a>
                                             </div>
                                             <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
+                                                @forelse($course->requirements as $requirement)
+                                                    <li>{{ $requirement->requirement }}</li>
+                                                @empty
+                                                    <div class="alert alert-dark">
+                                                        <i class="fa fa-info-circle"></i>
+                                                        {{ __("No hay ningún requisito para este curso") }}
+                                                    </div>
+                                                @endforelse
                                             </ul>
                                         </div>
  
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
-
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-content">
@@ -388,18 +340,6 @@
                                             <p>
                                                 {{ $course->teacher->created_at->format('d/m/Y') }}.
                                             </p>
-                                        </div>
-
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -529,6 +469,7 @@
                                         <a href="#"></a>
                                         <span></span>
                                     </li>
+                                    @include('partials.courses.action_button')
                                 </ul>
                                 <div class="share-via">
                                     <div class="title">
@@ -545,139 +486,57 @@
                         </div>
                         <div class="related-course related-course-single">
                             <div class="title">
-                                Related Courses
+                                Cursos Similares
                             </div>
                             <div class="related-course-wrap client-style3">
                                 <div class="flat-carousel-box data-effect clearfix" data-gap="30" data-column="1" data-column2="1" data-column3="1" data-column4="1" data-dots="false" data-auto="false" data-nav="false">
                                     <div class="owl-carousel">
                                         <div class="flat-course">
-                                            <div class="featured-post">
-                                                <div class="entry-image">
-                                                    <img src="{{ asset('images/course-grid/3.jpg') }}" alt="images">
+                                            @forelse($related as $relatedCourse)
+                                                <div class="featured-post">
+                                                    <div class="entry-image">
+                                                        <img src="{{ asset('images/course-grid/3.jpg') }}" alt="images">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="course-content clearfix">
-                                                <div class="wrap-course-content">
-                                                    <h4>
-                                                        <a href="#">Learn Photoshop CC With Nir Eyal Complete Course</a>
-                                                    </h4>
-                                                    <p>
-                                                        Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  
-                                                    </p>
-                                                    <div class="author-info">
-                                                        <div class="author-name">
-                                                            Perttick Sid
-                                                        </div>
-                                                        <div class="enroll">
-                                                            <a href="#">Enroll</a>
+                                                <div class="course-content clearfix">
+                                                    <div class="wrap-course-content">
+                                                        
+                                                            <h4>
+                                                                <a href="{{ route('courses.detail', $relatedCourse->slug) }}">{{ $relatedCourse->name }}</a>
+                                                            </h4>
+                                                            <p>
+                                                                {{ $relatedCourse->description }}</a>
+                                                            </p>
+                                                            <div class="author-info">
+                                                                <div class="author-name">
+                                                                    {{ $relatedCourse->teacher->user->name }}
+                                                                </div>
+                                                            </div>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="wrap-rating-price">
+                                                        <div class="meta-rate">
+                                                            <div class="rating">
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <span>(4)</span>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span class="price-now">Bs.0</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wrap-rating-price">
-                                                    <div class="meta-rate">
-                                                        <div class="rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span>(4)</span>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span class="price-previou">
-                                                                <del>$169</del>
-                                                            </span>
-                                                            <span class="price-now">$169</span>
-                                                        </div>
-                                                    </div>
+                                            @empty
+                                                <div class="alert alert-dark">
+                                                    {{ __("No existe ningún curso relacionado") }}
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="flat-course">
-                                            <div class="featured-post">
-                                                <div class="entry-image">
-                                                    <img src="{{ asset('images/course-grid/3.jpg') }}" alt="images">
-                                                </div>
-                                            </div>
-                                            <div class="course-content clearfix">
-                                                <div class="wrap-course-content">
-                                                    <h4>
-                                                        <a href="#">Learn Photoshop CC With Nir Eyal Complete Course</a>
-                                                    </h4>
-                                                    <p>
-                                                        Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  
-                                                    </p>
-                                                    <div class="author-info">
-                                                        <div class="author-name">
-                                                            Perttick Sid
-                                                        </div>
-                                                        <div class="enroll">
-                                                            <a href="#">Enroll</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="wrap-rating-price">
-                                                    <div class="meta-rate">
-                                                        <div class="rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span>(4)</span>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span class="price-previou">
-                                                                <del>$169</del>
-                                                            </span>
-                                                            <span class="price-now">$169</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flat-course">
-                                            <div class="featured-post">
-                                                <div class="entry-image">
-                                                    <img src="{{ asset('images/course-grid/3.jpg') }}" alt="images">
-                                                </div>
-                                            </div>
-                                            <div class="course-content clearfix">
-                                                <div class="wrap-course-content">
-                                                    <h4>
-                                                        <a href="#">Learn Photoshop CC With Nir Eyal Complete Course</a>
-                                                    </h4>
-                                                    <p>
-                                                        Education City is initiative of our Qatar Foundation for Education, Science and Community Development. 
-                                                    </p>
-                                                    <div class="author-info">
-                                                        <div class="author-name">
-                                                            Perttick Sid
-                                                        </div>
-                                                        <div class="enroll">
-                                                            <a href="#">Enroll</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="wrap-rating-price">
-                                                    <div class="meta-rate">
-                                                        <div class="rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span>(4)</span>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span class="price-previou">
-                                                                <del>$169</del>
-                                                            </span>
-                                                            <span class="price-now">$169</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforelse
                                         </div>
                                     </div>
                                 </div>
@@ -694,22 +553,19 @@
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
                     <div class="cta-content">
-                        <div class="caption">How to start your teaching?</div>
+                        <div class="caption">¿Te gustaria enseñar?</div>
                         <h3>
-                            Starting your journey with us? Follow this guide still possible to become a teacher.
+                            Contactanos a traves de nuestro numero celular o correo electronico.
                         </h3>
-                        <div class="btn-about-become">
-                            <a href="#">Become a Teacher</a>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                     <div class="cta-information">
                         <div class="phone">
-                            +91 254 785 587
+                            +591 71039910
                         </div>
                         <div class="email">
-                            edukin@info.com
+                            informaciones.ite@gmail.com
                         </div>
                     </div>
                 </div>
@@ -720,9 +576,9 @@
         <div class="form-send-email">
             <div class="container">
                 <form action="#" class="form-send">
-                    <input type="search" placeholder="Enter your email...">
+                    <input type="search" placeholder="Ingrese su consulta">
                     <button class="btn send-button bg-clff5f60">
-                        Send
+                        Enviar
                     </button>
                 </form>
             </div>
@@ -786,13 +642,13 @@
                         <div id="copyright">
                             © 
                             <span class="text-year">
-                                2018
+                                2021
                             </span>
                             <span class="text-name">
-                                Roy Design.
+                                Ite.
                             </span>
                             <span class="license">
-                                <a href="#">All Rights Reserved</a>
+                                <a href="#">Todos los derechos reservados</a>
                             </span>
                         </div>
                     </div>

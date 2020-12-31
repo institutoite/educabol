@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -46,7 +46,7 @@ class LoginController extends Controller
     public function logout (Request $request) {
     	auth()->logout();
     	session()->flush();
-    	return redirect('/home');
+    	return redirect('/');
     }
 
     public function redirectToProvider (string $driver) {

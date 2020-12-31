@@ -1188,13 +1188,13 @@
                         <div id="copyright">
                             © 
                             <span class="text-year">
-                                2018
+                                2021
                             </span>
                             <span class="text-name">
-                                Roy Design.
+                                Ite.
                             </span>
                             <span class="license">
-                                <a href="#">All Rights Reserved</a>
+                                <a href="#">Todos los derechos reservados</a>
                             </span>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('s
 Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/images/{path}/{attachment}', function($path, $attachment) {
 	$file = sprintf('storage/%s/%s', $path, $attachment);
