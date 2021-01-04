@@ -372,18 +372,36 @@
     <section class="online-courses online-courses-style1">
         <div class="container">
             <div class="title-section text-center">
-                <p class="sub-title lt-sp17">Nuestros Cursos</p>
                 <div class="flat-title medium">
-                    + 100 Cursos en linea 
+                    Nuestras Categorias
                 </div>
             </div>
             <div class="online-courses-wrap">
                 <div class="row">
-                    @yield('cursos')
+                @foreach ($categorias as $categoria)
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    <div class="imagebox-courses-type1">
+                        <div class="featured-post">
+                            <img src="images/home1/05.png" alt="images">
+                        </div>
+                        <div class="author-info">
+                            <div class="name">
+                                <a href="{{ route('courses.index', $categoria->id) }}">{{ Str::limit($categoria->name, 20) }}</a> 
+                            </div>
+                            
+                            <div class="border-bt">
+                                <div class="category">
+                                    {{ Str::limit($categoria->description, 50) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
                 </div>
             </div>
             <div class="browse-all-courses pd-browse-course text-center">
-                <a href="#" class="btn-browse-courses">Explorar todos los cursos</a>
+                <a href="#" class="btn-browse-courses">Explorar todas las categorias</a>
             </div>
         </div>
     </section><!-- online-courses -->

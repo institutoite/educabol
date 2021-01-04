@@ -25,9 +25,9 @@ Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'e
 Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
 
-
-
-
-
+Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index'])->name('courses.index');
 Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
+
+Route::get('/add-to-cart/{producto}', [App\Http\Controllers\CourseController::class, 'add'])->name('cart.add')->middleware('auth');
+
 
