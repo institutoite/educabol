@@ -7,17 +7,6 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-	public function index()
-    {
-        $courses = Course::withCount(['students'])
-		    ->with('category', 'teacher', 'reviews')
-		    ->where('status', Course::PUBLISHED)
-		    ->latest()
-		    ->paginate(12);
-        
-        return view('courses.index', compact('courses'));
-	}
-	
     public function show (Course $course) {
 		$course->load([
 			'category' => function ($q) {

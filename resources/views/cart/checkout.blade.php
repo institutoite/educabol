@@ -1,154 +1,98 @@
-@extends('layouts.appregister')
+@extends('body')
 
 @section('content')
-<style>
-#map-canvas{
- width:600px;
- height:300px;
-}
-</style>
+    <section class="pt-0">
 
-<html>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAnVKWBNY-BBpP8H3ZQ3omqkoxuD3LyhQ&libraries=places" type="text/javascript"></script>
-<section class="checkout spad">
-  <div class="container">
-    <div class="checkout__form">
-      <h4>Información de envío</h4>
-      {!! Form::open(['route' => 'orders.store', 'method' => 'post']) !!}
-      @csrf
-      
-          <div class="row">
-            <div class="col-lg-8 col-md-6">
-
-              <div class="form-group">
-                  <label for="">Nombre Completo</label>
-                  <input type="text" name="shipping_fullname" id="" class="form-control" value="{{ Auth::user()->name }}" required>
-              </div>
-
-              <div class="form-group">
-                  <input type="hidden" name="shipping_state" id="" class="form-control" value="Bolivia">
-              </div>
-
-              <div class="form-group">
-                  <input type="hidden" name="shipping_city" id="" class="form-control" value="Santa Cruz">
-              </div>
-
-              <div class="form-group">
-                  <input type="hidden" name="shipping_zipcode" id="" class="form-control" value="591">
-              </div>
-
-              <div class="form-group">
-                  <label for="">Numero de Celular</label>
-                  <input type="text" name="shipping_phone" id="" class="form-control" value="{{ Auth::user()->celular }}" required>
-              </div>
-
-              <div class="form-group">
-              <div id="map-canvas"></div>
-              </div>
-
-              <div class="form-group">
-                  <label for="">Informacion adicional del lugar de envio</label>
-                  <input type="text" name="shipping_address" id="" class="form-control" placeholder="# de casa o edificio" required> 
-              </div>
-
-              <div class="form-group">
-              <input type="hidden" class="form-control input-sm" name="lat" id="lat">
-              </div>
-
-              <div class="form-group">
-              <input type="hidden" class="form-control input-sm" name="lng" id="lng">
-              </div>
-              
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="checkout__order">
-                    <h4>Resumen del Pedido</h4>
-                    <div class="checkout__order__subtotal">Subtotal <span>Bs. {{\Cart::session(auth()->id())->getSubTotal()}}</span></div>
-                    <div class="checkout__order__total">Total <span>Bs. {{\Cart::session(auth()->id())->getTotal()}}</span></div>
-
-                    
-                    <h4>Metodo de Pago</h4>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="payment_method" id="" value="Efectivo">
-                            Efectivo
-
-                        </label>
-
+        <div class="pt-3 pt-lg-4 pb-5 pb-lg-6 mb-2 mb-lg-3">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="steps steps-sm">
+                            <ul class="row">
+                                <li class="col  current">
+                                    <a href="<?php echo url('/cart')?>">
+                                        <span class="step-item" data-text="Carrito">
+                                            <span>1</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="<?php echo url('/payment')?>">
+                                        <span class="step-item" data-text="Metodos de Pago">
+                                            <span>2</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="<?php echo url('/receipt')?>">
+                                        <span class="step-item" data-text="Informacion de la Compra">
+                                            <span>3</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="payment_method" id="" value="Tranferencia Bancaria">
-                            Tranferencia Bancaria
-
-                        </label>
-
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3">Realizar Pedido</button>
                 </div>
             </div>
-          </div>
-      {!! Form::close() !!}
-
-
-    </div>
-
-  </div>
-
-</section>
-
-<script>
-var map = new google.maps.Map(document.getElementById('map-canvas'),{
- zoom:17
-});
-
-navigator.geolocation.getCurrentPosition(function(position){
-    var geolocate = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-
- let lat = position.coords.latitude;
- let lng = position.coords.longitude;
- $('#lat').val(lat);
- $('#lng').val(lng);
-
-    var marker= new google.maps.Marker({
- position:{
-  lat:position.coords.latitude,
-  lng:position.coords.longitude
- },
- map:map,
- draggable:true
-});
-
-var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-google.maps.event.addListener(searchBox,'places_changed',function(){
-var places = searchBox.getPlaces();
-var bounds = new google.maps.LatLngBounds();
-var i , place;
-for(i=0;place=places[i];i++){
- bounds.extend(place.geometry.location);
- marker.setPosition(place.geometry.location);
-}
-map.fitBounds(bounds);
-map.setZoom(17);
-});
-google.maps.event.addListener(marker,'position_changed',function(){
-  lat = marker.getPosition().lat();
-  lng = marker.getPosition().lng();
- $('#lat').val(lat);
- $('#lng').val(lng);
-});
-
-    map.setCenter(geolocate);
-});
-
-
-
-
-</script>
-</html>
-
+        </div>
     
-@endsection
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+    
+                    <h2 class="pre-label font-size-base">Carrito</h2>
+    
+                    @foreach ($cartItems as $item)
+                    <div class="bg-white shadow-sm rounded mb-3 p-3 alert alert-dismissible" role="alert">
+                        <button onclick="location.href='{{ route('cart.destroy', $item->id ) }}'" type="button" class="close" data-dismiss="alert" aria-label="Close" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="row align-items-center no-gutters p-md-2">
+                            <div class="col-lg-2">
+                                <img src="assets/images//demo/product-1.png" alt="" class="img-fluid" />
+                            </div>
+                            <div class="col-lg-5 pl-lg-3 mb-2 mb-lg-0">
+                                <h2 class="h5 mb-0">{{ $item->name }}</h2>
+                            </div>
+                            <div class="col-6 col-lg-3 text-right">
+                                <div class="h5 mb-0">Bs. {{Cart::session(auth()->id())->get($item['id'])->getPriceSum()}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+    
+                    <!-- Total price -->
+    
+                    <div class="bg-white shadow-sm rounded mb-2 p-3">
+                        <div class="p-md-4">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <div class="h4 mb-0">Total</div>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <div class="h4 mb-0">Bs. {{\Cart::session(auth()->id())->getTotal()}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Buttons -->
+    
+                    <div class="py-3">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-6">
+                                <a href="<?php echo url('/')?>" class="btn btn-dark btn-primary btn-rounded px-lg-5">Seguir Comprando</a>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a href="<?php echo url('/payment')?>" class="btn btn-primary btn-rounded px-lg-5">Siguiente paso</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        
+    </section>
+    @endsection

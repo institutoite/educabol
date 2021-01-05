@@ -386,7 +386,7 @@
                         </div>
                         <div class="author-info">
                             <div class="name">
-                                <a href="{{ route('courses.index', $categoria->id) }}">{{ Str::limit($categoria->name, 20) }}</a> 
+                                <a href="{{ route('category.show', $categoria->id) }}">{{ Str::limit($categoria->name, 20) }}</a> 
                             </div>
                             
                             <div class="border-bt">

@@ -6,6 +6,8 @@
 
     <!-- Mobile Specific Metas-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     
     <!-- Bootstrap-->
     <link rel="stylesheet" href="{{ asset('stylesheet/bootstrap.css') }}">
@@ -21,9 +23,6 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
 </head>
@@ -48,7 +47,7 @@
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                             <ul class="nav-sing">
-                                <li><a href="#" class="material-icons" style="font-size: 28px">shopping_cart</a></li>
+                                <li><a href="{{ route('cart.index') }}" class="material-icons" style="font-size: 28px">shopping_cart</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,7 +156,7 @@
                                             <span class="price-now">Bs.0</span>
                                         </div>
                                         <div class="btn-buynow">
-                                            <a href="#" class="material-icons" style="font-size: 36px">add_shopping_cart</a>
+                                            <a href="{{ route('cart.add', $course->id) }}" class="material-icons" style="font-size: 36px">add_shopping_cart</a>
                                         </div>
                                     </div>
                                 </div>

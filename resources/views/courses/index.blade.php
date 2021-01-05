@@ -56,7 +56,7 @@
                 <div class="container"> 
                     <div class="menu-bar-wrap clearfix">
                         <div id="logo" class="logo">
-                            <a href="index.html"><img src="images/logo/02.png" alt="images"></a>
+                            <a href="index.html"><img src="{{ asset('images/logo/02.png') }}" alt="images"></a>
                         </div>
                         <div class="mobile-button"><span></span></div>
                         <div class="header-menu">
@@ -134,7 +134,7 @@
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/3.jpg" alt="images">
+                                <img src="{{ asset('images/course-grid/3.jpg') }}" alt="images">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="{{ route('courses.detail', $course->slug) }}">Ver Contenido</a>
@@ -230,7 +230,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-footer">
                        <div class="logo-footer">
-                           <img src="images/logo/04.png" alt="images">
+                           <img src="{{ asset('images/logo/04.png') }}" alt="images">
                        </div>
                     </div>
                     <div class="col-lg-2 col-company">

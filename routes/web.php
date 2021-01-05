@@ -25,9 +25,22 @@ Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'e
 Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
 
-Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index'])->name('courses.index');
+Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+
 Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
 
-Route::get('/add-to-cart/{producto}', [App\Http\Controllers\CourseController::class, 'add'])->name('cart.add')->middleware('auth');
+Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add')->middleware('auth');
 
+
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');
+Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+
+
+Route::get('/payment', function () {
+    return view('cart.payment');
+});
+
+Route::get('/receipt', function () {
+    return view('cart.receipt');
+});
 
