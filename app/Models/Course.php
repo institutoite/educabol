@@ -22,7 +22,7 @@ class Course extends Model
 	}
 
 	public function getRouteKeyName() {
-		return 'slug';
+		return 'id';
 	}
 
 	public function category () {

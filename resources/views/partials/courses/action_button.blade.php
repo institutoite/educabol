@@ -2,12 +2,12 @@
     @auth
         @can('opt_for_course', $course)
              @can('subscribe', \App\Course::class)
-                <a class="btn btn-subscribe btn-bottom btn-block" href="{{ route('subscriptions.plans') }}">
+                <a class="btn btn-subscribe btn-bottom btn-block" href="#">
                     <i class="fa fa-bolt"></i> {{ __("Subscribirme") }}
                 </a>
              @else
                  @can('inscribe', $course)
-                    <a class="btn btn-subscribe btn-bottom btn-block" href="{{ route('courses.inscribe', ['slug' => $course->slug]) }}">
+                    <a class="btn btn-subscribe btn-bottom btn-block" href="{{ route('courses.inscribe', ['id' => $course->id]) }}">
                         <i class="fa fa-bolt"></i> {{ __("Inscribirme") }}
                     </a>
                  @else

@@ -38,16 +38,32 @@
                         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                             <ul class="information">
                                 <li class="phone lt-sp003">
-                                    <i class="fa fa-phone" aria-hidden="true"></i> +91 254 785 587
+                                    <i class="fa fa-phone" aria-hidden="true"></i> +591 71039910
                                 </li>
                                 <li class="email">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com
+                                    <i class="fa fa-envelope" aria-hidden="true"></i> informaciones.ite@gmail.com
                                 </li>
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                             <ul class="nav-sing">
-                                <li><a href="{{ route('cart.index') }}" class="material-icons" style="font-size: 28px">shopping_cart</a></li>
+                                <li>
+                                    <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">
+                                    <span>
+                                        @auth
+                                            Bs. {{\Cart::session(auth()->id())->getSubTotal()}}
+                                        @else
+                                            Bs. 0
+                                        @endauth
+                                    </span>
+                                    </i></a>
+                                </li>
+                                @if (Auth::guest())
+                                    <li><a href="{{ route('login') }}">Iniciar Sesion</a></li>
+                                @else
+                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -63,32 +79,13 @@
                         <div class="header-menu">
                             <nav id="main-nav" class="main-nav">
                                 <ul class="menu">
-                                    <li><a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="index.html">Home 1</a></li>
-                                            <li class="menu-item"><a href="home2.html">Home 2</a></li>
-                                            <li class="menu-item"><a href="home3.html">Home 3</a></li>
-                                            <li class="menu-item"><a href="home4.html">Home 4</a></li>
-                                            <li class="menu-item"><a href="home5.html">Home 5</a></li>
-                                        </ul><!-- sub-menu -->
+                                    <li><a href="<?php echo url('/')?>">Inicio</a>
                                     </li>
-                                    <li><a href="#">Course</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="course.html">Course</a></li>
-                                            <li class="menu-item"><a href="course-list.html">Course list</a></li>
-                                            <li class="menu-item active"><a href="course-single.html">Course single</a></li>
-                                        </ul><!-- sub-menu -->
+                                    <li><a href="#">Acerca de nosotros</a>
                                     </li>
-                                    <li><a href="#">Explore</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="about.html">About</a></li>
-                                        </ul><!-- sub-menu -->
+                                    <li><a href="#">Conctatenos</a>
                                     </li>
-                                    <li><a href="#">Degrees</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                            <li class="menu-item"><a href="blog-single.html">Blog single</a></li>
-                                        </ul><!-- sub-menu -->
+                                    <li class="nav-sing">
                                     </li>
                                 </ul>
                             </nav>
@@ -101,12 +98,8 @@
                     <div class="breadcrumbs breadcrumbs-blog text-left">
                         <div class="container">  
                             <div class="breadcrumbs-wrap">
-                                <ul class="breadcrumbs-inner">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="course-single.html">Course</a></li>
-                                </ul>
                                 <div class="title">
-                                    Course
+                                    {{ $course->name }}
                                 </div>
                             </div>
                         </div>
@@ -153,7 +146,7 @@
                                     </div>
                                     <div class="price-wrap price-course-single">
                                         <div class="price">
-                                            <span class="price-now">Bs.0</span>
+                                            <span class="price-now">Bs. {{ $course->price }}</span>
                                         </div>
                                         <div class="btn-buynow">
                                             <a href="{{ route('cart.add', $course->id) }}" class="material-icons" style="font-size: 36px">add_shopping_cart</a>
@@ -566,10 +559,10 @@
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                     <div class="cta-information">
                         <div class="phone">
-                            +91 254 785 587
+                            +591 71039910
                         </div>
                         <div class="email">
-                            edukin@info.com
+                            informaciones.ite@gmail.com
                         </div>
                     </div>
                 </div>

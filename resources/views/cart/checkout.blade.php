@@ -41,7 +41,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
     
-                    <h2 class="pre-label font-size-base">Carrito</h2>
+                    <h2 class="pre-label font-size-base">Detalle del Carrito</h2>
     
                     @foreach ($cartItems as $item)
                     <div class="bg-white shadow-sm rounded mb-3 p-3 alert alert-dismissible" role="alert">

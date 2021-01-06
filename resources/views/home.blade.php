@@ -39,35 +39,25 @@
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
-                                <li><a href="#">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item active"><a href="index.html">Home 1</a></li>
-                                        <li class="menu-item"><a href="home2.html">Home 2</a></li>
-                                        <li class="menu-item"><a href="home3.html">Home 3</a></li>
-                                        <li class="menu-item"><a href="home4.html">Home 4</a></li>
-                                        <li class="menu-item"><a href="home5.html">Home 5</a></li>
-                                    </ul><!-- sub-menu -->
+                                <li><a href="<?php echo url('/')?>">Inicio</a>
                                 </li>
-                                <li><a href="course.html">Course</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course.html">Course</a></li>
-                                        <li class="menu-item"><a href="course-list.html">Course list</a></li>
-                                        <li class="menu-item"><a href="course-single.html">Course single</a></li>
-                                    </ul><!-- sub-menu -->
+                                <li><a href="#">Acerca de nosotros</a>
                                 </li>
-                                <li><a href="#">Explore</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about.html">About</a></li>
-                                    </ul><!-- sub-menu -->
+                                <li><a href="#">Conctatenos</a>
                                 </li>
-                                <li><a href="#">Degrees</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                        <li class="menu-item"><a href="blog-single.html">Blog single</a></li>
-                                    </ul><!-- sub-menu -->
+                                <li>
+                                    <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">
+                                    <span>
+                                        @auth
+                                            Bs. {{\Cart::session(auth()->id())->getSubTotal()}}
+                                        @else
+                                            Bs. 0
+                                        @endauth
+                                    </span>
+                                    </i></a>
                                 </li>
                                 @if (!Auth::guest())
-                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> <b>Cerrar Sesion</b></a></li>
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                                 @endif
                                 <li class="nav-sing">
@@ -145,20 +135,13 @@
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
                         data-paddingbottom= "['50','50','50','50']"> 
-                        
                             @if (Auth::guest())
-                                <div class="read-more">
                                 <a href="{{ route('login') }}" class="btn btn-styl1">Iniciar Sesion</a>
-                                </div>
-                                @else
-                                <div class="read-more">
-                                    <a class="btn btn-styl1">
-                                        Bienvenido {{ auth::User()->name }}
-                                    </a>
-                                </div>
+                            @else
+                                <a class="btn btn-styl1">Bienvenido {{ auth::User()->name }}</a>
                             @endif
+                        </div>
                         
-
                         <div class="tp-caption sl-address"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
                         data-y="['middle','middle','middle','middle']" data-voffset="['325','280','250','200']"
@@ -240,19 +223,13 @@
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
                         data-paddingbottom= "['50','50','50','50']"> 
-                            
                             @if (Auth::guest())
-                                <div class="read-more">
-                                    <a href="{{ route('login') }}" class="btn btn-styl1">Iniciar Sesion</a>
-                                </div>
-                                @else
-                                <div class="read-more">
-                                    <a class="btn btn-styl1">
-                                        Bienvenido {{ auth::User()->name }}
-                                    </a>
-                                </div>
+                                <a href="{{ route('login') }}" class="btn btn-styl1">Iniciar Sesion</a>
+                            @else
+                                <a class="btn btn-styl1">Bienvenido {{ auth::User()->name }}</a>
                             @endif
-                            
+                        </div>
+                        
                         <div class="tp-caption sl-address"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
                         data-y="['middle','middle','middle','middle']" data-voffset="['325','280','250','200']"
@@ -306,6 +283,18 @@
                                             @endif
                                         </div>
                                         
+                                        <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }} mt-3">
+                                            <div class="input-group">
+                                                <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de usuario') }}"
+                                                    value="{{ old('username') }}" required autocomplete="username">
+                                            </div>
+                                            @if ($errors->has('username'))
+                                            <div id="username-error" class="error text-danger pl-3" for="username" style="display: block;">
+                                                <strong>{{ $errors->first('username') }}</strong>
+                                            </div>
+                                            @endif
+                                        </div>
+
                                         <div class="apply-sent apply-sent-style1">
                                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Correo electronico">
 
