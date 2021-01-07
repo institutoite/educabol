@@ -6,6 +6,9 @@ use App\Models\Course;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\URL;
+
+
 class HomeController extends Controller
 {
     /**
@@ -13,7 +16,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-
     /**
      * Show the application dashboard.
      *
@@ -25,4 +27,24 @@ class HomeController extends Controller
         
         return view('home', compact('categorias'));
     }
+
+    public function back()
+    {
+        echo URL::current();
+    }
+
+    public function show($id)
+    {
+        
+        return view('/auth');
+    }
+    
+    public function redirectTo()
+    {
+        if (session()->has('redirect_to'))
+            return session()->pull('redirect_to');
+    
+        return $this->redirectTo;
+    }
+
 }

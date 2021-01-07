@@ -24,7 +24,7 @@ class Course extends Model
 	public function getRouteKeyName() {
 		return 'id';
 	}
-
+	
 	public function category () {
 		return $this->belongsTo(Category::class)->select('id', 'name');
 	}

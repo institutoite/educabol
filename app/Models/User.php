@@ -41,4 +41,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function navigation () {
+    	return auth()->check() ? auth()->user()->role->name : 'guest';
+    }
+
+    public function role () {
+    	return $this->belongsTo(Role::class);
+    }
+
+    public function student () {
+    	return $this->hasOne(Student::class);
+    }
+
+    public function teacher () {
+    	return $this->hasOne(Teacher::class);
+    }
+
+    public function socialAccount () {
+    	return $this->hasOne(UserSocialAccount::class);
+    }
 }

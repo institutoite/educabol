@@ -149,7 +149,7 @@
                                             <span class="price-now">Bs. {{ $course->price }}</span>
                                         </div>
                                         <div class="btn-buynow">
-                                            <a href="{{ route('cart.add', $course->id) }}" class="material-icons" style="font-size: 36px">add_shopping_cart</a>
+                                            @include('partials.courses.action_button')
                                         </div>
                                     </div>
                                 </div>
@@ -463,7 +463,7 @@
                                         <a href="#"></a>
                                         <span></span>
                                     </li>
-                                    @include('partials.courses.action_button')
+                                    
                                 </ul>
                                 <div class="share-via">
                                     <div class="title">

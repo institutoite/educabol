@@ -16,7 +16,7 @@ class CoursePolicy
     }
 
     public function subscribe (User $user) {
-    	return $user->role_id !== 1 && ! $user->subscribed('main');
+    	return $user->role_id !== 1;
     }
 
     public function inscribe (User $user, Course $course) {

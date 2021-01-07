@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('inicio');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/sesion/{id}', [App\Http\Controllers\SesionController::class, 'show'])->name('sesion.show');
+
+
+Route::get('/back', [App\Http\Controllers\HomeController::class, 'back'])->name('back');
 
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
