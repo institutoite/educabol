@@ -33,17 +33,15 @@
             <div class="site-header-inner">
                 <div class="container">
                     <div id="logo" class="logo">
-                        <a href="index.html"><img src="images/logo/02.png" alt="images"></a>
+                        <a href="{{ url('/') }}"><img src="images/logo/02.png" alt="images"></a>
                     </div>
                     <div class="mobile-button"><span></span></div>
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
-                                <li><a href="<?php echo url('/')?>">Inicio</a>
+                                <li><a href="{{ url('/') }}">Inicio</a>
                                 </li>
                                 <li><a href="#">Acerca de nosotros</a>
-                                </li>
-                                <li><a href="#">Conctatenos</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">
@@ -56,10 +54,10 @@
                                     </span>
                                     </i></a>
                                 </li>
-                                @if (!Auth::guest())
+                                @auth
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
-                                @endif
+                                @endauth
                                 <li class="nav-sing">
                                 </li>
                             </ul>
@@ -348,7 +346,7 @@
                                     </div>
                                 </div>
                                 <div class="browse-all-courses pd-browse-course text-center">
-                                    <a href="#" class="btn-browse-courses">Ir a todos mis cursos</a>
+                                    <a href="{{ route('courses.subscribed') }}" class="btn-browse-courses">Ir a todos mis cursos</a>
                                 </div>
                             </div>
                         </div>

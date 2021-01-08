@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,25 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('inicio');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/sesion/{id}', [App\Http\Controllers\SesionController::class, 'show'])->name('sesion.show');
-
-
-Route::get('/back', [App\Http\Controllers\HomeController::class, 'back'])->name('back');
-
-Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
-Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
-Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
-Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+Auth::routes();
 
 Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 'inscribe'])->name('courses.inscribe');
+
+Route::get('/subscribed', [App\Http\Controllers\CourseController::class, 'subscribed'])->name('courses.subscribed');
 
 Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
 
@@ -50,4 +39,3 @@ Route::get('/payment', function () {
 Route::get('/receipt', function () {
     return view('cart.receipt');
 });
-

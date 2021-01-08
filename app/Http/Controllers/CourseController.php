@@ -28,6 +28,14 @@ class CourseController extends Controller
 		$related = $course->relatedCourses();
 
 		return view('courses.detail', compact('course', 'related'));
-    }
+		
+	}
+	
+	public function subscribed () {
+		$courses = Course::whereHas('students', function($query) {
+			$query->where('user_id', auth()->id());
+		})->get();
+		return view('courses.subscribed', compact('courses'));
+	}
     
 }

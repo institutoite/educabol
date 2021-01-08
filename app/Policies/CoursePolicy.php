@@ -15,10 +15,6 @@ class CoursePolicy
     	return ! $user->teacher || $user->teacher->id !== $course->teacher_id;
     }
 
-    public function subscribe (User $user) {
-    	return $user->role_id !== 1;
-    }
-
     public function inscribe (User $user, Course $course) {
     	return ! $course->students->contains($user->student->id);
     }
@@ -26,4 +22,5 @@ class CoursePolicy
 	public function review (User $user, Course $course) {
 		return ! $course->reviews->contains('user_id', $user->id);
 	}
+
 }

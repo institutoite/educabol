@@ -19,7 +19,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'username',
         'password',
     ];
 
@@ -61,4 +60,5 @@ class User extends Authenticatable
     public function socialAccount () {
     	return $this->hasOne(UserSocialAccount::class);
     }
+    
 }

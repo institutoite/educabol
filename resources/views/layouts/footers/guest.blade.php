@@ -3,18 +3,13 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="#">
-                        {{ __('Volver a Inicio') }}
+                    <a href="{{ url('/') }}">
+                        {{ __('Inicio') }}
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         {{ __('Acerca de nosotros') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        {{ __('Blog') }}
                     </a>
                 </li>
                 <li>

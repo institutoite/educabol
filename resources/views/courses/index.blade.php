@@ -82,10 +82,10 @@
                                     </li>
                                     <li><a href="#">Acerca de nosotros</a>
                                     </li>
-                                    <li><a href="#">Conctatenos</a>
+                                    @auth
+                                    <li><a href="{{ route('courses.subscribed') }}">Mis cursos</a>
                                     </li>
-                                    <li class="nav-sing">
-                                    </li>
+                                    @endauth
                                 </ul>
                             </nav>
                         </div>

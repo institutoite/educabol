@@ -15,25 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('role_id')->default(\App\Role::STUDENT);
-            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name');
-            $table->string('slug');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-	        $table->string('picture')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-            //cashier columns
-	        $table->string('stripe_id')->nullable();
-	        $table->string('card_brand')->nullable();
-	        $table->string('card_last_four')->nullable();
-	        $table->timestamp('trial_ends_at')->nullable();
-
-	        $table->rememberToken();
-	        $table->timestamps();
         });
     }
 
