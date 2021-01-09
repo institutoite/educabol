@@ -143,6 +143,11 @@
                                                 {{ $course->teacher->title }}
                                             </div>
                                         </div>
+                                        
+                                        <div class="list-star">
+                                            @include('partials.courses.rating', ['rating' => $course->custom_rating])
+                                        </div>
+                                        
                                     </div>
                                     <div class="price-wrap price-course-single">
                                         <div class="price">

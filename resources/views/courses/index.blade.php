@@ -147,20 +147,12 @@
                                         <div class="author-name">
                                             {{ $course->teacher->user->name }}
                                         </div>
-                                        <div class="enroll">
-                                            <a href="#">Enroll</a>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="wrap-rating-price">
                                     <div class="meta-rate">
                                         <div class="rating">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <span>(4)</span>
+                                            @include('partials.courses.rating', ['rating' => $course->custom_rating])
                                         </div>
                                         <div class="price">
                                             <span class="price-now">Bs. {{ $course->price }}</span>

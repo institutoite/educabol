@@ -152,12 +152,7 @@
                                 <div class="wrap-rating-price">
                                     <div class="meta-rate">
                                         <div class="rating">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <span>(4)</span>
+                                            @include('partials.courses.rating', ['rating' => $course->custom_rating])
                                         </div>
                                     </div>
                                 </div>
