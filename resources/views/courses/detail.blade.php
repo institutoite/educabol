@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
     
+    <style>
+        .yellow {
+        color: #fbb545;
+        }
+    </style>
+    
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
 </head>
 <body>
@@ -147,6 +153,9 @@
                                         <div class="list-star">
                                             @include('partials.courses.rating', ['rating' => $course->custom_rating])
                                         </div>
+                                        <div class="job">
+                                            {{ $course->reviews_count }} valoraciones
+                                        </div>
                                         
                                     </div>
                                     <div class="price-wrap price-course-single">
@@ -165,12 +174,19 @@
                                 <li class="item-title  overview">
                                     <span class="inner">Contenido</span>
                                 </li>
-                                <li class="item-title curriculum">
-                                    <span class="inner">CURRICULUM</span>
-                                </li>
+                                @auth
+                                    @cannot('inscribe', $course)
+                                        @can('review', $course)
+                                        <li class="item-title curriculum">
+                                            <span class="inner">Calificar Curso</span>
+                                        </li>
+                                        @endcan
+                                    @endcannot
+                                @endauth
                                 <li class="item-title instructor">
                                     <span class="inner">Tutor</span>
                                 </li>
+                                
                             </ul>
                             <div class="tab-content-wrap">
                                 <div class="tab-content">
@@ -215,96 +231,26 @@
  
                                     </div>
                                 </div>
-                                <div class="tab-content">
-                                    <div class="item-content">
-                                        <div class="question-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">What will i learn?</a>
-                                            </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
+                                @auth
+                                    @cannot('inscribe', $course)
+                                        @can('review', $course)
+                                            <div class="tab-content">
+                                                <div class="item-content">
+                                                    <div class="question-sg text clearfix">
+                                                        <div class="title">
+                                                            @include('partials.courses.form_review')
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="images-certificate">
-                                                    <img src="{{ asset('images/course-single/3.jpg') }}" alt="images">
+                                                <div class="access-sg text clearfix">
+                                                    <div class="title">
+                                                        @include('partials.courses.reviews')
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
-
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        @endcan
+                                    @endcannot
+                                @endauth
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
@@ -342,96 +288,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-content">
-                                    <div class="item-content">
-                                        <div class="question-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">What will i learn?</a>
-                                            </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="{{ asset('images/course-single/3.jpg') }}" alt="images">
-                                                </div>
-                                            </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
 
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div> 
                     </div>
@@ -501,7 +359,7 @@
                                                     <div class="wrap-course-content">
                                                         
                                                             <h4>
-                                                                <a href="{{ route('courses.detail', $relatedCourse->slug) }}">{{ $relatedCourse->name }}</a>
+                                                                <a href="{{ route('courses.detail', $relatedCourse->id) }}">{{ $relatedCourse->name }}</a>
                                                             </h4>
                                                             <p>
                                                                 {{ $relatedCourse->description }}</a>
@@ -518,15 +376,10 @@
                                                     <div class="wrap-rating-price">
                                                         <div class="meta-rate">
                                                             <div class="rating">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <span>(4)</span>
+                                                                @include('partials.courses.rating', ['rating' => $relatedCourse->custom_rating])
                                                             </div>
                                                             <div class="price">
-                                                                <span class="price-now">Bs.0</span>
+                                                                <span class="price-now">Bs. {{ $relatedCourse->price }}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -698,5 +551,6 @@
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.video.min.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

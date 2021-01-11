@@ -19,13 +19,17 @@ Auth::routes();
 
 Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
+Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
+
+
 Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 'inscribe'])->name('courses.inscribe');
 
 Route::get('/subscribed', [App\Http\Controllers\CourseController::class, 'subscribed'])->name('courses.subscribed');
 
-Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
+Route::post('/add_review', [App\Http\Controllers\CourseController::class, 'addReview'])->name('courses.add_review');
 
-Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add')->middleware('auth');
+
+Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 
 
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');

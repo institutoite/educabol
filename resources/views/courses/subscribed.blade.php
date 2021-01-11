@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
 </head>

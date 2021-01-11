@@ -19,6 +19,6 @@ class CategoryController extends Controller
 		    ->latest()
 		    ->paginate(12);
             
-        return view('courses.index', compact(['category','courses']));
+        return view('category.index', compact(['category','courses']));
     }
 }
