@@ -43,3 +43,7 @@ Route::get('/payment', function () {
 Route::get('/receipt', function () {
     return view('cart.receipt');
 });
+
+Route::get('/dashmin', function () {
+    return view('layouts.dashmin');
+});

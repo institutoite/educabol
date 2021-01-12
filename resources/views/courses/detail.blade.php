@@ -177,14 +177,14 @@
                                 @auth
                                     @cannot('inscribe', $course)
                                         @can('review', $course)
-                                        <li class="item-title curriculum">
+                                        <li class="item-title review">
                                             <span class="inner">Calificar Curso</span>
                                         </li>
                                         @endcan
                                     @endcannot
                                 @endauth
-                                <li class="item-title instructor">
-                                    <span class="inner">Tutor</span>
+                                <li class="item-title curriculum">
+                                    <span class="inner">Valoraciones</span>
                                 </li>
                                 
                             </ul>
@@ -242,11 +242,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="access-sg text clearfix">
-                                                    <div class="title">
-                                                        @include('partials.courses.reviews')
-                                                    </div>
-                                                </div>
                                             </div>
                                         @endcan
                                     @endcannot
@@ -255,36 +250,8 @@
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Tutor</a>
+                                                @include('partials.courses.reviews')
                                             </div>
-                                            <p>
-                                                {{ $course->teacher->user->name }}.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Profesion</a>
-                                            </div>
-                                            <p>
-                                                {{ $course->teacher->title }}.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Biografia</a>
-                                            </div>
-                                            <p>
-                                                {{ $course->teacher->biography }}.
-                                            </p>
-                                        </div>
-
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Fecha de registro a la plataforma</a>
-                                            </div>
-                                            <p>
-                                                {{ $course->teacher->created_at->format('d/m/Y') }}.
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
