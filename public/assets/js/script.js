@@ -452,8 +452,8 @@ $(function () {
     ==============================================*/
     $(document).ready(function() {
         // Create two variable with the names of the months and days in an array
-        var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
-        var dayNames= ["Sun,","Mon,","Tue,","Wed,","Thu,","Fri,","Sat,"];
+        var monthNames = [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]; 
+        var dayNames= ["Domingo,","Lunes,","Martes,","Miercoles,","Jueves,","Viernes,","Sabado,"];
         
         // Create a newDate() object
         var newDate = new Date();

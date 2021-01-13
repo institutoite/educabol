@@ -3,7 +3,7 @@
 
 <head>
    <!-- Page Title -->
-   <title>Dashmin - Multipurpose Bootstrap Dashboard Template</title>
+   <title>Educabol</title>
 
    <!-- Meta Data -->
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,22 +12,28 @@
    <meta name="description" content="">
    <meta name="keywords" content="">
 
+
    <!-- Favicon -->
-   <link rel="shortcut icon" href="../../assets/img/favicon.png">
+   <link rel="shortcut icon" href="{{ asset('../../assets/img/favicon.png') }}">
+
+    <!-- ======= DATATABLE STYLES ======= -->
+    @yield('css')
+    <!-- ======= END DATATABLE STYLES ======= -->
 
    <!-- Web Fonts -->
    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
    
    <!-- ======= BEGIN GLOBAL MANDATORY STYLES ======= -->
-   <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-   <link rel="stylesheet" href="../../assets/fonts/icofont/icofont.min.css">
-   <link rel="stylesheet" href="../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
+   <link rel="stylesheet" href="{{ asset('../../assets/bootstrap/css/bootstrap.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('../../assets/fonts/icofont/icofont.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css') }}">
    <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
 
    <!-- ======= MAIN STYLES ======= -->
-   <link rel="stylesheet" href="../../assets/css/style.css">
+   <link rel="stylesheet" href="{{ asset('../../assets/css/style.css') }}">
    <!-- ======= END MAIN STYLES ======= -->
 
+   
 </head>
 
 <body>
@@ -42,8 +48,8 @@
         <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
             <!-- Logo -->
             <div class="logo">
-                <a href="../../index.html" class="default-logo"><img src="../../assets/img/logo.png" alt=""></a>
-                <a href="../../index.html" class="mobile-logo"><img src="../../assets/img/mobile-logo.png" alt=""></a>
+                <a href="{{ asset('../../index.html') }}" class="default-logo"><img src="{{ asset('../../assets/img/logo.png') }}" alt=""></a>
+                <a href="{{ asset('../../index.html') }}" class="mobile-logo"><img src="{{ asset('../../assets/img/mobile-logo.png') }}" alt=""></a>
             </div>
             <!-- End Logo -->
 
@@ -66,7 +72,7 @@
                                     <div class="user-profile d-xl-flex align-items-center d-none">
                                         <!-- User Avatar -->
                                         <div class="user-avatar">
-                                            <img src="../../assets/img/avatar/user.png" alt="">
+                                            <img src="{{ asset('../../assets/img/avatar/user.png') }}" alt="">
                                         </div>
                                         <!-- End User Avatar -->
 
@@ -90,7 +96,7 @@
                             <!-- Main Header Menu -->
                             <div class="main-header-pin d-block d-lg-none">
                             <div class="header-toogle-menu">
-                                <img src="../../assets/img/menu.png" alt="">
+                                <img src="{{ asset('../../assets/img/menu.png') }}" alt="">
                             </div>
                             </div>
                             <!-- End Main Header Menu -->
@@ -101,54 +107,6 @@
                         <!-- Header Right -->
                         <div class="main-header-right d-flex justify-content-end">
                             <ul class="nav">
-                                <li class="ml-0">
-                                    <!-- Main Header Language -->
-                                    <div class="main-header-language">
-                                        <a href="#" data-toggle="dropdown">
-                                            <img src="../../assets/img/svg/globe-icon.svg" alt="">
-                                        </a>
-                                        <div class="dropdown-menu style--three">
-                                            <a href="#">
-                                            <span><img src="../../assets/img/usa.png" alt=""></span>
-                                            USA
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/china.png" alt=""></span>
-                                            China
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/russia.png" alt=""></span>
-                                            Russia
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/spain.png" alt=""></span>
-                                            Spain
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/brazil.png" alt=""></span>
-                                            Brazil
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/france.png" alt=""></span>
-                                            France
-                                            </a>
-                                            <a href="#">
-                                            <span><img src="../../assets/img/algeria.png" alt=""></span>
-                                            Algeria
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- End Main Header Language -->
-                                </li>
-                                <li class="ml-0 d-none d-lg-flex">
-                                    <!-- Main Header Print -->
-                                    <div class="main-header-print">
-                                        <a href="#">
-                                            <img src="../../assets/img/svg/print-icon.svg" alt="">
-                                        </a>
-                                    </div>
-                                    <!-- End Main Header Print -->
-                                </li>
                                 <li class="d-none d-lg-flex">
                                     <!-- Main Header Time -->
                                     <div class="main-header-date-time text-right">
@@ -157,181 +115,9 @@
                                             <span id="point">:</span>
                                             <span id="min">06</span>
                                         </h3>
-                                        <span class="date"><span id="date">Tue, 12 October 2019</span></span>
+                                        <span class="date"><span id="date"></span></span>
                                     </div>
                                     <!-- End Main Header Time -->
-                                </li>
-                                <li class="d-none d-lg-flex">
-                                    <!-- Main Header Button -->
-                                    <div class="main-header-btn ml-md-1">
-                                        <a href="#" class="btn">Pending Tasks</a>
-                                    </div>
-                                    <!-- End Main Header Button -->
-                                </li>
-                                <li class="order-2 order-sm-0">
-                                    <!-- Main Header Search -->
-                                    <div class="main-header-search">
-                                        <form action="#" class="search-form">
-                                            <div class="theme-input-group header-search">
-                                            <input type="text" class="theme-input-style" placeholder="Search Here">
-
-                                            <button type="submit"><img src="../../assets/img/svg/search-icon.svg" alt=""
-                                                    class="svg"></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- End Main Header Search -->
-                                </li>
-                                <li>
-                                    <!-- Main Header Messages -->
-                                    <div class="main-header-message">
-                                        <a href="#" class="header-icon" data-toggle="dropdown">
-                                            <img src="../../assets/img/svg/message-icon.svg" alt="" class="svg">
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <!-- Dropdown Header -->
-                                            <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                            <h5>3 Unread messages</h5>
-                                            <a href="#" class="text-mute d-inline-block">Clear all</a>
-                                            </div>
-                                            <!-- End Dropdown Header -->
-
-                                            <!-- Dropdown Body -->
-                                            <div class="dropdown-body">
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex media align-items-center">
-                                                <div class="figure">
-                                                    <img src="../../assets/img/avatar/m1.png" alt="">
-                                                    <span class="avatar-status bg-teal"></span>
-                                                </div>
-                                                <div class="content media-body">
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <h6 class="name">Sender Name</h6>
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex media align-items-center">
-                                                <div class="figure">
-                                                    <img src="../../assets/img/avatar/m2.png" alt="">
-                                                    <span class="avatar-status bg-teal"></span>
-                                                </div>
-                                                <div class="content media-body">
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <h6 class="name">Tonya Lee</h6>
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex media align-items-center">
-                                                <div class="figure">
-                                                    <img src="../../assets/img/avatar/m3.png" alt="">
-                                                    <span class="avatar-status bg-teal"></span>
-                                                </div>
-                                                <div class="content media-body">
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <h6 class="name">Cathy Nichols</h6>
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex media align-items-center">
-                                                <div class="figure">
-                                                    <img src="../../assets/img/avatar/m4.png" alt="">
-                                                    <span class="avatar-status bg-teal"></span>
-                                                </div>
-                                                <div class="content media-body">
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <h6 class="name">Hubert Griffith</h6>
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-                                            </div>
-                                            <!-- End Dropdown Body -->
-                                        </div>
-                                    </div>
-                                    <!-- End Main Header Messages -->
-                                </li>
-                                <li>
-                                    <!-- Main Header Notification -->
-                                    <div class="main-header-notification">
-                                        <a href="#" class="header-icon notification-icon" data-toggle="dropdown">
-                                            <span class="count" data-bg-img="../../assets/img/count-bg.png">22</span>
-                                            <img src="../../assets/img/svg/notification-icon.svg" alt="" class="svg">
-                                        </a>
-                                        <div class="dropdown-menu style--two dropdown-menu-right">
-                                            <!-- Dropdown Header -->
-                                            <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                            <h5>5 New notifications</h5>
-                                            <a href="#" class="text-mute d-inline-block">Clear all</a>
-                                            </div>
-                                            <!-- End Dropdown Header -->
-
-                                            <!-- Dropdown Body -->
-                                            <div class="dropdown-body">
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex align-items-center">
-                                                <div class="content">
-                                                    <div class="mb-2">
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus amet.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex align-items-center">
-                                                <div class="content">
-                                                    <div class="mb-2">
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex align-items-center">
-                                                <div class="content">
-                                                    <div class="mb-2">
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-
-                                            <!-- Item Single -->
-                                            <a href="#" class="item-single d-flex align-items-center">
-                                                <div class="content">
-                                                    <div class="mb-2">
-                                                        <p class="time">2 min ago</p>
-                                                    </div>	
-                                                    <p class="main-text">Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan justo.</p>
-                                                </div>
-                                            </a>
-                                            <!-- End Item Single -->
-                                            </div>
-                                            <!-- End Dropdown Body -->
-                                        </div>
-                                    </div>
-                                    <!-- End Main Header Notification -->
                                 </li>
                             </ul>
                         </div>
@@ -362,17 +148,17 @@
                 <div class="sidebar-body">
                     <!-- Nav -->
                     <ul class="nav">
-                        <li class="nav-category">Main</li>
+                        <li class="nav-category">Modulo Profesores</li>
                         <li>
-                            <a href="../../index.html">
+                            <a href="{{ asset('../../index.html') }}">
                                 <i class="icofont-pie-chart"></i>
-                                <span class="link-title">Dashboard</span>
+                                <span class="link-title">Mis Cursos</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="icofont-shopping-cart"></i>
-                                <span class="link-title">Ecommerce</span>
+                                <i class="icofont-group-students"></i>
+                                <span class="link-title">Mis estudiantes</span>
                             </a>
 
                             <!-- Sub Menu -->
@@ -387,7 +173,7 @@
                             <!-- End Sub Menu -->
                         </li>
                         <li>
-                            <a href="../../pages/social-media.html">
+                            <a href="{{ asset('') }}../../pages/social-media.html">
                                 <i class="icofont-chart-histogram"></i>
                                 <span class="link-title">Social Media Analytics</span>
                             </a>
@@ -782,578 +568,9 @@
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card mb-30">
-                                <div class="card-body pt-30">
-                                    <h4 class="font-20 ">Basic Table</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <!-- Invoice List Table -->
-                                    <table class="text-nowrap card_color-bg dh-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Tag</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>Branding</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- End Invoice List Table -->
-                                </div>
-                            </div>
-                        </div>
+                        @yield('content')
 
-                        <div class="col-12">
-                            <div class="card mb-30">
-                                <div class="card-body pt-30">
-                                    <h4 class="font-20 ">Hoverable Table</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <!-- Invoice List Table -->
-                                    <table class="text-nowrap hoverable dh-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Tag</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>Branding</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- End Invoice List Table -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="card mb-30">
-                                <div class="card-body pt-30">
-                                    <h4 class="font-20 ">Border Table</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <!-- Invoice List Table -->
-                                    <table class="text-nowrap table-bordered dh-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Tag</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>Branding</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- End Invoice List Table -->
-                                </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card mb-30">
-                                <div class="card-body py-30 pb-0">
-                                    <h4 class="font-20 ">Stripped Table</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="style--four table-striped  text-nowrap">
-                                       <thead>
-                                         <tr>
-                                           <th>Countries</th>
-                                           <th>Users</th>
-                                           <th>Likes</th>
-                                           <th>Followers</th>
-                                         </tr>
-                                       </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f1.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">USA</div>
-                                                </div>
-                                             </td>
-                                             <td>265878</td>
-                                             <td>5878</td>
-                                             <td>878</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f2.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">China</div>
-                                                </div>
-                                             </td>
-                                             <td>265878</td>
-                                             <td>64578</td>
-                                             <td>4578</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f3.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Russia</div>
-                                                </div>
-                                             </td>
-                                             <td>658745</td>
-                                             <td>8745</td>
-                                             <td>745</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f4.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Spain</div>
-                                                </div>
-                                             </td>
-                                             <td>365985</td>
-                                             <td>65478</td>
-                                             <td>5478</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f5.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Brazil</div>
-                                                </div>
-                                             </td>
-                                             <td>265478</td>
-                                             <td>65478</td>
-                                             <td>5478</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f6.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">France</div>
-                                                </div>
-                                             </td>
-                                             <td>123654</td>
-                                             <td>23654</td>
-                                             <td>3654</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f7.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Algeria</div>
-                                                </div>
-                                             </td>
-                                             <td>654987</td>
-                                             <td>54987</td>
-                                             <td>4987</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f8.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Andora</div>
-                                                </div>
-                                             </td>
-                                             <td>659874</td>
-                                             <td>59874</td>
-                                             <td>9874</td>
-                                          </tr>
-                                       </tbody>
-                                     </table>
-                                 </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="bg-3rd text-white mb-30">
-                                <div class="card-body py-30 pb-0">
-                                    <h4 class="font-20 ">Inverse Table</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="style--four table-striped table-inverse text-nowrap">
-                                       <thead>
-                                         <tr>
-                                           <th>Countries</th>
-                                           <th>Users</th>
-                                           <th>Likes</th>
-                                           <th>Followers</th>
-                                         </tr>
-                                       </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f1.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">USA</div>
-                                                </div>
-                                             </td>
-                                             <td>265878</td>
-                                             <td>5878</td>
-                                             <td>878</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f2.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">China</div>
-                                                </div>
-                                             </td>
-                                             <td>265878</td>
-                                             <td>64578</td>
-                                             <td>4578</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f3.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Russia</div>
-                                                </div>
-                                             </td>
-                                             <td>658745</td>
-                                             <td>8745</td>
-                                             <td>745</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f4.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Spain</div>
-                                                </div>
-                                             </td>
-                                             <td>365985</td>
-                                             <td>65478</td>
-                                             <td>5478</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f5.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Brazil</div>
-                                                </div>
-                                             </td>
-                                             <td>265478</td>
-                                             <td>65478</td>
-                                             <td>5478</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f6.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">France</div>
-                                                </div>
-                                             </td>
-                                             <td>123654</td>
-                                             <td>23654</td>
-                                             <td>3654</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f7.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Algeria</div>
-                                                </div>
-                                             </td>
-                                             <td>654987</td>
-                                             <td>54987</td>
-                                             <td>4987</td>
-                                          </tr>
-   
-                                          <tr>
-                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                   <div class="country-flag">
-                                                      <img src="../../assets/img/flag/f8.png" alt="">
-                                                   </div>
-                                                   <div class="country-name">Andora</div>
-                                                </div>
-                                             </td>
-                                             <td>659874</td>
-                                             <td>59874</td>
-                                             <td>9874</td>
-                                          </tr>
-                                       </tbody>
-                                     </table>
-                                 </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-12">
-                            <div class="card mb-30">
-                                <div class="card-body pt-30">
-                                    <h4 class="font-20 ">Table Head Options</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <!-- Invoice List Table -->
-                                    <table class="text-nowrap dh-table">
-                                        <thead class="bg-3rd">
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Tag</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>Branding</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- End Invoice List Table -->
-                                </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body pt-30">
-                                    <h4 class="font-20 ">Contextual Classes</h4>
-                                </div>
-                                <div class="table-responsive">
-                                    <!-- Invoice List Table -->
-                                    <table class="text-nowrap table-contextual dh-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Amount</th>
-                                                <th>Date</th>
-                                                <th>Tag</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr data-bg-color="#CCF5F8">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr data-bg-color="#E9E7FF">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>Branding</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr data-bg-color="#FEE7FF">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr data-bg-color="#FFE2E6">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr data-bg-color="#DBF7E8">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                            <tr data-bg-color="#FFF4E6">
-                                                <td>Christine McDonald</td>
-                                                <td>$1564.32</td>
-                                                <td>26 November 2019</td>
-                                                <td>UX Solutions</td>
-                                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- End Invoice List Table -->
-                                </div>
-                            </div>    
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -1363,17 +580,21 @@
 
         <!-- Footer -->
         <footer class="footer">
-            Dashmin © 2020 created by <a href="https://www.themelooks.com/"> ThemeLooks</a>
+            Educabol © 2020 created by <a href="#"> Instituo Ite</a>
         </footer>
         <!-- End Footer -->
     </div>
     <!-- End wrapper -->
 
+    <!-- ======= DATATABLE SCRIPTS ======= -->
+    @yield('js')
+    <!-- ======= DATATABLE SCRIPTS ======= -->
+
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
-    <script src="../../assets/js/jquery.min.js"></script>
-    <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="../../assets/js/script.js"></script>
+    <script src="{{ asset('../../assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('../../assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('../../assets/js/script.js') }}"></script>
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
 </body>
 
