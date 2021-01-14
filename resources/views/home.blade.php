@@ -281,17 +281,6 @@
                                             @endif
                                         </div>
                                         
-                                        <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }} mt-3">
-                                            <div class="input-group">
-                                                <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de usuario') }}"
-                                                    value="{{ old('username') }}" required autocomplete="username">
-                                            </div>
-                                            @if ($errors->has('username'))
-                                            <div id="username-error" class="error text-danger pl-3" for="username" style="display: block;">
-                                                <strong>{{ $errors->first('username') }}</strong>
-                                            </div>
-                                            @endif
-                                        </div>
 
                                         <div class="apply-sent apply-sent-style1">
                                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Correo electronico">
@@ -317,6 +306,32 @@
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirmar contraseña">
                                         </div>
 
+                                        <div class="form-check mr-auto ml-3 mt-3">
+                                            <div class="bmd-form-group{{ $errors->has('role_id') ? ' has-danger' : '' }}">
+                                            @if ($errors->has('role_id'))
+                                                <div id="name-error" class="error text-danger pl-3" for="role_id" style="display: block;">
+                                                <strong><p>Seleccione una o mas opciones</p></strong>
+                                                </div>
+                                            @endif
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" value="2" name="role_id" id="role_id" > 
+                                                <p style="color:#FFF";>Crear cuenta como alumno</p>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                            </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mr-auto ml-3 mt-3">
+                                            <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" value="3" name="role_id" id="role_id"> 
+                                            <p style="color:#FFF";>Crear cuenta como profesor</p>
+                                            <span class="form-check-sign">
+                                                <span class="check"></span>
+                                            </span>
+                                            </label>
+                                        </div>
 
                                         <div class="browse-all-courses pd-browse-course text-center">
                                             

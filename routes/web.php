@@ -17,9 +17,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 
 Auth::routes();
 
-Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+Route::get('categoria/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
-Route::get('/courses/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
+
 
 
 Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 'inscribe'])->name('courses.inscribe');
@@ -27,6 +27,8 @@ Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 
 Route::get('/subscribed', [App\Http\Controllers\CourseController::class, 'subscribed'])->name('courses.subscribed');
 
 Route::post('/add_review', [App\Http\Controllers\CourseController::class, 'addReview'])->name('courses.add_review');
+
+Route::get('curso/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
 
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
@@ -48,5 +50,7 @@ Route::get('/receipt', function () {
 Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
 Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
 
-
 Route::resource('courses', App\Http\Controllers\CourseController::class);
+
+
+Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');

@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Alert;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
+
 
 class LoginController extends Controller
 {
@@ -23,7 +24,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
+   
     /**
      * Where to redirect users after login.
      *
@@ -38,6 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        Alert::info('Welcome', 'Demo info alert');
         $this->middleware('guest')->except('logout');
     }
 

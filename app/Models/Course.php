@@ -65,6 +65,6 @@ class Course extends Model
 			->latest()
 			->limit(6)
 			->get();
-    }
+	}
     
 }
