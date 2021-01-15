@@ -9,7 +9,7 @@
     
     <!-- Bootstrap-->
     <link rel="stylesheet" href="{{ asset('stylesheet/bootstrap.css') }}">
-
+    
     <!-- Template Style-->
     <link rel="stylesheet" href="{{ asset('stylesheet/font-awesome.css') }}"> 
     <link rel="stylesheet" href="{{ asset('stylesheet/animate.css') }}">
@@ -23,8 +23,12 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
     
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 </head>
 <body>
+
     <div id="loading-overlay">
         <div class="loader"></div>
     </div>
@@ -1233,6 +1237,7 @@
         <a id="scroll-top" class="show"></a>
     </footer><!-- footer -->
     
+
     <script src="{{ asset('javascript/jquery.min.js') }}"></script>
     <script src="{{ asset('javascript/rev-slider.js') }}"></script>
     <script src="{{ asset('javascript/plugins.js') }}"></script>
@@ -1247,7 +1252,7 @@
     <script src="{{ asset('javascript/jquery-isotope.js') }}"></script>
     <script src="{{ asset('javascript/equalize.min.js') }}"></script>
     <script src="{{ asset('javascript/main.js') }}"></script>
-
+    
     <!-- slider -->
     <script src="{{ asset('rev-slider/js/jquery.themepunch.tools.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
@@ -1262,6 +1267,7 @@
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.video.min.js') }}"></script>
-
+    
+    @include('sweet::alert')
 </body>
 </html>

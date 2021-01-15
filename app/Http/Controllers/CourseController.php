@@ -52,6 +52,6 @@ class CourseController extends Controller
 	public function create () {
 		$course = new Course;
 		$btnText = __("Enviar curso para revisión");
-		return view('courses.form', compact('course', 'btnText'));
+		return view('courses.create', compact('course', 'btnText'));
 	}
 }

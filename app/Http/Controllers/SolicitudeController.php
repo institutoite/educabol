@@ -10,8 +10,34 @@ use App\Models\Teacher;
 class SolicitudeController extends Controller
 {
     public function teacher () {
-        \SweetAlert::message('Robots are working!');
-    	return back();
+        $user = auth()->user();
+    	if ( ! $user->teacher) {
+    		try {
+			    \DB::beginTransaction();
+			    $user->role_id = Role::TEACHER;
+			    Teacher::create([
+			    	'user_id' => $user->id
+			    ]);
+			    $success = true;
+		    } catch (\Exception $exception) {
+    			\DB::rollBack();
+    			$success = $exception->getMessage();
+		    }
+
+		    if ($success === true) {
+    			\DB::commit();
+    			auth()->logout();
+                auth()->loginUsingId($user->id);
+                alert()->success('Bienvenido !', 'Oficialmente eres instructor en la plataforma')->persistent('Cerrar')->autoclose(3500);
+			    return back();
+		    }
+
+            alert()->error('Error', 'Algo ha fallado')->persistent('Cerrar')->autoclose(3500);
+		    return back();
+        }
+        alert()->error('Error', 'Usted ya es un profesor')->persistent('Cerrar')->autoclose(3500);
+	    return back();
+       
     }
 
 }

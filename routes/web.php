@@ -46,6 +46,7 @@ Route::get('/receipt', function () {
     return view('cart.receipt');
 });
 
+Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');
 
 Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
 Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
@@ -53,4 +54,3 @@ Route::get('/students', [App\Http\Controllers\TeacherController::class, 'student
 Route::resource('courses', App\Http\Controllers\CourseController::class);
 
 
-Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');

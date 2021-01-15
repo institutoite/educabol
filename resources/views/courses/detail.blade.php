@@ -372,13 +372,29 @@
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
                     <div class="cta-content">
-                        <div class="caption">How to start your teaching?</div>
+                        <div class="caption">¿Te gustaria enseñar en nuestra plataforma educativa?</div>
+                        
                         <h3>
-                            Starting your journey with us? Follow this guide still possible to become a teacher.
+                            Crea cursos en vídeo, subelo a nuestra plataforma y comienza a ganar dinero a traves de tus conocimientos.
                         </h3>
-                        <div class="btn-about-become">
-                            <a href="#">Become a Teacher</a>
-                        </div>
+                        @auth
+                            @if( ! auth()->user()->teacher)
+                                <form action="{{ route('solicitude.teacher') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-warning">
+                                        <i class="fa fa-graduation-cap"></i> {{ __("Convertirme en profesor") }}
+                                    </button>
+                                </form>
+                            @else
+                                <div class="btn-about-become">
+                                    <a href="#">Administrar los cursos que imparto</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class="btn-about-become">
+                                <a href="{{ route('register') }}">Registrate como profesor</a>
+                            </div>
+                        @endauth
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">

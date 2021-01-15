@@ -22,9 +22,12 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
+
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -74,7 +77,7 @@
                 <div class="container"> 
                     <div class="menu-bar-wrap clearfix">
                         <div id="logo" class="logo">
-                            <a href="index.html"><img src="{{ asset('images/logo/02.png') }}" alt="images"></a>
+                            <a href="{{ url('/') }}"><img src="{{ asset('images/logo/02.png') }}" alt="images"></a>
                         </div>
                         <div class="mobile-button"><span></span></div>
                         
@@ -181,7 +184,7 @@
                 <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
                     <div class="cta-content">
                         <div class="caption">¿Te gustaria enseñar en nuestra plataforma educativa?</div>
-                        @include('sweet::alert')
+                        
                         <h3>
                             Crea cursos en vídeo, subelo a nuestra plataforma y comienza a ganar dinero a traves de tus conocimientos.
                         </h3>
@@ -189,13 +192,13 @@
                             @if( ! auth()->user()->teacher)
                                 <form action="{{ route('solicitude.teacher') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-primary">
+                                    <button type="submit" class="btn btn-outline-warning">
                                         <i class="fa fa-graduation-cap"></i> {{ __("Convertirme en profesor") }}
                                     </button>
                                 </form>
                             @else
                                 <div class="btn-about-become">
-                                    <a href="#">Administrar los cursos que imparto</a>
+                                    <a href="{{ route('courses.create') }}">Administrar los cursos que imparto</a>
                                 </div>
                             @endif
                         @else
@@ -347,6 +350,6 @@
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.video.min.js') }}"></script>
 
-    
+    @include('sweet::alert')
 </body>
 </html>
