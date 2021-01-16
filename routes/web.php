@@ -48,9 +48,12 @@ Route::get('/receipt', function () {
 
 Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');
 
-Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
+Route::get('/cursos', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
 Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
 
 Route::resource('courses', App\Http\Controllers\CourseController::class);
 
 
+Route::get('/dashmin', function () {
+    return view('layouts.dashmin');
+});

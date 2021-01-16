@@ -10,12 +10,18 @@ use App\Models\Course;
 
 class TeacherController extends Controller
 {
+	public function courses () {
+		$courses = Course::withCount(['students'])->with('category', 'reviews')
+			->whereTeacherId(auth()->user()->teacher->id)->paginate(12);
+		return view('teachers.courses', compact('courses'));
+	}
+
     public function students () {
 		$students = Student::with('user', 'courses.reviews')
 			->whereHas('courses', function ($q) {
 				$q->where('teacher_id', auth()->user()->teacher->id)->select('id', 'teacher_id', 'name')->withTrashed();
 			})->get();
 
-        return view('profile.index',compact(['students']));
+        return view('teachers.index',compact(['students']));
     }
 }
