@@ -85,10 +85,11 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a href="#">My Profile</a>
+                                    <a href="{{ url('/') }}">Pagina principal</a>
                                     <a href="#">task</a>
                                     <a href="#">Settings</a>
-                                    <a href="#">Log Out</a>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Cerrar Sesion</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                                 </div>
                             </div>
                             <!-- End Main Header User -->
@@ -568,9 +569,9 @@
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
+                        
                         @yield('content')
 
-                        
                     </div>
                 </div>
             </div>

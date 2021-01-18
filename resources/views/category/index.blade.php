@@ -198,7 +198,7 @@
                                 </form>
                             @else
                                 <div class="btn-about-become">
-                                    <a href="{{ route('courses.create') }}">Administrar los cursos que imparto</a>
+                                    <a href="{{ route('teacher.courses') }}">Administrar los cursos que imparto</a>
                                 </div>
                             @endif
                         @else

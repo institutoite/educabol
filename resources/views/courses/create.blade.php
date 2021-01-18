@@ -7,7 +7,7 @@
 
             <!-- Form -->
             <form action="#" method="POST">
-            <form method="POST" action="{{ ! $course->id ? route('courses.store') : route('courses.update', ['slug' => $course->slug])}}" novalidate enctype="multipart/form-data">
+            <form method="POST" action="{{ ! $course->id ? route('course.store') : route('course.update', ['slug' => $course->slug])}}" novalidate enctype="multipart/form-data">
             
             @if($course->id)
                 @method('PUT')

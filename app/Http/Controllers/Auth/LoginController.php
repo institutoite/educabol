@@ -23,19 +23,17 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-   
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-  
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    protected function authenticated(Request $request, $user)
+    {
+        if($user->role_id == 2 ){
+            return Redirect()->intended('/cursos');
+        }elseif ($user->role_id == 3 ){
+            return Redirect()->intended('/');
+        }
+    }
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

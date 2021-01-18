@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\Teacher;
+use App\Models\User;
 
 
 class SolicitudeController extends Controller
@@ -13,8 +14,10 @@ class SolicitudeController extends Controller
         $user = auth()->user();
     	if ( ! $user->teacher) {
     		try {
-			    \DB::beginTransaction();
-			    $user->role_id = Role::TEACHER;
+				\DB::beginTransaction();
+				$user = User::find($user->id);
+				$user->role_id = Role::TEACHER;
+				$user->save();
 			    Teacher::create([
 			    	'user_id' => $user->id
 			    ]);
