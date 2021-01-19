@@ -312,26 +312,32 @@
             </div>
             <div class="online-courses-wrap">
                 <div class="row">
-                @foreach ($categorias as $categoria)
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                    <div class="imagebox-courses-type1">
-                        <div class="featured-post">
-                            <img src="images/home1/05.png" alt="images">
-                        </div>
-                        <div class="author-info">
-                            <div class="name">
-                                <a href="{{ route('category.show', $categoria->id) }}">{{ Str::limit($categoria->name, 20) }}</a> 
+                @forelse($categories as $category)
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="imagebox-courses-type1">
+                            <div class="featured-post">
+                                <img src="{{ $category->imagePath() }}" alt="images">
                             </div>
-                            
-                            <div class="border-bt">
-                                <div class="category">
-                                    {{ Str::limit($categoria->description, 50) }}
+                            <div class="author-info">
+                                <div class="name">
+                                    <a href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a> 
+                                </div>
+                                
+                                <div class="border-bt">
+                                    <div class="category">
+                                        {{ Str::limit($category->description, 50) }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                @empty
+                    <div class="container">
+                        <div class="empty-results">
+                            {{ __("Actualmente no tenemos nada, pero estamos trabajando duro para añadir nuevo contenido") }}
+                        </div>
+                    </div>
+                @endforelse
                 </div>
             </div>
             <div class="browse-all-courses pd-browse-course text-center">

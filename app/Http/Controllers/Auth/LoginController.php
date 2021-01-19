@@ -27,7 +27,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if($user->role_id == 2 ){
-            return Redirect()->intended('/cursos');
+            return Redirect()->intended('/courses');
         }elseif ($user->role_id == 3 ){
             return Redirect()->intended('/');
         }

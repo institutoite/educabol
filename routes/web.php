@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('inicio');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
 
 Route::get('categoria/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
@@ -48,11 +49,13 @@ Route::get('/receipt', function () {
 
 Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');
 
-Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
-Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
-
 Route::get('/dashmin', function () {
     return view('layouts.dashmin');
 });
+
+Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
+Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
+
+
 
 Route::resource('course', App\Http\Controllers\CourseController::class);
