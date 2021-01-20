@@ -2,56 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Models\Course;
 use App\Models\Review;
 
 class CourseController extends Controller
 {
-    public function show (Course $course) {
-		$course->load([
-			'category' => function ($q) {
-				$q->select('id', 'name');
-			},
-			'goals' => function ($q) {
-				$q->select('id', 'course_id', 'goal');
-			},
-			'level' => function ($q) {
-				$q->select('id', 'name');
-			},
-			'requirements' => function ($q) {
-				$q->select('id', 'course_id', 'requirement');
-			},
-			'reviews.user',
-			'teacher'
-		])->get();
+	public function index() {
+        $courses = Course::filtered();
+        return view('learning.courses.index', compact('courses'));
+    }
 
-		$related = $course->relatedCourses();
+    public function search() {
+        session()->remove('search[courses]');
+        if (request('search')) {
+            session()->put('search[courses]', request('search'));
+            session()->save();
+        }
+        return redirect(route('courses.index'));
+    }
 
-		return view('courses.detail', compact('course', 'related'));
-		
-	}
-	
-	public function subscribed () {
-		$courses = Course::whereHas('students', function($query) {
-			$query->where('user_id', auth()->id());
-		})->get();
-		return view('courses.subscribed', compact('courses'));
-	}
-
-	public function addReview () {
-		Review::create([
-			"user_id" => auth()->id(),
-			"course_id" => request('course_id'),
-			"rating" => (int) request('rating_input'),
-			"comment" => request('message')
-		]);
-		return back()->with('message', ['success', __('Muchas gracias por valorar el curso')]);
-	}
-	
-	public function create () {
-		$course = new Course;
-		$btnText = __("Enviar curso para revisión");
-		return view('courses.create', compact('course', 'btnText'));
-	}
 }

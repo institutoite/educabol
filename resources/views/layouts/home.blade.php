@@ -43,10 +43,15 @@
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
-                                <li><a href="{{ url('/') }}">Inicio</a>
-                                </li>
-                                <li><a href="#">Acerca de nosotros</a>
-                                </li>
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
+                                <li><a href="#">Acerca de nosotros</a></li>
+                                @auth
+                                    @if ( auth()->user()->isTeacher() )  
+                                        <li>
+                                            <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Profesor") }}</a>
+                                        </li>
+                                    @endif
+                                @endauth
                                 <li>
                                     <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">
                                     <span>
@@ -257,93 +262,38 @@
     <section class="partner-clients partner-clients-style1"> 
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-12">
-                </div>
-                @if (Auth::guest())
-                <div class="col-lg-4 col-md-12">
+            <div class="col-lg-8 col-md-12">
+            </div>
+            <div class="col-lg-4 col-md-12">
                     <div class="iconbox-style1">
                         <div class="apply-admission">
                             <div class="apply-admission-wrap type2 bd-type1">
                                 <div class="apply-admission-inner">
                                     <h2 class="title text-center">
-                                        <span>Registrate</span>
+                                        <span>{{ __("Busca tu curso") }}</span>
                                     </h2>
                                     <div class="caption text-center">
-                                        
+                                        {{ __("Haz tu busqueda") }}
                                     </div>
-                                </div>
-                                <div class="browse-all-courses pd-browse-course text-center">
-                                    <a href="{{ route('register') }}" class="btn-browse-courses">Crear Cuenta</a>
+                                    <div class="apply-sent apply-sent-style1">
+                                        <form action="{{ route('courses.search') }}" method="POST" class="form-sent">
+                                        @csrf
+                                            <input type="text" autocomplete="off" value="{{ session('search[courses]') }}" name="search" placeholder="{{ __("¿Qué curso buscas?") }}">
+                                            <button type="submit" class="sent-button bg-cl3f4c99">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @else
-                <div class="col-lg-4 col-md-12">
-                    <div class="iconbox-style1">
-                        <div class="apply-admission">
-                            <div class="apply-admission-wrap type2 bd-type1">
-                                <div class="apply-admission-inner">
-                                    <h2 class="title text-center">
-                                        <span>Mis cursos</span>
-                                    </h2>
-                                    <div class="caption text-center">
-                                        
-                                    </div>
-                                </div>
-                                <div class="browse-all-courses pd-browse-course text-center">
-                                    <a href="{{ route('courses.subscribed') }}" class="btn-browse-courses">Ir a todos mis cursos</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
             </div>
         </div>
     </section><!-- partner-clients -->
     <section class="online-courses online-courses-style1">
-        <div class="container">
-            <div class="title-section text-center">
-                <div class="flat-title medium">
-                    Nuestras Categorias
-                </div>
-            </div>
-            <div class="online-courses-wrap">
-                <div class="row">
-                @forelse($categories as $category)
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="imagebox-courses-type1">
-                            <div class="featured-post">
-                                <img src="{{ $category->imagePath() }}" alt="images">
-                            </div>
-                            <div class="author-info">
-                                <div class="name">
-                                    <a href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a> 
-                                </div>
-                                
-                                <div class="border-bt">
-                                    <div class="category">
-                                        {{ Str::limit($category->description, 50) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <div class="container">
-                        <div class="empty-results">
-                            {{ __("Actualmente no tenemos nada, pero estamos trabajando duro para añadir nuevo contenido") }}
-                        </div>
-                    </div>
-                @endforelse
-                </div>
-            </div>
-            <div class="browse-all-courses pd-browse-course text-center">
-                <a href="#" class="btn-browse-courses">Explorar todas las categorias</a>
-            </div>
-        </div>
+        @yield('content')
     </section><!-- online-courses -->
     <section class="flat-services style1 parallax parallax1 clearfix">
         <div class="section-overlay"></div>

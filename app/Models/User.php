@@ -47,24 +47,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function navigation () {
-    	return auth()->check() ? auth()->user()->role->name : 'guest';
-    }
-
-    public function role () {
-    	return $this->belongsTo(Role::class);
-    }
-
-    public function student () {
-    	return $this->hasOne(Student::class);
-    }
-
-    public function teacher () {
-    	return $this->hasOne(Teacher::class);
-    }
-
-    public function socialAccount () {
-    	return $this->hasOne(UserSocialAccount::class);
+    public function isTeacher() {
+        return $this->role === User::TEACHER;
     }
     
 }

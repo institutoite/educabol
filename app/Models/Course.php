@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Course extends Model
 {
 	use HasFactory;
-	use SoftDeletes;
 
     protected $fillable = [
         "user_id", "title", "description",
@@ -21,11 +20,11 @@ class Course extends Model
     const REJECTED = 3;
 
     const prices = [
-        '9.99' => '9.99€',
-        '12.99' => '12.99€',
-        '19.99' => '19.99€',
-        '29.99' => '29.99€',
-        '49.99' => '49.99€'
+        '9.99' => 'Bs. 9.99',
+        '12.99' => 'Bs. 12.99',
+        '19.99' => 'Bs. 19.99€',
+        '29.99' => 'Bs. 29.99€',
+        '49.99' => 'Bs. 49.99€'
     ];
 
     protected $appends = [

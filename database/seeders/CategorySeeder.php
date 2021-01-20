@@ -15,12 +15,12 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            "Fisica" => "F35144",
-            "Matematica" => "8DBC58",
-            "Quimica" => "41B881",
-            "Estadistica" => "0CC1E9",
-            "Algebra" => "0098B6",
-            "Informatica" => "FF9733",
+            "Laravel" => "F35144",
+            "Node.js" => "8DBC58",
+            "Vuejs" => "41B881",
+            "React" => "0CC1E9",
+            "Deno" => "0098B6",
+            "Amplify" => "FF9733",
         ];
         foreach($categories as $category => $bg) {
             \App\Models\Category::factory()->create([

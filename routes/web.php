@@ -17,11 +17,24 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 
+Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
+    Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
+    Route::post('/search', [App\Http\Controllers\CourseController::class, 'search'])->name('search');
+});
 
-Route::get('categoria/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
+    Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('courses');
+    Route::get('/courses/create', [App\Http\Controllers\TeacherController::class, 'createCourse'])->name('courses.create');
+});
 
 
 
+Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');
+Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+
+
+/*Route::get('categoria/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
 Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 'inscribe'])->name('courses.inscribe');
 
@@ -58,4 +71,4 @@ Route::get('/students', [App\Http\Controllers\TeacherController::class, 'student
 
 
 
-Route::resource('course', App\Http\Controllers\CourseController::class);
+Route::resource('course', App\Http\Controllers\CourseController::class);*/
