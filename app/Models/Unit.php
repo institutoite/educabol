@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Unit extends Model
 {
@@ -17,4 +18,39 @@ class Unit extends Model
     const ZIP = 'ZIP';
     const VIDEO = 'VIDEO';
     const SECTION = 'SECTION';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::saving(function ($table) {
+            $table->user_id = auth()->id();
+        });
+
+        self::creating(function ($table) {
+            $last = Unit::whereCourseId(request("course_id"))
+                ->orderBy('order', 'desc')
+                ->take(1)
+                ->first();
+            $table->order = $last ? $last->order += 1 : 1;
+        });
+    }
+
+    public function course() {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function scopeForTeacher(Builder $builder) {
+        return $builder
+            ->with('course')
+            ->where("user_id", auth()->id())
+            ->paginate();
+    }
+
+    public static function unitTypes() {
+        return [
+            self::ZIP, self::VIDEO, self::SECTION
+        ];
+    }
+
 }

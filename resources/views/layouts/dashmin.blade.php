@@ -33,7 +33,7 @@
    <link rel="stylesheet" href="{{ asset('../../assets/css/style.css') }}">
    <!-- ======= END MAIN STYLES ======= -->
 
-   
+   @stack('css')
 </head>
 
 <body>
@@ -151,14 +151,20 @@
                     <ul class="nav">
                         <li class="nav-category">Modulo Profesores</li>
                         <li>
-                            <a href="{{ asset('../../index.html') }}">
-                                <i class="icofont-pie-chart"></i>
-                                <span class="link-title">Mis Cursos</span>
+                            <a href="{{ route('teacher.courses') }}">
+                                <i class="icofont-ebook"></i>
+                                <span class="link-title">Cursos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('teacher.units') }}">
+                                <i class="icofont-ebook"></i>
+                                <span class="link-title">Unidades</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="icofont-group-students"></i>
+                                <i class="icofont-student-alt"></i>
                                 <span class="link-title">Mis estudiantes</span>
                             </a>
 
@@ -589,6 +595,7 @@
 
     <!-- ======= DATATABLE SCRIPTS ======= -->
     @yield('js')
+    
     <!-- ======= DATATABLE SCRIPTS ======= -->
 
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
@@ -597,6 +604,7 @@
     <script src="{{ asset('../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('../../assets/js/script.js') }}"></script>
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
+    @stack('js')
 </body>
 
 </html>

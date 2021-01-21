@@ -10,11 +10,11 @@
         <div class="card mb-30">
             <div class="card-body">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <h4 class="font-20">Cursos que imparto</h4>
+                    <h4 class="font-20">Unidades que imparto</h4>
 
                     <div class="d-flex flex-wrap">
                         <!-- Button -->
-                        <button type="button" onclick="window.location.href='{{ route('teacher.courses.create') }}'" class="btn style--two orange">Crear Curso</button>
+                        <button type="button" onclick="window.location.href='{{ route('teacher.units.create') }}'" class="btn style--two orange">Crear Unidad</button>
                         <!-- Button -->
                     </div>
                 </div>
@@ -24,32 +24,38 @@
                 <table class="table-striped" id="usuarios">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Precio</th>
-                            <th>Estudiantes</th>
-                            <th>Calificacion</th>
-                            <th>Estado</th>
+                            <th>{{ __("Id") }}</th>
+                            <th>{{ __("Título") }}</th>
+                            <th>{{ __("Curso") }}</th>
+                            <th>{{ __("Tipo") }}</th>
+                            <th>{{ __("Duración") }}</th>
+                            <th>{{ __("Alta") }}</th>
+                            <th>{{ __("Edición") }}</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($courses as $course)
+                        @forelse($units as $unit)
                             <tr>
-                                <td>{{ $course->id }}</td>
-                                <td>{{ $course->title }}</td>
-                                <td>{{ $course->price }}</td>
-                                <td>{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</td>
-                                <td></td>
-                                <td>@include('partials.courses.status')</td>
-                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
+                                <td>{{ $unit->id }}</td>
+                                <td>{{ $unit->title }}</td>
+                                <td>{{ $unit->course->title }}</td>
+                                <td>{{ $unit->unit_type }}</td>
+                                <td>{{ $unit->unit_time ?? "N/A" }}</td>
+                                <td>{{ $unit->created_at->format("d/m/Y H:i") }}</td>
+                                <td>{{ $unit->updated_at->format("d/m/Y") }}</td>
+                                <td>
+                                    <a class="btn btn-outline-dark" href="{{ route("teacher.units.edit", ["unit" => $unit]) }}">
+                                        <i class="fa fa-pencil-square"></i> {{ __("Editar") }}
+                                    </a>
+                                </td>
                             </tr>
                         @empty
-                            <div class="container">
-                                <div class="empty-results">
-                                    {!! __("No tienes ningún curso todavía: :link", ["link" => "<a href='".route('teacher.courses.create')."'>Crear mi primer curso</a>"]) !!}
-                                </div>
+                        <div class="container">
+                            <div class="empty-results">
+                                {!! __("No tienes ningún unidad todavía: :link", ["link" => "<a href='".route('teacher.units.create')."'>Crear mi primera unidad</a>"]) !!}
                             </div>
+                        </div>
                         @endforelse
                     </tbody>
                     
