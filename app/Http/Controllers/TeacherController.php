@@ -20,7 +20,7 @@ class TeacherController extends Controller
 	}
 
 	public function units() {
-        $units = Unit::forTeacher();
+        $units = Unit::forTeacher()->where('status',1);
         return view('teacher.units.index', compact('units'));
 	}
 	
@@ -30,7 +30,7 @@ class TeacherController extends Controller
         $courses = Course::forTeacher();
         $unit = new Unit;
         $options = ['route' => ['teacher.units.store'], 'files' => true];
-        return view('teacher.units.create', compact('title', 'courses', 'unit', 'options', 'textButton'));
+        return view('teacher.units.form', compact('title', 'courses', 'unit', 'options', 'textButton'));
 	}
 	
 	public function storeUnit(UnitRequest $request) {
@@ -40,6 +40,8 @@ class TeacherController extends Controller
         }
 
         $unit = Unit::create($this->unitInput($file));
+
+        alert()->success('','Unidad Agregada Correctamente')->persistent('Cerrar')->autoclose(3500);
 
         return redirect(route('teacher.units'));
     }
@@ -53,7 +55,7 @@ class TeacherController extends Controller
         ];
         $update = true;
         return view(
-            'teacher.units.edit',
+            'teacher.units.form',
             compact('title', 'courses', 'unit', 'options', 'textButton', 'update')
         );
     }
@@ -69,6 +71,15 @@ class TeacherController extends Controller
 
         $unit->fill($this->unitInput($file))->save();
 
+        alert()->success('','Datos Actualizados')->persistent('Cerrar')->autoclose(3500);
+
+        return redirect(route('teacher.units'));
+    }
+
+    public function destroyUnit(Unit $unit) {
+        $unit->status = 0;
+        $unit->save();
+        alert()->error('Satisfactoriamente', 'Area Eliminada');
         return redirect(route('teacher.units'));
     }
 
@@ -80,7 +91,8 @@ class TeacherController extends Controller
             "file" => $file,
             "unit_type" => request("unit_type"),
             "unit_time" => request("unit_time"),
-            "free" => request("free")
+            "free" => request("free"),
+            'status' => 1,
         ];
     }
 

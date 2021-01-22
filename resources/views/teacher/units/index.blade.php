@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
 @endsection
 @section('content')
+<div class="row">
     <div class="col-12">
         <div class="card mb-30">
             <div class="card-body">
@@ -45,10 +46,10 @@
                                 <td>{{ $unit->created_at->format("d/m/Y H:i") }}</td>
                                 <td>{{ $unit->updated_at->format("d/m/Y") }}</td>
                                 <td>
-                                    <a class="btn btn-outline-dark" href="{{ route("teacher.units.edit", ["unit" => $unit]) }}">
-                                        <i class="fa fa-pencil-square"></i> {{ __("Editar") }}
-                                    </a>
+                                <a href="{{ route('teacher.units.edit', ['unit' => $unit]) }}"><img src="../../assets/img/svg/c-edit.svg" alt="" class="svg"></a>
+                                <a href="{{ route('teacher.units.destroy', ['unit' => $unit]) }}"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a>
                                 </td>
+                                
                             </tr>
                         @empty
                         <div class="container">
@@ -64,6 +65,7 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
 @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -1,48 +1,42 @@
-@push('css')
-    <link
-        href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
-        rel="stylesheet"
-    />
-@endpush
-<!-- units section -->
+@extends('layouts.dashmin')
 
-<div class="col-lg-12">
-    <div class="form-element py-30 multiple-column">
-        <h4 class="font-20 mb-20">{{ $title }}</h4>
-        @include("partials.form_errors")
-        {{ Form::model($unit, $options) }}
-            @isset($update)
-                @method("PUT")
-            @endisset
+@section("content")
+{{ Form::model($unit, $options) }}
+    @isset($update)
+        @method("PUT")
+    @endisset
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Base Control -->
+            <div class="form-element with-icons mb-30">
+                <h4 class="font-20 mb-4">Nueva Unidad</h4>
+                @include("partials.form_errors")
 
-            <div class="row">
-                <div class="col-lg-6">
                     <!-- Form Group -->
-                    <div class="form-group">
-                        {!! Form::label('title', __("Título")) !!}
-                        {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                    <div class="form-group mb-4">
+                        <label for="addonEmail2" class="mb-2 font-14 bold">Titulo</label>
+
+                        <div class="input-group addon">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <img src="../../../assets/img/svg/c-edit.svg" alt="" class="svg">
+                            </div>
+                            </div>
+                            {!! Form::text('title', null, ['class'=>'form-control','minlength'=>'1','maxlength'=>'500','placeholder'=>'Ingrese el titulo de la unidad','required']) !!}
+                        </div>
                     </div>
                     <!-- End Form Group -->
-                    
+
                     <!-- Form Group -->
                     <div class="form-group">
-                        {!! Form::label('course_id', __("Selecciona el curso")) !!}
+                        <label for="course_id" class="mb-2 font-14 bold">Seleccione el curso</label>
                         {!! Form::select('course_id', $courses->pluck("title", "id"), null, ["class" => "form-control"]) !!}
                     </div>
                     <!-- End Form Group -->
-                    
-                    <!-- Form Group -->
-                    <div class="custom-file">
-                        {!! Form::file('file', ['class' => 'custom-file-input', 'id' => 'file']) !!}
-                        {!! Form::label('file', __("Escoge un archivo"), ['class' => 'custom-file-label']) !!}
-                    </div>
-                    <!-- End Form Group -->
-                </div>
 
-                <div class="col-lg-6">
                     <!-- Form Group -->
                     <div class="form-group">
-                        {!! Form::label('free', __("¿Unidad gratuita?")) !!}
+                        <label for="free" class="mb-2 font-14 bold">¿Unidad gratuita?</label>
                         {!! Form::select('free', [
                                 0 => __("No"),
                                 1 => __("Sí"),
@@ -50,66 +44,90 @@
                         !!}
                     </div>
                     <!-- End Form Group -->
-                    <div class="form-group">
-                        {!! Form::label('unit_type', __("Tipo de unidad")) !!}
-                        {!! Form::select('unit_type', [
-                                \App\Models\Unit::VIDEO => __("Vídeo"),
-                                \App\Models\Unit::ZIP => __("Archivo comprimido"),
-                                \App\Models\Unit::SECTION => __("Sección")
-                            ], null, ["class" => "form-control"])
-                        !!}
-                    </div>
+
                     <!-- Form Group -->
                     <div class="form-group">
-                        <div class="input-group">
+                        <label for="unit_type" class="mb-2 font-14 bold">Tipo de unidad</label>
+                        {!! Form::select('unit_type', [
+                                    \App\Models\Unit::VIDEO => __("Vídeo"),
+                                    \App\Models\Unit::ZIP => __("Archivo comprimido"),
+                                    \App\Models\Unit::SECTION => __("Sección")
+                                ], null, ["class" => "form-control"])
+                            !!}
+                    </div>
+                    <!-- End Form Group -->
+                    
+                    <!-- Button Group -->
+                    <div class="button-group pt-1">
+                        {!! Form::submit($textButton, ['class' => 'btn long']); !!}
+                        <button onclick="window.location.href='{{ route('teacher.units') }}'" type="reset" class="link-btn bg-transparent ml-3 soft-pink">Cancelar</button>
+                    </div>
+                    <!-- End Button Group -->
+                
+            </div>
+            <!-- End Base Control -->
+
+        </div>
+
+        <div class="col-lg-6">
+            <!-- Base Control -->
+            <div class="form-element with-icons mb-30">
+                <h4 class="font-20 mb-4">LLenar en caso de Video</h4>
+                @include("partials.form_errors")
+                <!-- Form -->
+
+                    <!-- Form Group -->
+                    <div class="form-group mb-4">
+                        <label for="addonEmail2" class="mb-2 font-14 bold">Duración del video</label>
+
+                        <div class="input-group addon">
                             <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                </div>
+                            <div class="input-group-text">
+                                <img src="../../../assets/img/svg/watch.svg" alt="" class="svg">
                             </div>
-                            {!! Form::number('unit_time', null, ['class' => 'form-control', 'placeholder' => __("Duración de la unidad si es vídeo")]) !!}
+                            </div>
+                            {!! Form::number('unit_time', null, ['class' => 'form-control', 'placeholder' => __("Ingrese la duración del vídeo"), 'title'=>'Solo se permite numeros']) !!}
                         </div>
                     </div>
                     <!-- End Form Group -->
-                </div>
 
-                <div class="col-lg-12">
                     <!-- Form Group -->
-                    <div class="form-group">
-                        {!! Form::label('content', __("Añade el contenido, por ejemplo, el iframe de Vimeo")) !!}
-                        {!! Form::textarea('content', old('content') ?? $unit->content, ['id' => 'summernote']) !!}
+                    <div class="form-group mb-4">
+                        <label for="addonEmail2" class="mb-2 font-14 bold">Añadir iframe del video</label>
+
+                        <div class="input-group addon">
+                            <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <img src="../../../assets/img/svg/video-call.svg" alt="" class="svg">
+                            </div>
+                            </div>
+                            {!! Form::text('content', old('content') ?? $unit->content, ['class' => 'form-control', 'placeholder' => __("Ingrese el iframe del vídeo")]) !!}
+                        </div>
                     </div>
                     <!-- End Form Group -->
-                </div>
-
                 
-
+                <!-- End Form -->
             </div>
-            
+            <!-- End Base Control -->
 
-            
-             <!-- Form Row -->
-             <div class="form-row">
-                    <div class="col-12 text-right">
-                        {!! Form::submit($textButton, ['class' => 'btn long']); !!}
+            <!-- Base Control -->
+            <div class="form-element with-icons mb-30">
+                <h4 class="font-20 mb-4">LLenar en caso de archivo comprimido</h4>
+                @include("partials.form_errors")
+                <!-- Form -->
+
+                    <!-- Form Group -->
+                    <div class="custom-file">
+                        {!! Form::file('file', ['class' => 'custom-file-input', 'id' => 'file']) !!}
+                        {!! Form::label('file', __("Escoge un archivo"), ['class' => 'custom-file-label']) !!}
                     </div>
-                </div>
-                <!-- End Form Row -->
+                    <!-- End Form Group -->
+                
+                <!-- End Form -->
+            </div>
+            <!-- End Base Control -->
 
-        {{ Form::close() }}
+        </div>
     </div>
-</div>
-<!-- units end section -->
-
-@push('js')
-    <script
-        src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"
-    ></script>
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 300,
-            });
-        });
-    </script>
-@endpush
+{{ Form::close() }}
+@endsection

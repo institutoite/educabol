@@ -16,15 +16,12 @@
                             <img src="{{ $category->imagePath() }}" alt="images">
                         </div>
                         <div class="author-info">
-                            <div class="category">
-                                <span>{{ $category->name }}</span>
-                            </div>
                             <div class="name">
-                                <a href="#">{{ __(":total cursos", ['total' => $category->courses_count]) }}</a> 
+                                <a href="#">{{ $category->name }}</a> 
                             </div>
                             <div class="border-bt">
                                 <div class="category">
-                                    
+                                    {{ __(":total cursos", ['total' => $category->courses_count]) }}
                                 </div>
                             </div>
                         </div>

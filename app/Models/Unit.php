@@ -12,7 +12,7 @@ class Unit extends Model
 
     protected $fillable = [
         "title", "content", "course_id", "user_id",
-        "unit_type", "unit_time", "file", "order", "free"
+        "unit_type", "unit_time", "file", "order", "free" , "status"
     ];
 
     const ZIP = 'ZIP';

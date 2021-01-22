@@ -18,8 +18,8 @@ class CourseSeeder extends Seeder
     {
         $courses = [
             [
-                "title" => "Curso de Laravel 7",
-                "description" => "Aprende Laravel 7 desde 0 con las mejores prácticas.",
+                "title" => "Curso de Laravel 8",
+                "description" => "Aprende Laravel 8 desde 0 con las mejores prácticas.",
                 "price" => 9.99,
                 "featured" => 1,
                 "bg" => "F35144",

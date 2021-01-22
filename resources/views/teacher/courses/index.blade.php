@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
 @endsection
 @section('content')
+<div class="row">
     <div class="col-12">
         <div class="card mb-30">
             <div class="card-body">
@@ -58,6 +59,7 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
 @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

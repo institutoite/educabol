@@ -32,8 +32,7 @@
    <!-- ======= MAIN STYLES ======= -->
    <link rel="stylesheet" href="{{ asset('../../assets/css/style.css') }}">
    <!-- ======= END MAIN STYLES ======= -->
-
-   @stack('css')
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -574,11 +573,11 @@
             <!-- Main Content -->
             <div class="main-content">
                 <div class="container-fluid">
-                    <div class="row">
+                    
                         
                         @yield('content')
 
-                    </div>
+                    
                 </div>
             </div>
             <!-- End Main Content -->
@@ -587,7 +586,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            Educabol © 2020 created by <a href="#"> Instituo Ite</a>
+            Educabol © 2021 created by <a href="#">  Instituo Ite</a>
         </footer>
         <!-- End Footer -->
     </div>
@@ -604,7 +603,7 @@
     <script src="{{ asset('../../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('../../assets/js/script.js') }}"></script>
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
-    @stack('js')
+    @include('sweet::alert')
 </body>
 
 </html>
