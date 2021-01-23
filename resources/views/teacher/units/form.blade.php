@@ -10,7 +10,6 @@
             <!-- Base Control -->
             <div class="form-element with-icons mb-30">
                 <h4 class="font-20 mb-4">Nueva Unidad</h4>
-                @include("partials.form_errors")
 
                     <!-- Form Group -->
                     <div class="form-group mb-4">

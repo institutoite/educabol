@@ -33,6 +33,8 @@
    <link rel="stylesheet" href="{{ asset('../../assets/css/style.css') }}">
    <!-- ======= END MAIN STYLES ======= -->
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+   @stack('css')
 </head>
 
 <body>
@@ -604,6 +606,7 @@
     <script src="{{ asset('../../assets/js/script.js') }}"></script>
     <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
     @include('sweet::alert')
+    @stack('js')
 </body>
 
 </html>

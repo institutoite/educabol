@@ -25,6 +25,8 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
     Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('courses');
     Route::get('/courses/create', [App\Http\Controllers\TeacherController::class, 'createCourse'])->name('courses.create');
+    Route::get('/courses/{course}', [App\Http\Controllers\TeacherController::class, 'editCourse'])->name('courses.edit');
+    Route::put('/courses/{course}', [App\Http\Controllers\TeacherController::class, 'updateCourse'])->name('courses.update');
 
     Route::get('/units', [App\Http\Controllers\TeacherController::class, 'units'])->name('units');
     Route::get('/units/create', [App\Http\Controllers\TeacherController::class, 'createUnit'])->name('units.create');

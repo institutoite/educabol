@@ -29,7 +29,6 @@
                             <th>Titulo</th>
                             <th>Precio</th>
                             <th>Estudiantes</th>
-                            <th>Calificacion</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -41,9 +40,8 @@
                                 <td>{{ $course->title }}</td>
                                 <td>{{ $course->price }}</td>
                                 <td>{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</td>
-                                <td></td>
                                 <td>@include('partials.courses.status')</td>
-                                <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
+                                <td><a href="{{ route('teacher.courses.edit', ['course' => $course]) }}" class="details-btn">{{ __("Gestionar Curso") }} <i class="icofont-arrow-right"></i></a></td>
                             </tr>
                         @empty
                             <div class="container">

@@ -20,11 +20,11 @@ class Course extends Model
     const REJECTED = 3;
 
     const prices = [
-        '9.99' => 'Bs. 9.99',
-        '12.99' => 'Bs. 12.99',
-        '19.99' => 'Bs. 19.99€',
-        '29.99' => 'Bs. 29.99€',
-        '49.99' => 'Bs. 49.99€'
+        '30' => 'Bs. 30',
+        '35' => 'Bs. 35',
+        '40' => 'Bs. 40',
+        '45' => 'Bs. 45',
+        '50' => 'Bs. 50'
     ];
 
     protected $appends = [

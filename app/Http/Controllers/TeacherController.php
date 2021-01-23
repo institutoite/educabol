@@ -15,9 +15,14 @@ class TeacherController extends Controller
 		return view('teacher.courses.index', compact('courses'));
 	}
 
-	public function createCourse () {
-
-	}
+	public function editCourse(Course $course) {
+        $course->load("units");
+        $title = __("Editar el curso :course", ["course" => $course->title]);
+        $textButton = __("Actualizar curso");
+        $options = ['route' => ['teacher.courses.update', ["course" => $course]], 'files' => true];
+        $update = true;
+        return view('teacher.courses.edit', compact('title', 'course', 'options', 'textButton', 'update'));
+    }
 
 	public function units() {
         $units = Unit::forTeacher()->where('status',1);
