@@ -5,7 +5,7 @@
     <div class="container">
         <div class="title-section text-center">
             <div class="flat-title medium">
-                Resultados de su busqueda.
+                Listado de Cursos.
             </div>
         </div>
         <div class="online-courses-wrap">
@@ -17,18 +17,17 @@
                                 <img src="{{ $course->imagePath() }}" alt="images">
                             </div>
                             <div class="author-info">
-                                <div class="category">
-                                    {{ $course->title }}
-                                </div>
                                 <div class="name">
-                                    <a href="#">{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</a> 
+                                    <a href="#">{{ $course->title }}</a> 
                                 </div>
                                 <div class="border-bt">
-                                    
+                                    <div class="category">
+                                        {{ __(":count Estudiantes", ['count' => $course->students_count]) }}
+                                    </div>
                                 </div>
                                 <div class="evaluate">
                                     <div class="price">
-                                        <span class="price-now">${{ $course->price }}</span>
+                                        <span class="price-now">Bs. {{ $course->price }}</span>
                                     </div>
                                     <div class="review">
                                         <i class="fa fa-star" aria-hidden="true"></i>

@@ -20,6 +20,7 @@ Auth::routes();
 Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
     Route::post('/search', [App\Http\Controllers\CourseController::class, 'search'])->name('search');
+    Route::post('/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('show');
 });
 
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {

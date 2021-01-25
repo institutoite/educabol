@@ -44,7 +44,7 @@
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li><a href="#">Acerca de nosotros</a></li>
+                                <li><a href="{{ route('courses.index') }}">Cursos</a></li>
                                 @auth
                                     @if ( auth()->user()->isTeacher() )  
                                         <li>

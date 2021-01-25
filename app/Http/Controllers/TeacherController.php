@@ -7,6 +7,8 @@ use App\Models\Course;
 use App\Models\Unit;
 use App\Http\Requests\UnitRequest;
 use App\Helpers\Uploader;
+use App\Http\Requests\CourseRequest;
+use DB;
 
 class TeacherController extends Controller
 {
@@ -21,7 +23,52 @@ class TeacherController extends Controller
         $textButton = __("Actualizar curso");
         $options = ['route' => ['teacher.courses.update', ["course" => $course]], 'files' => true];
         $update = true;
-        return view('teacher.courses.edit', compact('title', 'course', 'options', 'textButton', 'update'));
+        return view('teacher.courses.form', compact('title', 'course', 'options', 'textButton', 'update'));
+    }
+
+    public function updateCourse(CourseRequest $request, Course $course) {
+        try {
+            DB::beginTransaction();
+
+            $file = $course->picture;
+            if ($request->hasFile('picture')) {
+                if ($course->picture) {
+                    Uploader::removeFile("courses", $course->picture);
+                }
+                $file = Uploader::uploadFile('picture', 'courses');
+            }
+            $course->fill($this->courseInput($file, $course->featured))->save();
+            $course->categories()->sync(request("categories"));
+            $this->updateOrderedUnits();
+
+            DB::commit();
+            session()->flash("message", ["success", __("Curso actualizado satisfactoriamente")]);
+            return back();
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+            dd($exception->getMessage());
+            session()->flash("message", ["danger", $exception->getMessage()]);
+            return back();
+        }
+    }
+
+    protected function courseInput(string $file = null, bool $featured = false): array {
+        return [
+            "title" => request("title"),
+            "description" => request("description"),
+            "price" => request("price"),
+            "picture" => $file,
+            "featured" => $featured
+        ];
+    }
+
+    protected function updateOrderedUnits() {
+        if (request("orderedUnits")) {
+            $data = json_decode(request("orderedUnits"));
+            foreach($data as $unit) {
+                Unit::whereId($unit->id)->update(["order" => $unit->order]);
+            }
+        }
     }
 
 	public function units() {
