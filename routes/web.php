@@ -20,7 +20,7 @@ Auth::routes();
 Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
     Route::post('/search', [App\Http\Controllers\CourseController::class, 'search'])->name('search');
-    Route::post('/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('show');
+    Route::get('/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('show');
 });
 
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
@@ -38,6 +38,9 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
     
 });
 
+Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
+    Route::get('/courses', [App\Http\Controllers\StudentController::class, 'courses'])->name('courses');
+});
 
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');

@@ -23,7 +23,9 @@ class CourseController extends Controller
     }
 
     public function show(Course $course) {
+        
         $course->load("units", "students", "reviews.author");
+        
         return view('learning.courses.show', compact('course'));
     }
 

@@ -19,6 +19,8 @@ class Course extends Model
     const PENDING = 2;
     const REJECTED = 3;
 
+    protected $withCount = ['reviews', 'students'];
+
     const prices = [
         '30' => 'Bs. 30',
         '35' => 'Bs. 35',

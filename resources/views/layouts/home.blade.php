@@ -51,6 +51,9 @@
                                             <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Profesor") }}</a>
                                         </li>
                                     @endif
+                                        <li>
+                                            <a class="brand-text" href="{{ route('student.courses') }}">{{ __("Mis Cursos") }}</a>
+                                        </li>
                                 @endauth
                                 <li>
                                     <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">

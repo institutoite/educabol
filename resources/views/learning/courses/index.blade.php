@@ -18,7 +18,7 @@
                             </div>
                             <div class="author-info">
                                 <div class="name">
-                                    <a href="#">{{ $course->title }}</a> 
+                                    <a href="{{ route('courses.show', ['course' => $course]) }}">{{ $course->title }}</a> 
                                 </div>
                                 <div class="border-bt">
                                     <div class="category">

@@ -25,7 +25,7 @@
                 <table class="table-striped" id="usuarios">
                     <thead>
                         <tr>
-                            <th>{{ __("Id") }}</th>
+                            <th>{{ __("Orden") }}</th>
                             <th>{{ __("Título") }}</th>
                             <th>{{ __("Curso") }}</th>
                             <th>{{ __("Tipo") }}</th>
@@ -38,7 +38,7 @@
                     <tbody>
                         @forelse($units as $unit)
                             <tr>
-                                <td>{{ $unit->id }}</td>
+                                <td>{{ $unit->order }}</td>
                                 <td>{{ $unit->title }}</td>
                                 <td>{{ $unit->course->title }}</td>
                                 <td>{{ $unit->unit_type }}</td>

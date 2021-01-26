@@ -4621,22 +4621,22 @@ input::-webkit-input-placeholder {
     color: #fbb545;
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(1):before {   
-    content: '\f016';
+    content: '\f073';
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(2):before {
-    content: '\f017';
+    content: '\f1c6';
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(3):before {
-    content: '\f007';
+    content: '\f03d';
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(4):before {
-    content: '\f185';
+    content: '\f017';
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(5):before {
-    content: '\f0eb';
+    content: '\f016';
 }
 .courses-single-page .sidebar-right .widget-features .features li:nth-child(6):before {
-    content: '\f097';
+    content: '\f007';
 }
 .courses-single-page .sidebar-right .widget-features .features li a{
     color: #7a7a7a;
