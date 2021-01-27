@@ -21,6 +21,7 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
     Route::post('/search', [App\Http\Controllers\CourseController::class, 'search'])->name('search');
     Route::get('/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('show');
+    Route::get('/{course}/learn', [App\Http\Controllers\CourseController::class, 'learn'])->name('learn');
 });
 
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {

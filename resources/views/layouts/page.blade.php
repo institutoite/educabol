@@ -21,8 +21,11 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
+    
 
     @yield('css')
+
+    @stack('css')
 
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
 </head>
@@ -155,5 +158,6 @@
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js') }}"></script>
     <script src="{{ asset('rev-slider/js/extensions/extensionsrevolution.extension.video.min.js') }}"></script>
+    @stack('js')
 </body>
 </html>

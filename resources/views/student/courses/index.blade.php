@@ -24,14 +24,14 @@
                                     <img src="{{ $course->imagePath() }}" alt="images"> 
                                     <div class="hover-effect"></div>
                                     <div class="links">
-                                        <a href="{{ route('courses.show', ['course' => $course]) }}">Ver Contenido</a>
+                                        <a href="{{ route('courses.learn', ['course' => $course]) }}">Ver Contenido</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="course-content clearfix">
                                 <div class="wrap-course-content">
                                     <h4>
-                                        <a href="{{ route('courses.show', ['course' => $course]) }}">{{ $course->title }}</a>
+                                        <a href="{{ route('courses.learn', ['course' => $course]) }}">{{ $course->title }}</a>
                                     </h4>
                                     <p>
                                         {{ Str::limit($course->description, 100) }}

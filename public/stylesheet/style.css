@@ -4712,3 +4712,18 @@ input::-webkit-input-placeholder {
 .header-style1.header-sticky .site-header-inner:after{
     display: none;
 }
+.bg-brand {
+    background-color: #d82a4e;
+    color: #fff !important;
+}
+.unit-selected {
+    background-color: #d82a4e;
+}
+
+.unit-selected a {
+    color: #fff !important;
+}
+
+.yellow {
+    color: #ffc107;
+}
