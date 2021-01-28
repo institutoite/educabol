@@ -30,7 +30,7 @@ class UnitRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'title' => 'required|min:6|max:200',
+                    'title' => 'required|min:1|max:200',
                     'content' => 'required_if:unit_type,'.Unit::VIDEO,
                     'course_id' => [
                         'required',
@@ -47,7 +47,7 @@ class UnitRequest extends FormRequest
             case 'PUT':
             {
                 return [
-                    'title' => 'required|min:6|max:200',
+                    'title' => 'required|min:1|max:200',
                     'content' => 'required_if:unit_type,'.Unit::VIDEO,
                     'course_id' => [
                         'required',

@@ -1,10 +1,10 @@
 @extends('layouts.dashmin')
-@section('css')
+@push('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
-@endsection
+@endpush
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -25,7 +25,6 @@
                 <table class="table-striped" id="usuarios">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Titulo</th>
                             <th>Precio</th>
                             <th>Estudiantes</th>
@@ -36,7 +35,6 @@
                     <tbody>
                         @forelse($courses as $course)
                             <tr>
-                                <td>{{ $course->id }}</td>
                                 <td>{{ $course->title }}</td>
                                 <td>{{ $course->price }}</td>
                                 <td>{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</td>
@@ -72,6 +70,8 @@
             language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
+            
+            "order": [[ 4, 'desc' ]]
         });
         
     </script>

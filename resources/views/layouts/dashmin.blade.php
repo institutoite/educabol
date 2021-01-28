@@ -17,7 +17,7 @@
    <link rel="shortcut icon" href="{{ asset('../../assets/img/favicon.png') }}">
 
     <!-- ======= DATATABLE STYLES ======= -->
-    @yield('css')
+    @stack('css')
     <!-- ======= END DATATABLE STYLES ======= -->
 
    <!-- Web Fonts -->
@@ -34,7 +34,7 @@
    <!-- ======= END MAIN STYLES ======= -->
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-   @stack('css')
+   
 </head>
 
 <body>
@@ -168,17 +168,6 @@
                                 <i class="icofont-student-alt"></i>
                                 <span class="link-title">Mis estudiantes</span>
                             </a>
-
-                            <!-- Sub Menu -->
-                            <ul class="nav sub-menu">
-                                <li><a href="../ecommerce/ecommerce.html">Dashboard 1</a></li>
-                                <li><a href="../ecommerce/ecommerce2.html">dashboard 2</a></li>
-                                <li><a href="../ecommerce/orders.html">orders</a></li>
-                                <li><a href="../ecommerce/product-catelog.html">Products Catalog</a></li>
-                                <li><a href="../ecommerce/product-details.html">Product Details</a></li>
-                                <li><a href="../ecommerce/cartlist.html">cart list</a></li>
-                            </ul>
-                            <!-- End Sub Menu -->
                         </li>
                         <li>
                             <a href="{{ asset('') }}../../pages/social-media.html">

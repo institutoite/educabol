@@ -96,9 +96,30 @@
                `;
                 visorBody.html(html);
             }
+
+            let footerButtons = '';
+            if ($(`#unit-${index+1}`).length) {
+                footerButtons += `
+                  <button class="site-btn float-right loadNextUnit">${nextUnitText}</button>
+               `;
+            }
+            if ($(`#unit-${index-1}`).length) {
+                footerButtons += `
+                  <button class="site-btn float-left loadPrevUnit">${prevUnitText}</button>
+               `;
+            }
+            visorFooter.html(footerButtons);
         });
 
-        
+        const visor = $("#visor-card");
+        visor.on("click", ".loadNextUnit", function () {
+            const nextIndex = index += 1;
+            $(`#unit-${nextIndex}`).click();
+        });
+        visor.on("click", ".loadPrevUnit", function () {
+            const prevIndex = index -= 1;
+            $(`#unit-${prevIndex}`).click();
+        });
     })
 </script>
 @endpush

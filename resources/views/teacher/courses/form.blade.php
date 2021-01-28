@@ -58,6 +58,7 @@
             @include('partials.form_errors')
 
             <!-- Invoice Top -->
+            @isset($update)
             <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
                 <div class="row">
                     <div class="col-md-6">
@@ -86,12 +87,14 @@
                     
                 </div>
             </div>
+            @endisset
             <!-- End Invoice Top -->
 
             {!! Form::model($course, $options) !!}
                 @isset($update)
                     @method("PUT")
                 @endisset
+                
 
                 <input type="hidden" name="orderedUnits" />
 
@@ -99,7 +102,6 @@
                     {!! Form::label('title', __("Título")) !!}
                     {!! Form::text('title', null, ['class' => 'form-control']) !!}
                 </div>
-
                 <div class="form-group">
                     {!! Form::label('price', __("Escoge un precio para tu curso")) !!}
                     {!! Form::select('price', \App\Models\Course::prices, null, ["class" => "form-control"]) !!}
@@ -109,7 +111,7 @@
                     {!! Form::label('categories[]', __("Selecciona las categorías")) !!}
                     {!! Form::select('categories[]', \App\Models\Category::pluck("name", "id"), null, ["class" => "form-control", "multiple" => true]) !!}
                 </div>
-
+                @isset($update)
                 <div class="form-group">
                     <h2 class="text-muted text-center mb-2">
                         {{ __("Organiza las unidades de tu curso") }}
@@ -146,7 +148,7 @@
                         @endforelse
                     </ul>
                 </div>
-
+                @endisset
                 <div class="form-group">
                     {!! Form::label('description', __("Descripcion del curso")) !!}
                     {!! Form::text('description', old('description') ?? $course->description, ['class' => 'form-control']) !!}

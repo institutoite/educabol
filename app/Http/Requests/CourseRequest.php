@@ -28,7 +28,7 @@ class CourseRequest extends FormRequest
                 return [
                     'title' => 'required|min:5|unique:courses',
                     'categories' => 'required|array',
-                    'description' => 'required|min:50',
+                    'description' => 'required|min:5',
                     'price' => 'required',
                     'picture' => 'required|image|mimes:jpg,jpeg,png'
                 ];
@@ -37,7 +37,7 @@ class CourseRequest extends FormRequest
                 return [
                     'title' => 'required|min:5|unique:courses,title,' . $this->route('course')->id,
                     'categories' => 'required|array',
-                    'description' => 'required|min:50',
+                    'description' => 'required|min:5',
                     'price' => 'required',
                     'picture' => 'required|sometimes|image|mimes:jpg,jpeg,png'
                 ];

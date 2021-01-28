@@ -13,9 +13,37 @@ use DB;
 class TeacherController extends Controller
 {
 	public function courses () {
-		$courses = Course::forTeacher();
+        $courses = Course::forTeacher()->sortByDesc('id');
 		return view('teacher.courses.index', compact('courses'));
-	}
+    }
+    
+    public function createCourse() {
+        $course = new Course;
+        $title = __("Crear un nuevo curso");
+        $textButton = __("Dar de alta el curso");
+        $options = ['route' => ['teacher.courses.store'], 'files' => true];
+        return view('teacher.courses.form', compact('title', 'course', 'options', 'textButton'));
+    }
+
+    public function storeCourse(CourseRequest $request) {
+        try {
+            DB::beginTransaction();
+            $file = null;
+            if ($request->hasFile('picture')) {
+                $file = Uploader::uploadFile('picture', 'courses');
+            }
+
+            $course = Course::create($this->courseInput($file));
+            $course->categories()->sync(request("categories"));
+
+            DB::commit();
+            session()->flash("message", ["success", __("Curso creado satisfactoriamente")]);
+            return redirect(route('teacher.courses.edit', ['course' => $course]));
+        } catch (\Throwable $exception) {
+            session()->flash("message", ["danger", $exception->getMessage()]);
+            return back();
+        }
+    }
 
 	public function editCourse(Course $course) {
         $course->load("units");

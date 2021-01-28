@@ -319,8 +319,8 @@ input[type="submit"] {
     font-size: 14px;
     text-transform: uppercase;
     color: #ffffff;
-    background: #ffb922;
-    border: 2px solid #ffb922;
+    background: #d82a4e;
+    border: 2px solid #d82a4e;
     -webkit-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
@@ -338,7 +338,7 @@ input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {        
     color: #fff;
-    background: #ffb922;
+    background: #d82a4e;
 }
 
 

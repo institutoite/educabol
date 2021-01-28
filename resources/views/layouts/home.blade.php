@@ -44,11 +44,10 @@
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li><a href="{{ route('courses.index') }}">Cursos</a></li>
                                 @auth
                                     @if ( auth()->user()->isTeacher() )  
                                         <li>
-                                            <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Profesor") }}</a>
+                                            <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Administrar Cursos") }}</a>
                                         </li>
                                     @endif
                                         <li>

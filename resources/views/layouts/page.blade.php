@@ -83,24 +83,16 @@
                             <nav id="main-nav" class="main-nav">
                                 <ul class="menu">
                                     <li><a href="<?php echo url('/')?>">Inicio</a></li>
-                                    <li><a href="#">Course</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="course.html">Course</a></li>
-                                            <li class="menu-item"><a href="course-list.html">Course list</a></li>
-                                            <li class="menu-item active"><a href="course-single.html">Course single</a></li>
-                                        </ul><!-- sub-menu -->
-                                    </li>
-                                    <li><a href="#">Explore</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="about.html">About</a></li>
-                                        </ul><!-- sub-menu -->
-                                    </li>
-                                    <li><a href="#">Degrees</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                            <li class="menu-item"><a href="blog-single.html">Blog single</a></li>
-                                        </ul><!-- sub-menu -->
-                                    </li>
+                                    @auth
+                                        @if ( auth()->user()->isTeacher() )  
+                                            <li>
+                                                <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Administrar Cursos") }}</a>
+                                            </li>
+                                        @endif
+                                            <li>
+                                                <a class="brand-text" href="{{ route('student.courses') }}">{{ __("Mis Cursos") }}</a>
+                                            </li>
+                                    @endauth
                                 </ul>
                             </nav>
                         </div>
