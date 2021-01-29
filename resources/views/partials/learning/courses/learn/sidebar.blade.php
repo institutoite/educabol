@@ -50,8 +50,16 @@
                 </div>
             @endforelse
         </div>
-
-        
+        @can('review', $course)
+            <div class="card-footer bg-brand text-center">
+                <a
+                    href="{{ route('courses.reviews.create', ['course' => $course]) }}"
+                    class="site-btn text-white"
+                >
+                    {{ __("Valorar el curso") }}
+                </a>
+            </div>
+        @endcan
     </div>
 </div>
 

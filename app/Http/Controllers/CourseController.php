@@ -32,4 +32,33 @@ class CourseController extends Controller
         return view('learning.courses.learn', compact('course'));
     }
 
+    public function createReview(Course $course) {
+        return view("learning.courses.reviews.form", compact("course"));
+    }
+
+    public function storeReview(Course $course) {
+        $reviewed = $course->reviews->contains('user_id', auth()->id());
+        if ($reviewed) {
+            return redirect(route("courses.learn", ["course" => $course]))
+                ->with("message", ["danger", __("No puedes valorar este curso, ya lo has hecho antes")]);
+        }
+
+        $this->validate(request(), [
+            "review" => "required|string|min:5",
+            "stars" => "required"
+        ]);
+
+        $review = Review::create([
+            "user_id" => auth()->id(),
+            "course_id" => $course->id,
+            "stars" => (int) request("stars"),
+            "review" => request("review"),
+            "created_at" => now()
+        ]);
+
+        alert()->success('','Muchas gracias por valorar el curso')->persistent('Cerrar')->autoclose(3000);;
+
+        return redirect(route("courses.learn", ["course" => $course]));
+    }
+
 }

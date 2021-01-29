@@ -17,25 +17,18 @@
                                 <img src="{{ $course->imagePath() }}" alt="images">
                             </div>
                             <div class="author-info">
+                                <div class="category">
+                                    @include('partials.learning.courses.rating', ['rating' => $course->rating])
+                                </div>
                                 <div class="name">
                                     <a href="{{ route('courses.show', ['course' => $course]) }}">{{ $course->title }}</a> 
                                 </div>
                                 <div class="border-bt">
-                                    <div class="category">
-                                        {{ __(":count Estudiantes", ['count' => $course->students_count]) }}
-                                    </div>
+                                    
                                 </div>
                                 <div class="evaluate">
                                     <div class="price">
                                         <span class="price-now">Bs. {{ $course->price }}</span>
-                                    </div>
-                                    <div class="review">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span>(4)</span>
                                     </div>
                                 </div>
                             </div>
