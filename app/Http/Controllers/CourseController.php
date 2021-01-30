@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Review;
 
@@ -59,6 +60,12 @@ class CourseController extends Controller
         alert()->success('','Muchas gracias por valorar el curso')->persistent('Cerrar')->autoclose(3000);;
 
         return redirect(route("courses.learn", ["course" => $course]));
+    }
+
+    public function byCategory(Category $category) {
+        //$courses = Course::filtered($category);
+        $courses = Course::filtered($category);
+        return view('learning.courses.by_category', compact('courses', 'category'));
     }
 
 }

@@ -1,46 +1,60 @@
 @extends('layouts.home')
 
-
 @section('content')
-    <div class="container">
-        <div class="title-section text-center">
-            <div class="flat-title medium">
-                Listado de Cursos.
+    <div class="course-grid">
+        <div class="container">
+            <div class="title-section text-center">
+                <div class="flat-title medium">
+                    {{ __("Resultados de su busqueda") }}
+                </div>
             </div>
-        </div>
-        <div class="online-courses-wrap">
-            <div class="row">
-                @forelse($courses as $course)
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="imagebox-courses-type1">
-                            <div class="featured-post">
-                                <img src="{{ $course->imagePath() }}" alt="images">
+            <div class="flat-courses clearfix isotope-courses">
+            @forelse($courses as $course)
+                <div class="course clearfix Marketing Certificate">    
+                    <div class="flat-course">
+                        <div class="featured-post post-media">
+                            <div class="entry-image pic">
+                                <img style="width:470px; height:220px;" src="{{ $course->imagePath() }}" alt="images">
+                                <div class="hover-effect"></div>
+                                <div class="links">
+                                    <a href="{{ route('courses.show', ['course' => $course]) }}">Ver curso</a>
+                                </div>
                             </div>
-                            <div class="author-info">
-                                <div class="category">
-                                    @include('partials.learning.courses.rating', ['rating' => $course->rating])
+                        </div>
+                        <div class="course-content clearfix">
+                            <div class="wrap-course-content">
+                                <h4>
+                                    <a href="{{ route('courses.show', ['course' => $course]) }}">{{ $course->title }}</a>
+                                </h4>
+                                <p>
+                                    {{ __(":count Estudiantes", ['count' => $course->students_count]) }}
+                                </p>
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        {{ $course->teacher->name }}
+                                    </div>
                                 </div>
-                                <div class="name">
-                                    <a href="{{ route('courses.show', ['course' => $course]) }}">{{ $course->title }}</a> 
-                                </div>
-                                <div class="border-bt">
-                                    
-                                </div>
-                                <div class="evaluate">
+                            </div>
+                            <div class="wrap-rating-price">
+                                <div class="meta-rate">
+                                    <div class="rating">
+                                        @include('partials.learning.courses.rating', ['rating' => $course->rating])
+                                    </div>
                                     <div class="price">
-                                        <span class="price-now">Bs. {{ $course->price }}</span>
+                                        <span class="price-now">Bs.{{ $course->price }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div> 
                 @empty
-                    <div class="container">
-                        <div class="empty-results">
-                            {{ __("Actualmente no tenemos nada, pero estamos trabajando duro para añadir nuevo contenido") }}
-                        </div>
+                <div class="col-12">
+                    <div class="empty-results">
+                        {!! __("No hay ningún curso para mostrar") !!}
                     </div>
-                @endforelse
+                </div>
+            @endforelse
             </div>
             <div class="row justify-content-center mt-2">
                 @if(count($courses))
@@ -48,5 +62,5 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div><!-- course-grid -->
 @endsection

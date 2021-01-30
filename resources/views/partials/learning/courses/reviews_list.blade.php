@@ -1,12 +1,9 @@
-<div class="col-12 pt-0 mt-4">
-    <h2 class="text-muted">{{ __("Valoraciones") }}</h2>
-    <hr />
-</div>
+
 
 @forelse($course->reviews as $review)
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-dark text-white p-0 text-center">
                 {{ $review->author->name }} ({{ $review->created_at->format('d/m/Y') }})
             </div>
             <div class="card-body pl-3">

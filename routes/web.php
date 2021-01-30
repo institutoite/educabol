@@ -25,6 +25,8 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
 
     Route::get('/{course}/review', [App\Http\Controllers\CourseController::class, 'createReview'])->name('reviews.create');
     Route::post('/{course}/review', [App\Http\Controllers\CourseController::class, 'storeReview'])->name('reviews.store');
+
+    Route::get('/category/{category}', [App\Http\Controllers\CourseController::class, 'byCategory'])->name('category');
 });
 
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {

@@ -7,10 +7,5 @@
         <span class="badge badge-dark float-right mr-1 mt-2">
             {{ __(":duration minutos", ["duration" => $unit->unit_time]) }}
         </span>
-        @if($unit->free)
-            <span class="badge badge-success float-right mr-1 mt-2">
-                {{ __("Gratis") }}
-            </span>
-        @endif
     </p>
 </div>

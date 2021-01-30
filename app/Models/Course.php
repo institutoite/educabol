@@ -87,13 +87,20 @@ class Course extends Model
         return gmdate("H:i", $minutes * 60);
     }
 
-    public function scopeFiltered(Builder $builder) {
+    public function scopeFiltered(Builder $builder, Category $category = null) {
         $builder->with("teacher");
         $builder->withCount("students");
         $builder->where("status", Course::PUBLISHED);
         if (session()->has('search[courses]')) {
             $builder->where('title', 'LIKE', '%' . session('search[courses]') . '%');
         }
+
+        if ($category) {
+            $builder->whereHas("categories", function (Builder $table) use ($category) {
+                $table->where("id", $category->id);
+            });
+        }
+
         return $builder->paginate();
     }
 

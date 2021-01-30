@@ -1,14 +1,5 @@
 @extends('layouts.page')
 
-@section('css')
-    <style type="text/css">
-        .imagencurso{
-        width:770px;
-        height:450px;
-        }
-    </style>
-@endsection
-
 @section('content')
     <div class="courses-single-page">
         <div class="container">
@@ -20,7 +11,7 @@
                                 <div class="entry-image">
                                     <div class="videobox">
                                         <a class="fancybox" data-type="iframe" href="https://www.youtube.com/embed/A-BL8Ir7puE">
-                                            <img class="imagencurso" src="{{ $course->imagePath() }}" alt="images">
+                                            <img style="width:770px; height:450px;" src="{{ $course->imagePath() }}" alt="images">
                                         </a>
                                     </div>
                                 </div>

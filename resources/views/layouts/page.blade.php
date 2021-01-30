@@ -100,23 +100,7 @@
                     </div>
                 </div>
             </header>
-            <div class="page-title page-title-blog">
-                <div class="page-title-inner">
-                    <div class="breadcrumbs breadcrumbs-blog text-left">
-                        <div class="container">  
-                            <div class="breadcrumbs-wrap">
-                                <ul class="breadcrumbs-inner">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="course-single.html">Course</a></li>
-                                </ul>
-                                <div class="title">
-                                    Course
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div><!-- bg-header -->
     

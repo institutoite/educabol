@@ -17,11 +17,11 @@
                         </div>
                         <div class="author-info">
                             <div class="name">
-                                <a href="#">{{ $category->name }}</a> 
+                                <a href="{{ route('courses.category', ['category' => $category]) }}">{{ $category->name }}</a> 
                             </div>
                             <div class="border-bt">
                                 <div class="category">
-                                    {{ __(":total cursos", ['total' => $category->courses_count]) }}
+                                    
                                 </div>
                             </div>
                         </div>
