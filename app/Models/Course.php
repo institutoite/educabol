@@ -71,7 +71,7 @@ class Course extends Model
     }
 
     public function getFormattedPriceAttribute() {
-        return Currency::formatCurrency($this->price);
+        return $this->price;
     }
 
     public function totalVideoUnits() {

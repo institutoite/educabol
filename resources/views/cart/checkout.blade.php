@@ -1,8 +1,21 @@
-@extends('body')
+@extends('layouts.page')
+
+@push('css')
+   <!---- checkout ---->
+    <!-- Vendor stylesheets -->
+
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/style.css') }}" />
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/vendor/animate.css') }}" />
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/vendor/font-awesome.css') }}" />
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/vendor/linear-icons.css') }}" />
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/vendor/owl.carousel.css') }}" />
+    <link rel="stylesheet" media="all" href="{{ asset('checkout/css/vendor/jquery.lavalamp.css') }}" />
+
+    <!-- Template stylesheets -->
+@endpush
 
 @section('content')
     <section class="pt-0">
-
         <div class="pt-3 pt-lg-4 pb-5 pb-lg-6 mb-2 mb-lg-3">
             <div class="container">
                 <div class="row justify-content-center">
@@ -95,4 +108,26 @@
         </div>
         
     </section>
-    @endsection
+@endsection
+
+@push("js")
+    <!---- checkout ---->
+    <!-- Vendor Scripts -->
+
+    <script src="{{ asset('checkout/js/vendor/jquery.min.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/in-view.min.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/jquery.lavalamp.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/owl.carousel.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/rellax.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/wow.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/tabzy.js') }}"></script>
+    <script src="{{ asset('checkout/js/vendor/isotope.pkgd.js') }}"></script>
+
+    <!-- Template Scripts -->
+
+    <script src="{{ asset('checkout/js/main.js') }}"></script>
+    <script src="{{ asset('checkout/js/custom.js') }}"></script>
+    <!---- checkout ---->
+
+@endpush

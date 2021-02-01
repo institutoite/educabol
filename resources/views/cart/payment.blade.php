@@ -1,4 +1,4 @@
-@extends('body')
+@extends('layouts.page')
 
 @section('content')
     <section class="pt-0">

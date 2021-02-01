@@ -21,7 +21,7 @@
                             </div>
                             <div class="border-bt">
                                 <div class="category">
-                                    
+                                    {{ __(":total cursos", ['total' => $category->courses_count]) }}
                                 </div>
                             </div>
                         </div>

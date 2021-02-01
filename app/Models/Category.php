@@ -12,7 +12,7 @@ class Category extends Model
     protected $fillable = ["name", "description", "picture"];
 
     public function courses() {
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Course::class)->where("status", Course::PUBLISHED);
     }
 
     public function imagePath() {

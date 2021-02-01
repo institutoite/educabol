@@ -9,11 +9,12 @@ class CartController extends Controller
 {
     public function add($id){
         
+        
         $course = Course::find($id);
         
         \Cart::session(auth()->id())->add(array(
             'id' => $course->id,
-            'name' => $course->name,
+            'name' => $course->title,
             'price' => $course->price,
             'quantity' => 1,
             'attributes' => array(),

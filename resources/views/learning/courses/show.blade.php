@@ -37,7 +37,7 @@
                                             <span class="price-now">Bs. {{ $course->price }}</span>
                                         </div>
                                         <div class="btn-buynow">
-                                            <a href="#">Inscribite</a>
+                                            @include("partials.learning.courses.purchase_button")
                                         </div>
                                     </div>
                                 </div>
@@ -100,17 +100,6 @@
                                         <span>{{ $course->students_count }}</span>
                                     </li>
                                 </ul>
-                                <div class="share-via">
-                                    <div class="title">
-                                        Compartir
-                                    </div>
-                                    <ul class="social-media">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>

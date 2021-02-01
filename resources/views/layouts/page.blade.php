@@ -24,8 +24,6 @@
     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    @yield('css')
-
     @stack('css')
 
     <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">

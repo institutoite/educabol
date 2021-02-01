@@ -21,8 +21,7 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
     Route::post('/search', [App\Http\Controllers\CourseController::class, 'search'])->name('search');
     Route::get('/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('show');
-    Route::get('/{course}/learn', [App\Http\Controllers\CourseController::class, 'learn'])->name('learn');
-
+    Route::get('/{course}/learn', [App\Http\Controllers\CourseController::class, 'learn'])->name('learn')->middleware('can_access_to_course');
     Route::get('/{course}/review', [App\Http\Controllers\CourseController::class, 'createReview'])->name('reviews.create');
     Route::post('/{course}/review', [App\Http\Controllers\CourseController::class, 'storeReview'])->name('reviews.store');
 
@@ -53,43 +52,3 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');
 Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
-
-
-/*Route::get('categoria/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
-
-Route::get('/{course}/inscribe', [App\Http\Controllers\CourseController::class, 'inscribe'])->name('courses.inscribe');
-
-Route::get('/subscribed', [App\Http\Controllers\CourseController::class, 'subscribed'])->name('courses.subscribed');
-
-Route::post('/add_review', [App\Http\Controllers\CourseController::class, 'addReview'])->name('courses.add_review');
-
-Route::get('curso/{course}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.detail');
-
-
-Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
-
-
-Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');
-Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
-
-
-Route::get('/payment', function () {
-    return view('cart.payment');
-});
-
-Route::get('/receipt', function () {
-    return view('cart.receipt');
-});
-
-Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');
-
-Route::get('/dashmin', function () {
-    return view('layouts.dashmin');
-});
-
-Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('teacher.courses')->middleware('auth');
-Route::get('/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('teacher.students')->middleware('auth');
-
-
-
-Route::resource('course', App\Http\Controllers\CourseController::class);*/
