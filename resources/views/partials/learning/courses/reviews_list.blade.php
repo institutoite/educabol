@@ -1,5 +1,3 @@
-
-
 @forelse($course->reviews as $review)
     <div class="col-md-12">
         <div class="card">

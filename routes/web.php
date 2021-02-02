@@ -41,6 +41,8 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
     Route::get('/units/{unit}', [App\Http\Controllers\TeacherController::class, 'editUnit'])->name('units.edit');
     Route::put('/units/{unit}', [App\Http\Controllers\TeacherController::class, 'updateUnit'])->name('units.update');
     Route::get('/units/{unit}/destroy', [App\Http\Controllers\TeacherController::class, 'destroyUnit'])->name('units.destroy');
+
+    Route::get('/profits', [App\Http\Controllers\TeacherController::class, 'profits'])->name('profits');
     
 });
 
@@ -48,6 +50,14 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::get('/courses', [App\Http\Controllers\StudentController::class, 'courses'])->name('courses');
 });
 
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('categories');
+    Route::get('/categories/create', [App\Http\Controllers\AdminController::class, 'createCategory'])->name('categories.create');
+    Route::post('/categories/store', [App\Http\Controllers\AdminController::class, 'storeCategory'])->name('categories.store');
+    Route::get('/categories/{category}', [App\Http\Controllers\AdminController::class, 'editCategory'])->name('categories.edit');
+    Route::put('/categories/{category}', [App\Http\Controllers\AdminController::class, 'updateCategory'])->name('categories.update');
+    Route::get('/categories/{category}/destroy', [App\Http\Controllers\AdminController::class, 'destroyCategory'])->name('categories.destroy');
+});
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');

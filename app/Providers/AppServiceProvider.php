@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ConsoleTVs\Charts\Registrar as Charts;
+use App\Charts\TeacherProfitChart;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,10 +21,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
+     * @param Charts $charts
      * @return void
      */
-    public function boot()
+    public function boot(Charts $charts)
     {
-        //
+        $charts->register([
+            TeacherProfitChart::class
+        ]);
+
     }
 }

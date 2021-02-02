@@ -29,6 +29,9 @@ class LoginController extends Controller
         if(auth()->user()->isTeacher() ){
             return Redirect()->intended('/teacher/courses');
         }
+        if(auth()->user()->isAdmin() ){
+            return Redirect()->intended('/admin/categories');
+        }
             
         return Redirect()->intended('/');
     }

@@ -152,6 +152,12 @@
                     <ul class="nav">
                         <li class="nav-category">Modulo Profesores</li>
                         <li>
+                            <a href="{{ route('teacher.profits') }}">
+                                <i class="icofont-pie-chart"></i>
+                                <span class="link-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('teacher.courses') }}">
                                 <i class="icofont-ebook"></i>
                                 <span class="link-title">Cursos</span>

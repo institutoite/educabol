@@ -176,4 +176,8 @@ class TeacherController extends Controller
         ];
     }
 
+    public function profits() {
+        return view('teacher.profits.index');
+    }
+
 }
