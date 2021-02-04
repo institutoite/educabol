@@ -11,13 +11,7 @@
         <div class="card mb-30">
             <div class="card-body">
                 <div class="d-sm-flex justify-content-between align-items-center">
-                    <h4 class="font-20">Categorias</h4>
-
-                    <div class="d-flex flex-wrap">
-                        <!-- Button -->
-                        <button type="button" onclick="window.location.href='{{ route('admin.categories.create') }}'" class="btn style--two orange">Crear Categoria</button>
-                        <!-- Button -->
-                    </div>
+                    <h4 class="font-20">Cursos pendientes</h4>
                 </div>
             </div>
             <div class="table-responsive">
@@ -25,35 +19,28 @@
                 <table class="table-striped" id="usuarios">
                     <thead>
                         <tr>
-                            <th>{{ __("Id") }}</th>
-                            <th>{{ __("Nombre") }}</th>
-                            <th>{{ __("Descripcion") }}</th>
-                            <th>{{ __("Foto") }}</th>
-                            <th>{{ __("Alta") }}</th>
-                            <th>{{ __("Edición") }}</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Subido</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($categories as $category)
+                        @forelse($courses as $course)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->description }}</td>
-                                <td><img width="100" src="{{ asset("storage/categories/$category->picture" )}}" alt="" /></td>
-                                <td>{{ $category->created_at->format("d/m/Y") }}</td>
-                                <td>{{ $category->updated_at->format("d/m/Y") }}</td>
-                                <td>
-                                <a href="{{ route('admin.categories.edit', ['category' => $category]) }}"><img src="{{ asset('../../assets/img/svg/c-edit.svg') }}" alt="" class="svg"></a>
-                                </td>
-                                
+                                <td>{{ $course->title }}</td>
+                                <td>{{ $course->price }}</td>
+                                <td>{{ $course->created_at->format("d/m/Y H:i") }}</td>
+                                <td>@include('partials.courses.status')</td>
+                                <td><a href="{{ route('admin.pending.show', ['course' => $course]) }}" class="details-btn">{{ __("Detalles del Curso") }} <i class="icofont-arrow-right"></i></a></td>
                             </tr>
                         @empty
-                        <div class="container">
-                            <div class="empty-results">
-                                {!! __("No tienes ningún categoria todavía: :link", ["link" => "<a href='".route('admin.categories.create')."'>Crear mi primera categoria</a>"]) !!}
+                            <div class="container">
+                                <div class="empty-results">
+                                    {{ __("No tienes ningún curso pendiente de aprobacion") }}
+                                </div>
                             </div>
-                        </div>
                         @endforelse
                     </tbody>
                     
@@ -77,6 +64,8 @@
             language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
+            
+            "order": [[ 2, 'desc' ]]
         });
         
     </script>

@@ -77,7 +77,7 @@
                             <h3 class="white font-20 mb-3">Informacion del Curso</h3>
 
                             <ul class="status-list">
-                            <li><span class="key font-14">Subido:</span> <span class="white bold font-17">08/12/2019</span></li>
+                            <li><span class="key font-14">Subido:</span> <span class="white bold font-17">{{ $course->created_at->format("d/m/Y H:i") }}</span></li>
                             
                             <li><span class="key font-14">Estado:</span>@include('partials.courses.status')</li>
                             </ul>

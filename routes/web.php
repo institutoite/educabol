@@ -57,6 +57,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/categories/{category}', [App\Http\Controllers\AdminController::class, 'editCategory'])->name('categories.edit');
     Route::put('/categories/{category}', [App\Http\Controllers\AdminController::class, 'updateCategory'])->name('categories.update');
     Route::get('/categories/{category}/destroy', [App\Http\Controllers\AdminController::class, 'destroyCategory'])->name('categories.destroy');
+
+    Route::get('/pending', [App\Http\Controllers\AdminController::class, 'pending'])->name('pending');
+
+    Route::get('/courses/{course}', [App\Http\Controllers\AdminController::class, 'show'])->name('pending.show');
 });
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');

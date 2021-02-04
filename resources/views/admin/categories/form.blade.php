@@ -26,8 +26,8 @@
                             
                             <!-- Form Group -->
                             <div class="custom-file">
-                                {!! Form::file('file', ['class' => 'custom-file-input', 'id' => 'file']) !!}
-                                {!! Form::label('file', __("Escoge un archivo"), ['class' => 'custom-file-label']) !!}
+                                {!! Form::file('picture', ['class' => 'custom-file-input', 'id' => 'picture']) !!}
+                                {!! Form::label('picture', __("Selecciona la imagen de tu categoria"), ['class' => 'custom-file-label']) !!}
                             </div>
                             <!-- End Form Group -->
                         </div>
