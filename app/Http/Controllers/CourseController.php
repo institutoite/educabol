@@ -64,7 +64,6 @@ class CourseController extends Controller
     }
 
     public function byCategory(Category $category) {
-        //$courses = Course::join('category_course as cc','courses.id','=','cc.course_id')->where("status", Course::PUBLISHED)->where("category_id", $category->id)->paginate();
 
         $courses = Course::filtered($category);
 

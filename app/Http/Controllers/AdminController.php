@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Unit;
 use App\Helpers\Uploader;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -82,6 +84,19 @@ class AdminController extends Controller
         $title = __("Detalle del curso :course", ["course" => $course->title]);
         $textButton = __("Habilitar curso");
         return view('admin.pending.show', compact('title', 'course', 'textButton'));
+    }
+
+    public function download(Unit $unit) {
+
+        return Storage::download('/units/'. $unit->file);
+    }
+
+    public function status($id, $status) {
+        $course = Course::find($id);
+        $course->status = $status;
+        $course->save();
+        $courses = Course::where('status', 2)->get();
+		return view('admin.pending.index', compact('courses'));
     }
 
 }

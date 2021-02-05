@@ -21,7 +21,7 @@
                         <div class="flat-course">
                             <div class="featured-post post-media">
                                 <div class="entry-image pic">
-                                    <img src="{{ $course->imagePath() }}" alt="images"> 
+                                    <img style="width:470px; height:220px;" src="{{ $course->imagePath() }}" alt="images"> 
                                     <div class="hover-effect"></div>
                                     <div class="links">
                                         <a href="{{ route('courses.learn', ['course' => $course]) }}">Ver Contenido</a>

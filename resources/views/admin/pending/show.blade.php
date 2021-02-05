@@ -3,8 +3,9 @@
 @section("content")
 <div class="row">
     <div class="col-12">
+    
         <div class="form-element with-icons mb-30">
-            @include('partials.form_errors')
+            
 
             <!-- Invoice Top -->
             
@@ -59,7 +60,21 @@
                                 <tr>
                                     <td>{{ $unit->title }}</td>
                                     <td>{{ $unit->unit_type }}</td>
-                                    <td></td>
+                                    <td>
+                                        @switch($unit->unit_type)
+                                            @case(\App\Models\Unit::SECTION)
+                                                
+                                                    {{ $unit->title }}
+                                                
+                                            @break
+                                            @case(\App\Models\Unit::ZIP)
+                                                <a href="{{ route('admin.pending.download', $unit) }}">Descargar archivo</a>
+                                            @break
+                                            @case(\App\Models\Unit::VIDEO)
+                                                <iframe id="player" type="text/html" width="100%" src="{{ $unit->content }}" frameborder="0" scrolling="no"></iframe>
+                                            @break
+                                        @endswitch
+                                    </td>
                                 </tr>
                                 @empty
                                 <div class="container">
@@ -78,12 +93,13 @@
 
             <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
                 <a href="#" class="download-btn mr-3"><img src="{{ asset('../../assets/img/svg/table-colse.svg') }}" alt="" class="svg"></a>
-                <a href="#" class="print-btn mr-20"><img src="{{ asset('../../assets/img/svg/done-check.svg') }}" alt="" class="svg"></a>
+                <a href="{{ route('admin.course.status', ['id' => $course->id, 'status' => 1]) }}" class="print-btn mr-20"><img src="{{ asset('../../assets/img/svg/done-check.svg') }}" alt="" class="svg"></a>
             </div>
 
             
         </div>
     </div>
+    
 </div>
 @endsection
 
