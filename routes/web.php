@@ -67,3 +67,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');
 Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+
+Route::get('/send-email', [App\Http\Controllers\MailController::class, 'sendEmail'])->name('send-email');
+
+Route::get('/email', function () {
+    return view('emails.TestEMail');
+});
