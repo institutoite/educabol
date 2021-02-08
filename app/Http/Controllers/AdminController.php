@@ -7,7 +7,10 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Unit;
 use App\Helpers\Uploader;
+use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CourseStatusMail;
 
 class AdminController extends Controller
 {
@@ -91,12 +94,49 @@ class AdminController extends Controller
         return Storage::download('/units/'. $unit->file);
     }
 
-    public function status($id, $status) {
-        $course = Course::find($id);
-        $course->status = $status;
+    public function updateStatus(Request $request, Course $course) {
+        
+        //$course = Course::find($id);
+        switch($request->submitbutton) {
+
+            case 'Rechazar Curso': 
+                
+                $details=[
+                    'title' => $course->title,
+                    'status' => ' ha sido rechazado',
+                    'message'=> $request->textarea1
+                ];
+                $email = $course->user->email;
+                $course->status = 3;
+                $course->save();
+                Mail::to($email)->send(new CourseStatusMail($details));
+                $courses = Course::where('status', 2)->get();
+                return view('admin.pending.index', compact('courses'));
+
+            break;
+        
+            case 'Aceptar Curso': 
+                
+                $details=[
+                    'title' => $course->title,
+                    'status' => ' ha sido aceptado',
+                    'message'=> $request->textarea1
+                ];
+                $email = $course->user->email;
+                $course->status = 1;
+                $course->save();
+                Mail::to($email)->send(new CourseStatusMail($details));
+                $courses = Course::where('status', 2)->get();
+                return view('admin.pending.index', compact('courses'));
+
+            break;
+        }
+        /*$course->status = $status;
         $course->save();
         $courses = Course::where('status', 2)->get();
-		return view('admin.pending.index', compact('courses'));
+		return view('admin.pending.index', compact('courses'));*/
+
+        
     }
 
 }

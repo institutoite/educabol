@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/pending', [App\Http\Controllers\AdminController::class, 'pending'])->name('pending');
     Route::get('/courses/{course}', [App\Http\Controllers\AdminController::class, 'show'])->name('pending.show');
     Route::get('/download/{unit}', [App\Http\Controllers\AdminController::class, 'download'])->name('pending.download');
-    Route::get('/courses/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status'])->name('course.status');
+    Route::put('/courses/{course}', [App\Http\Controllers\AdminController::class, 'updateStatus'])->name('course.status');
 });
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');

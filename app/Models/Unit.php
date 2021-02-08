@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Cohensive\Embed\Facades\Embed;
 
 class Unit extends Model
 {
@@ -51,6 +52,17 @@ class Unit extends Model
         return [
             self::ZIP, self::VIDEO, self::SECTION
         ];
+    }
+
+    public function getVideoHtmlAttribute()
+    {
+        $embed = Embed::make($this->content)->parseUrl();
+
+        if (!$embed)
+            return '';
+
+        $embed->setAttribute(['width' => 150]);
+        return $embed->getHtml();
     }
 
 }

@@ -81,7 +81,7 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:600px"> 
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;position:relative"><a target="_blank" href="https://viewstripo.email" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#E84A54"><img class="adapt-img" src="http://imgfz.com/i/gftKUdR.png" alt title width="600" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a></td> 
+                      <td align="center" style="padding:0;Margin:0;position:relative"><a target="_blank" href="https://viewstripo.email" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#E84A54"><img class="adapt-img" src="http://imgfz.com/i/Outehf5.png" alt title width="600" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -95,7 +95,7 @@ a[x-apple-data-detectors] {
                   <td align="left" class="es-m-p20b" style="padding:0;Margin:0;width:245px"> 
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="http://imgfz.com/i/ual5DqV.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="245"></td> 
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="http://imgfz.com/i/NHzYndw.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="245"></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -109,176 +109,10 @@ a[x-apple-data-detectors] {
                       <td align="center" height="29" style="padding:0;Margin:0"></td> 
                      </tr> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="left" class="es-m-txt-l" style="padding:0;Margin:0;padding-bottom:10px"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:24px;font-style:normal;font-weight:bold;color:#FFFFFF">Tu curso ha sido aceptado!&nbsp;</h2></td> 
+                      <td align="left" class="es-m-txt-l" style="padding:0;Margin:0;padding-bottom:10px"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:24px;font-style:normal;font-weight:bold;color:#FFFFFF">{{ $details['title']}} {{ $details['status']}}!&nbsp;</h2></td> 
                      </tr> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="left" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#FFFFFF">Tu curso ha sido aceptado</p></td> 
-                     </tr> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="left" style="padding:0;Margin:0;padding-bottom:10px;padding-top:15px"> 
-                       <!--[if mso]><a href="https://viewstripo.email" target="_blank">
-	<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" stripoVmlButton href="https://viewstripo.email" 
-                style="height:46px;v-text-anchor:middle;width:127px;" arcsize="11%" stroke="f"  fillcolor="#fff5e3">
-		<w:anchorlock></w:anchorlock>
-		<center style='color:#ee9322;font-family:arial, "helvetica neue", helvetica, sans-serif;font-size:18px;font-weight:700;'>Ir al curso</center>
-	</v:roundrect></a>
-<![endif]--> 
-                       <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#E84A54;border-width:0px;display:inline-block;border-radius:5px;width:auto;mso-hide:all"><a href="https://viewstripo.email" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#EE9322;border-style:solid;border-color:#FFF5E3;border-width:10px 20px 10px 20px;display:inline-block;background:#FFF5E3;border-radius:5px;font-weight:bold;font-style:normal;line-height:22px;width:auto;text-align:center">Ir al curso</a></span> 
-                       <!--<![endif]--></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td></tr></table><![endif]--></td> 
-             </tr> 
-             <tr style="border-collapse:collapse"> 
-              <td align="left" bgcolor="#074090" style="padding:0;Margin:0;background-color:#074090"> 
-               <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="center" valign="top" style="padding:0;Margin:0;width:600px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="http://imgfz.com/i/tInpkuM.png" width="600"></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table></td> 
-             </tr> 
-             <tr style="border-collapse:collapse"> 
-              <td align="left" bgcolor="#fb9831" style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px;background-color:#FB9831"> 
-               <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="center" valign="top" style="padding:0;Margin:0;width:560px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;padding-top:5px"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:24px;font-style:normal;font-weight:bold;color:#FFFFFF">titulo<span data-cke-bookmark="1" style="display:none">&nbsp;</span></h2></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table></td> 
-             </tr> 
-             <tr style="border-collapse:collapse"> 
-              <td align="left" bgcolor="#fb9831" style="Margin:0;padding-top:20px;padding-left:20px;padding-right:20px;padding-bottom:35px;background-color:#FB9831"> 
-               <!--[if mso]><table style="width:560px" cellpadding="0" cellspacing="0"><tr><td style="width:270px" valign="top"><![endif]--> 
-               <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:270px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;background-color:#FFFFFF;border-radius:37px 3px 37px 3px" role="presentation"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="Margin:0;padding-top:5px;padding-bottom:10px;padding-left:15px;padding-right:15px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#333333">texto</h3></td> 
-                     </tr> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="Margin:0;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom:15px"> 
-                       <!--[if mso]><a href="https://viewstripo.email" target="_blank">
-	<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" stripoVmlButton href="https://viewstripo.email" 
-                style="height:46px;v-text-anchor:middle;width:132px;" arcsize="11%" stroke="f" fillcolor="#fb9831">
-		<w:anchorlock></w:anchorlock>
-		<center style='color:#ffffff;font-family:arial, "helvetica neue", helvetica, sans-serif;font-size:18px;font-weight:700;'>learn More</center>
-	</v:roundrect></a>
-<![endif]--> 
-                       <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#E84A54;border-width:0px;display:inline-block;border-radius:5px;width:auto;mso-hide:all;background:#FB9831"><a href="https://viewstripo.email" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#FB9831;border-width:10px 20px 10px 20px;display:inline-block;background:#FB9831;border-radius:5px;font-weight:bold;font-style:normal;line-height:22px;width:auto;text-align:center">learn More</a></span> 
-                       <!--<![endif]--></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td><td style="width:20px"></td><td style="width:270px" valign="top"><![endif]--> 
-               <table cellpadding="0" cellspacing="0" class="es-right" align="right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:270px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;background-color:#FFFFFF;border-radius:37px 3px 37px 3px" role="presentation"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="Margin:0;padding-top:5px;padding-bottom:10px;padding-left:15px;padding-right:15px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#333333">texto</h3></td> 
-                     </tr> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="Margin:0;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom:15px"> 
-                       <!--[if mso]><a href="https://viewstripo.email" target="_blank">
-	<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" stripoVmlButton href="https://viewstripo.email" 
-                style="height:46px;v-text-anchor:middle;width:132px;" arcsize="11%" stroke="f" fillcolor="#fb9831">
-		<w:anchorlock></w:anchorlock>
-		<center style='color:#ffffff;font-family:arial, "helvetica neue", helvetica, sans-serif;font-size:18px;font-weight:700;'>learn More</center>
-	</v:roundrect></a>
-<![endif]--> 
-                       <!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#E84A54;border-width:0px;display:inline-block;border-radius:5px;width:auto;mso-hide:all;background:#FB9831"><a href="https://viewstripo.email" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#FB9831;border-width:10px 20px 10px 20px;display:inline-block;background:#FB9831;border-radius:5px;font-weight:bold;font-style:normal;line-height:22px;width:auto;text-align:center">learn More</a></span> 
-                       <!--<![endif]--></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td></tr></table><![endif]--></td> 
-             </tr> 
-             <tr style="border-collapse:collapse"> 
-              <td align="left" bgcolor="#074090" style="padding:0;Margin:0;background-color:#074090"> 
-               <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="center" valign="top" style="padding:0;Margin:0;width:600px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="images/email/52111595438546339.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="600"></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table></td> 
-             </tr> 
-             <tr style="border-collapse:collapse"> 
-              <td align="left" bgcolor="#074090" style="Margin:0;padding-bottom:5px;padding-top:20px;padding-left:20px;padding-right:20px;background-color:#074090"> 
-               <!--[if mso]><table dir="rtl" style="width:560px" cellpadding="0" cellspacing="0"><tr><td dir="ltr" style="width:260px" valign="top"><![endif]--> 
-               <table cellpadding="0" cellspacing="0" class="es-right" align="right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="left" class="es-m-p20b" style="padding:0;Margin:0;width:260px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="right" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><img src="http://imgfz.com/i/oZ73pkS.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="220"></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td><td dir="ltr" style="width:20px"></td><td dir="ltr" style="width:280px" valign="top"><![endif]--> 
-               <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left"> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="left" style="padding:0;Margin:0;width:280px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="left" class="es-m-txt-l" style="padding:0;Margin:0;padding-bottom:10px"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:24px;font-style:normal;font-weight:bold;color:#FFFFFF">Agrega mas cursos&nbsp;</h2></td> 
-                     </tr> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="left" style="padding:0;Margin:0;padding-bottom:20px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#FFFFFF">Agrega mas cursos para que la nueva generacion siga aprendiendo.</p></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="left" style="padding:0;Margin:0;width:280px"> 
-                   <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;background-color:#FFFFFF;border-radius:25px 3px 25px 3px" role="presentation"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td valign="top" align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px;padding-left:10px;width:40px;font-size:0px"><img src="images/email/31891595439704791.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="35"></td> 
-                      <td align="left" style="padding:0;Margin:0"> 
-                       <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                         <tr style="border-collapse:collapse"> 
-                          <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-left:5px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#333333">Fast shipping</h3></td> 
-                         </tr> 
-                       </table></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="left" style="padding:0;Margin:0;width:280px"> 
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td align="center" height="20" style="padding:0;Margin:0"></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-                 <tr style="border-collapse:collapse"> 
-                  <td align="left" style="padding:0;Margin:0;width:280px"> 
-                   <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;background-color:#FFFFFF;border-radius:25px 3px 25px 3px" role="presentation"> 
-                     <tr style="border-collapse:collapse"> 
-                      <td valign="top" align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px;padding-left:10px;width:40px;font-size:0px"><img src="images/email/36051595439802581.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="35"></td> 
-                      <td align="left" style="padding:0;Margin:0"> 
-                       <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
-                         <tr style="border-collapse:collapse"> 
-                          <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-left:5px"><h3 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;font-size:20px;font-style:normal;font-weight:bold;color:#333333">Quality assurance</h3></td> 
-                         </tr> 
-                       </table></td> 
+                      <td align="left" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#FFFFFF">{{ $details['message']}}</p></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -299,7 +133,7 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:600px"> 
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="images/email/73861595440141310.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                      <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="http://imgfz.com/i/Igvh6AV.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -362,11 +196,11 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;padding-bottom:15px;font-size:0"> 
                        <table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                          <tr style="border-collapse:collapse"> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Facebook" src="images/email/facebook-circle-black.png" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Twitter" src="images/email/twitter-circle-black.png" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Instagram" src="images/email/instagram-circle-black.png" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Youtube" src="images/email/youtube-circle-black.png" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Pinterest" src="images/email/pinterest-circle-black.png" alt="P" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Facebook" src="images/facebook-circle-black.png" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Twitter" src="images/twitter-circle-black.png" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Instagram" src="images/instagram-circle-black.png" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Youtube" src="images/youtube-circle-black.png" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td valign="top" align="center" style="padding:0;Margin:0;padding-right:10px"><img title="Pinterest" src="images/pinterest-circle-black.png" alt="P" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
                          </tr> 
                        </table></td> 
                      </tr> 

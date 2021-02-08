@@ -71,7 +71,9 @@
                                                 <a href="{{ route('admin.pending.download', $unit) }}">Descargar archivo</a>
                                             @break
                                             @case(\App\Models\Unit::VIDEO)
-                                                <iframe id="player" type="text/html" width="100%" src="{{ $unit->content }}" frameborder="0" scrolling="no"></iframe>
+
+                                            {!! $unit->video_html !!}
+
                                             @break
                                         @endswitch
                                     </td>
@@ -91,12 +93,36 @@
             </div>
             <!-- End Invoice Details List Wrapper -->
 
-            <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
-                <a href="#" class="download-btn mr-3"><img src="{{ asset('../../assets/img/svg/table-colse.svg') }}" alt="" class="svg"></a>
-                <a href="{{ route('admin.course.status', ['id' => $course->id, 'status' => 1]) }}" class="print-btn mr-20"><img src="{{ asset('../../assets/img/svg/done-check.svg') }}" alt="" class="svg"></a>
-            </div>
+            <div class="container-fluid">
 
-            
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Touchspin -->
+                            <div class="form-element touchspin mb-30">
+                                <!-- Form -->
+                                {!! Form::open(['route'=>['admin.course.status', $course],'method'=>'PUT']) !!}
+
+                                    <!-- Form Group -->
+                                    <div class="form-group mb-4">
+                                        <h4 class="font-20 mb-3">Mensaje</h4>
+
+                                        <textarea id="textarea1" name="textarea1" class="theme-input-style style--seven" placeholder="Mensaje de aceptacion o rechazo del curso"></textarea>
+
+                                    </div>
+                                    <!-- End Form Group -->
+
+                                    <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
+                                        {!! Form::submit( 'Rechazar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '1'])!!}
+                                        {!! Form::submit( 'Aceptar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '3']) !!}
+                                    </div>
+
+                                {!! Form::close() !!}
+                                <!-- End Form -->
+                            </div>
+                            <!-- End Touchspin -->
+                        </div>
+                    </div>
+                </div>  
         </div>
     </div>
     
