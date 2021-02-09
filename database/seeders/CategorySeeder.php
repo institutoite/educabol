@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
         foreach($categories as $category => $bg) {
             \App\Models\Category::factory()->create([
                 "name" => $category,
-                "picture" => Image::image(storage_path('app/public/categories'), $category, $bg, 370, 450, false),
+                "picture" => Image::image(storage_path('app/public/categories'), $category, $bg, 470, 220, false),
             ]); 
         }
     }

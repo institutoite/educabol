@@ -76,14 +76,14 @@
             </div>
           </div>
           <div class="form-check mr-auto ml-3 mt-3">
-            <div class="bmd-form-group{{ $errors->has('role_id') ? ' has-danger' : '' }}">
-              @if ($errors->has('role_id'))
-                <div id="name-error" class="error text-danger pl-3" for="role_id" style="display: block;">
-                  <strong><p>Seleccione una o mas opciones</p></strong>
+            <div class="bmd-form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
+              @if ($errors->has('role'))
+                <div id="name-error" class="error text-danger pl-3" for="role" style="display: block;">
+                  <strong><p>Seleccione una opcion</p></strong>
                 </div>
               @endif
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="2" name="role_id" id="role_id" > {{ __('Crear cuenta como alumno') }}
+                <input class="form-check-input" type="checkbox" value="STUDENT" name="role" id="role" > {{ __('Crear cuenta como alumno') }}
                 <span class="form-check-sign">
                   <span class="check"></span>
                 </span>
@@ -92,7 +92,7 @@
           </div>
           <div class="form-check mr-auto ml-3 mt-3">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" value="3" name="role_id" id="role_id"> {{ __('Crear cuenta como profesor') }}
+              <input class="form-check-input" type="checkbox" value="TEACHER" name="role" id="role"> {{ __('Crear cuenta como profesor') }}
               <span class="form-check-sign">
                 <span class="check"></span>
               </span>

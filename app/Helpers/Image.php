@@ -12,9 +12,9 @@ class Image
      * @param null $name
      * @param string $bg
      * @return string
-     * @example 'https://via.placeholder.com/640x480/?12345'
+     * @example 'https://via.placeholder.com/470x220/?12345'
      */
-    public static function imageUrl($width = 640, $height = 480, $name = null, $bg = "FF0000"): string
+    public static function imageUrl($width = 470, $height = 220, $name = null, $bg = "FF0000"): string
     {
         return "https://via.placeholder.com/".$width."x".$height.".png/".$bg."/FFFFFF?text=".$name;
     }
@@ -33,7 +33,7 @@ class Image
      * @return bool|\RuntimeException|string
      * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.jpg'
      */
-    public static function image($dir, $fileText, $bg, $width = 640, $height = 480, $fullPath = true)
+    public static function image($dir, $fileText, $bg, $width = 470, $height = 220, $fullPath = true)
     {
         $dir = is_null($dir) ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
         // Validate directory path

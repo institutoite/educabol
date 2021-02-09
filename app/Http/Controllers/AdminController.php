@@ -96,7 +96,7 @@ class AdminController extends Controller
 
     public function updateStatus(Request $request, Course $course) {
         
-        //$course = Course::find($id);
+        
         switch($request->submitbutton) {
 
             case 'Rechazar Curso': 
@@ -131,10 +131,6 @@ class AdminController extends Controller
 
             break;
         }
-        /*$course->status = $status;
-        $course->save();
-        $courses = Course::where('status', 2)->get();
-		return view('admin.pending.index', compact('courses'));*/
 
         
     }

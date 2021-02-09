@@ -6,63 +6,65 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
 @endpush
 @section('content')
-<div class="row">
-    <div class="col-12">
-        <div class="card mb-30">
-            <div class="card-body">
-                <div class="d-sm-flex justify-content-between align-items-center">
-                    <h4 class="font-20">Categorias</h4>
+    @can('admin.categories')
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-30">
+                    <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-center">
+                            <h4 class="font-20">Categorias</h4>
 
-                    <div class="d-flex flex-wrap">
-                        <!-- Button -->
-                        <button type="button" onclick="window.location.href='{{ route('admin.categories.create') }}'" class="btn style--two orange">Crear Categoria</button>
-                        <!-- Button -->
+                            <div class="d-flex flex-wrap">
+                                <!-- Button -->
+                                <button type="button" onclick="window.location.href='{{ route('admin.categories.create') }}'" class="btn style--two orange">Crear Categoria</button>
+                                <!-- Button -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Invoice List Table -->
+                        <table class="table-striped" id="usuarios">
+                            <thead>
+                                <tr>
+                                    <th>{{ __("Id") }}</th>
+                                    <th>{{ __("Nombre") }}</th>
+                                    <th>{{ __("Descripcion") }}</th>
+                                    <th>{{ __("Foto") }}</th>
+                                    <th>{{ __("Alta") }}</th>
+                                    <th>{{ __("Edición") }}</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($categories as $category)
+                                    <tr>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->description }}</td>
+                                        <td><img width="100" src="{{ asset("storage/categories/$category->picture" )}}" alt="" /></td>
+                                        <td>{{ $category->created_at->format("d/m/Y") }}</td>
+                                        <td>{{ $category->updated_at->format("d/m/Y") }}</td>
+                                        <td>
+                                        <a href="{{ route('admin.categories.edit', ['category' => $category]) }}"><img src="{{ asset('../../assets/img/svg/c-edit.svg') }}" alt="" class="svg"></a>
+                                        </td>
+                                        
+                                    </tr>
+                                @empty
+                                <div class="container">
+                                    <div class="empty-results">
+                                        {!! __("No tienes ningún categoria todavía: :link", ["link" => "<a href='".route('admin.categories.create')."'>Crear mi primera categoria</a>"]) !!}
+                                    </div>
+                                </div>
+                                @endforelse
+                            </tbody>
+                            
+                        </table>
+                        <!-- End Invoice List Table -->
                     </div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <!-- Invoice List Table -->
-                <table class="table-striped" id="usuarios">
-                    <thead>
-                        <tr>
-                            <th>{{ __("Id") }}</th>
-                            <th>{{ __("Nombre") }}</th>
-                            <th>{{ __("Descripcion") }}</th>
-                            <th>{{ __("Foto") }}</th>
-                            <th>{{ __("Alta") }}</th>
-                            <th>{{ __("Edición") }}</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($categories as $category)
-                            <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->description }}</td>
-                                <td><img width="100" src="{{ asset("storage/categories/$category->picture" )}}" alt="" /></td>
-                                <td>{{ $category->created_at->format("d/m/Y") }}</td>
-                                <td>{{ $category->updated_at->format("d/m/Y") }}</td>
-                                <td>
-                                <a href="{{ route('admin.categories.edit', ['category' => $category]) }}"><img src="{{ asset('../../assets/img/svg/c-edit.svg') }}" alt="" class="svg"></a>
-                                </td>
-                                
-                            </tr>
-                        @empty
-                        <div class="container">
-                            <div class="empty-results">
-                                {!! __("No tienes ningún categoria todavía: :link", ["link" => "<a href='".route('admin.categories.create')."'>Crear mi primera categoria</a>"]) !!}
-                            </div>
-                        </div>
-                        @endforelse
-                    </tbody>
-                    
-                </table>
-                <!-- End Invoice List Table -->
-            </div>
         </div>
-    </div>
-</div>
+    @endcan
 @endsection
 @push("js")
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

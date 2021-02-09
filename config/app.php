@@ -177,7 +177,7 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Cohensive\Embed\EmbedServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
