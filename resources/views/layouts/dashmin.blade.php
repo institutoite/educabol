@@ -150,19 +150,22 @@
                 <div class="sidebar-body">
                     <!-- Nav -->
                     <ul class="nav">
-                        <li class="nav-category">Modulo Administrador</li>
-                        <li>
-                            <a href="{{ route('admin.categories') }}">
-                                <i class="icofont-ebook"></i>
-                                <span class="link-title">Categorias</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.pending') }}">
-                                <i class="icofont-ebook"></i>
-                                <span class="link-title">Cursos pendientes</span>
-                            </a>
-                        </li>
+                        @can('admin.categories')
+                            <li class="nav-category">Modulo Administrador</li>
+                            <li>
+                                <a href="{{ route('admin.categories') }}">
+                                    <i class="icofont-ebook"></i>
+                                    <span class="link-title">Categorias</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.pending') }}">
+                                    <i class="icofont-ebook"></i>
+                                    <span class="link-title">Cursos pendientes</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('teacher.courses')
                         <li class="nav-category">Modulo Profesores</li>
                         <li>
                             <a href="{{ route('teacher.courses') }}">
@@ -182,6 +185,7 @@
                                 <span class="link-title">Mis estudiantes</span>
                             </a>
                         </li>
+                        @endcan
                     </ul>
                     <!-- End Nav -->
                 </div>

@@ -99,7 +99,7 @@
             if (type === '{{ \App\Models\Unit::VIDEO }}') {
                 const html = `
                     <div class="embed-responsive embed-responsive-16by9">
-                        ${unit.content}
+                    {!! $unit->video_html !!}
                     </div>
                `;
                 visorBody.html(html);

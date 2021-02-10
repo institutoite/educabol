@@ -176,6 +176,16 @@ class TeacherController extends Controller
         ];
     }
 
+    public function students () {
+		$students = Student::with('user')
+			->whereHas('courses', function ($q) {
+				$q->where('teacher_id', auth()->user()->teacher->id)->select('id', 'teacher_id', 'name');
+			})->get();
+
+		$actions = 'students.datatables.actions';
+		return view('teacher.students', compact('students'));
+    }
+
     public function profits() {
         return view('teacher.profits.index');
     }

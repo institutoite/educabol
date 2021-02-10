@@ -28,7 +28,7 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/category/{category}', [App\Http\Controllers\CourseController::class, 'byCategory'])->name('category');
 });
 
-Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
+Route::group(['prefix' => 'teacher', 'as' => 'teacher.','middleware' => ['permission:teacher.courses|teacher.units|teacher.students']], function () {
     Route::get('/courses', [App\Http\Controllers\TeacherController::class, 'courses'])->name('courses');
     Route::get('/courses/create', [App\Http\Controllers\TeacherController::class, 'createCourse'])->name('courses.create');
     Route::post('/courses/store', [App\Http\Controllers\TeacherController::class, 'storeCourse'])->name('courses.store');
@@ -50,7 +50,7 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::get('/courses', [App\Http\Controllers\StudentController::class, 'courses'])->name('courses');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['permission:admin.categories|admin.pending']], function () {
     Route::get('/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('categories');
     Route::get('/categories/create', [App\Http\Controllers\AdminController::class, 'createCategory'])->name('categories.create');
     Route::post('/categories/store', [App\Http\Controllers\AdminController::class, 'storeCategory'])->name('categories.store');
