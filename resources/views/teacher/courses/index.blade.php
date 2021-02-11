@@ -39,7 +39,10 @@
                                 <td>{{ $course->price }}</td>
                                 <td>{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</td>
                                 <td>@include('partials.courses.status')</td>
-                                <td><a href="{{ route('teacher.courses.edit', ['course' => $course]) }}" class="details-btn">{{ __("Gestionar Curso") }} <i class="icofont-arrow-right"></i></a></td>
+                                <td>
+                                <a href="{{ route('teacher.courses.edit', ['course' => $course]) }}" class="details-btn">{{ __("Gestionar Curso") }} <i class="icofont-arrow-right"></i></a>
+                                <a href="{{ route('teacher.courses.students', ['course' => $course]) }}" class="details-btn">{{ __("Listado Alumnos") }} <i class="icofont-arrow-right"></i></a>
+                                </td>
                             </tr>
                         @empty
                             <div class="container">
@@ -70,8 +73,6 @@
             language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
-            
-            "order": [[ 4, 'desc' ]]
         });
         
     </script>

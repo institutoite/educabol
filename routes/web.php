@@ -42,6 +42,9 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.','middleware' => ['permis
     Route::put('/units/{unit}', [App\Http\Controllers\TeacherController::class, 'updateUnit'])->name('units.update');
     Route::get('/units/{unit}/destroy', [App\Http\Controllers\TeacherController::class, 'destroyUnit'])->name('units.destroy');
 
+
+    Route::get('/courses/{course}/students', [App\Http\Controllers\TeacherController::class, 'students'])->name('courses.students');
+
     Route::get('/profits', [App\Http\Controllers\TeacherController::class, 'profits'])->name('profits');
     
 });
@@ -63,6 +66,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['permission
     Route::get('/download/{unit}', [App\Http\Controllers\AdminController::class, 'download'])->name('pending.download');
     Route::put('/courses/{course}', [App\Http\Controllers\AdminController::class, 'updateStatus'])->name('course.status');
 });
+
+Route::group(['prefix' => "solicitude"], function() {
+    Route::post('/teacher', [App\Http\Controllers\SolicitudeController::class, 'teacher'])->name('solicitude.teacher');
+});
+
 
 Route::get('/add-to-cart/{course}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('auth');

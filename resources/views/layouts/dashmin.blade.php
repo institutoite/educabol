@@ -87,8 +87,6 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <a href="{{ url('/') }}">Pagina principal</a>
-                                    <a href="#">task</a>
-                                    <a href="#">Settings</a>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Cerrar Sesion</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                                 </div>
@@ -179,12 +177,6 @@
                                 <span class="link-title">Unidades</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="icofont-student-alt"></i>
-                                <span class="link-title">Mis estudiantes</span>
-                            </a>
-                        </li>
                         @endcan
                     </ul>
                     <!-- End Nav -->
@@ -216,7 +208,7 @@
     <!-- End wrapper -->
 
     <!-- ======= DATATABLE SCRIPTS ======= -->
-    @yield('js')
+    
     
     <!-- ======= DATATABLE SCRIPTS ======= -->
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
 use App\Models\Teacher;
 use App\Models\User;
 
@@ -11,16 +10,14 @@ use App\Models\User;
 class SolicitudeController extends Controller
 {
     public function teacher () {
-        $user = auth()->user();
-    	if ( ! $user->teacher) {
+		$isTeacher = auth()->user()->isTeacher();
+    	if ( !$isTeacher ) {
     		try {
 				\DB::beginTransaction();
 				$user = User::find($user->id);
-				$user->role_id = Role::TEACHER;
+				$user->role = User::TEACHER;
 				$user->save();
-			    Teacher::create([
-			    	'user_id' => $user->id
-			    ]);
+				$user->assignRole('TEACHER');
 			    $success = true;
 		    } catch (\Exception $exception) {
     			\DB::rollBack();
@@ -31,7 +28,7 @@ class SolicitudeController extends Controller
     			\DB::commit();
     			auth()->logout();
                 auth()->loginUsingId($user->id);
-                alert()->success('Bienvenido !', 'Oficialmente eres instructor en la plataforma')->persistent('Cerrar')->autoclose(3500);
+                alert()->success('Felicidades, ya eres instructor en la plataforma')->persistent('Cerrar')->autoclose(3500);
 			    return back();
 		    }
 

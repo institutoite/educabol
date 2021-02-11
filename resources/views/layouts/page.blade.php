@@ -116,6 +116,24 @@
                         <h3>
                             Crea cursos en vídeo, subelo a nuestra plataforma y comienza a ganar dinero a traves de tus conocimientos.
                         </h3>
+                        @auth
+                            @if( ! auth()->user()->isTeacher())
+                                <form action="{{ route('solicitude.teacher') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-warning">
+                                        <i class="fa fa-graduation-cap"></i> {{ __("Convertirme en profesor") }}
+                                    </button>
+                                </form>
+                            @else
+                                <div class="btn-about-become">
+                                    <a href="#">Administrar los cursos que imparto</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class="btn-about-become">
+                                <a href="{{ route('register') }}">Registrate como profesor</a>
+                            </div>
+                        @endauth
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">

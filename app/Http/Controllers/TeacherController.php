@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Unit;
+use App\Models\User;
 use App\Http\Requests\UnitRequest;
 use App\Helpers\Uploader;
 use App\Http\Requests\CourseRequest;
@@ -13,7 +14,7 @@ use DB;
 class TeacherController extends Controller
 {
 	public function courses () {
-        $courses = Course::forTeacher()->sortByDesc('id');
+        $courses = Course::forTeacher();
 		return view('teacher.courses.index', compact('courses'));
     }
     
@@ -176,14 +177,11 @@ class TeacherController extends Controller
         ];
     }
 
-    public function students () {
-		$students = Student::with('user')
-			->whereHas('courses', function ($q) {
-				$q->where('teacher_id', auth()->user()->teacher->id)->select('id', 'teacher_id', 'name');
-			})->get();
+    public function students (Course $course) {
+		
+        $students = User::join('course_student as cc','users.id','=','cc.user_id')->where("course_id", $course->id)->get();
 
-		$actions = 'students.datatables.actions';
-		return view('teacher.students', compact('students'));
+		return view('teacher.courses.students', compact('students'));
     }
 
     public function profits() {
