@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,17 @@ Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class
 
 Route::get('/send-email', [App\Http\Controllers\MailController::class, 'sendEmail'])->name('send-email');
 
+
+
+//prueba
 Route::get('/email', function () {
     return view('emails.TestEMail');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::post('/upload', function (Request $request) {
+    dd($request->file("thing"));
 });

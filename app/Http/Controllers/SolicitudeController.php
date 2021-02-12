@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 
 class SolicitudeController extends Controller
@@ -14,10 +16,10 @@ class SolicitudeController extends Controller
     	if ( !$isTeacher ) {
     		try {
 				\DB::beginTransaction();
-				$user = User::find($user->id);
+				$user = User::find(auth()->user()->id);
 				$user->role = User::TEACHER;
 				$user->save();
-				$user->assignRole('TEACHER');
+        		$user->assignRole('TEACHER');
 			    $success = true;
 		    } catch (\Exception $exception) {
     			\DB::rollBack();

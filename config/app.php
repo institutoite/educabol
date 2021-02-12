@@ -178,6 +178,7 @@ return [
         Darryldecode\Cart\CartServiceProvider::class,
         Cohensive\Embed\EmbedServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
 
     ],
 
