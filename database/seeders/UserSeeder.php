@@ -20,7 +20,15 @@ class UserSeeder extends Seeder
         $users = [
             [
                 "role" => User::ADMIN,
-                "name" => "Edward Carrillo.",
+                "name" => "David Emanuel",
+                "email" => "iteeducabol@gmail.com",
+                'email_verified_at' => now(),
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'remember_token' => Str::random(10),
+            ],
+            [
+                "role" => User::TEACHER,
+                "name" => "Edward Carrillo",
                 "email" => "eduardcp20@gmail.com",
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -28,15 +36,15 @@ class UserSeeder extends Seeder
             ],
             [
                 "role" => User::TEACHER,
-                "name" => "Eduardo Justiniano.",
-                "email" => "edwardcp27@gmail.com",
+                "name" => "Eduardo Justiniano",
+                "email" => "edwardcp001@gmail.com",
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'remember_token' => Str::random(10),
             ],
             [
                 "role" => User::STUDENT,
-                "name" => "Jose Eduardo Ortiz.",
+                "name" => "Jose Eduardo Ortiz",
                 "email" => "edwardcp26@gmail.com",
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -44,8 +52,8 @@ class UserSeeder extends Seeder
             ],
             [
                 "role" => User::STUDENT,
-                "name" => "Carlos Eduardo Cabrera.",
-                "email" => "edwardcp001@gmail.com",
+                "name" => "Carlos Eduardo Cabrera",
+                "email" => "edwardcp27@gmail.com",
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'remember_token' => Str::random(10),

@@ -113,9 +113,9 @@
                 </div>
                 @isset($update)
                 <div class="form-group">
-                    <h2 class="text-muted text-center mb-2">
+                    <h3 class="text-muted text-center mb-2">
                         {{ __("Organiza las unidades de tu curso") }}
-                    </h2>
+                    </h3>
                     <ul class="drag-list">
                         @forelse($course->units as $unit)
                             <li data-id="{{ $unit->id }}">

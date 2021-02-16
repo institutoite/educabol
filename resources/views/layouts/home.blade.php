@@ -45,14 +45,22 @@
                             <ul class="menu">
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
                                 @auth
-                                    @if ( auth()->user()->isTeacher() )  
+                                    @if ( auth()->user()->isAdmin() )
+                                        <li>
+                                            <a class="brand-text" href="{{ route('admin.pending') }}">{{ __("Administrar") }}</a>
+                                        </li>
+                                    @elseif ( auth()->user()->isTeacher() )  
                                         <li>
                                             <a class="brand-text" href="{{ route('teacher.courses') }}">{{ __("Administrar Cursos") }}</a>
                                         </li>
-                                    @endif
                                         <li>
                                             <a class="brand-text" href="{{ route('student.courses') }}">{{ __("Mis Cursos") }}</a>
                                         </li>
+                                    @else
+                                        <li>
+                                            <a class="brand-text" href="{{ route('student.courses') }}">{{ __("Mis Cursos") }}</a>
+                                        </li>
+                                    @endif
                                 @endauth
                                 <li>
                                     <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart">

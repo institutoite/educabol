@@ -81,15 +81,31 @@ Route::get('/send-email', [App\Http\Controllers\MailController::class, 'sendEmai
 
 
 
-//prueba
+//pruebas
 Route::get('/email', function () {
     return view('emails.TestEMail');
 });
 
-Route::get('/welcome', function () {
+/*Route::get('/welcome', function () {
     return view('welcome');
+});*/
+
+Route::get('/welcome', function () {
+    $files = Storage::disk("google")->allFiles();
+    $firstFileName = $files[2];
+    $details = Storage::disk('google')->getMetadata($firstFileName);
+    dump($details);
+    $extension = $details["extension"];
+    dump($extension);
+    $url = Storage::disk('google')->url($firstFileName);
+    dump($url);
 });
 
-Route::post('/upload', function (Request $request) {
-    dd($request->file("thing"));
+/*Route::get('/welcome', function () {
+    Storage::disk("google")->makeDirectory("Curso de Laravel 8");
+});*/
+
+Route::post('/update', function (Request $request) {
+    
+    dd($request->file("thing")->store("", "google"));
 });

@@ -21,9 +21,9 @@ class CreateUnitsTable extends Migration
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->tinyInteger('order');
-            $table->enum('unit_type', [Unit::ZIP, Unit::VIDEO, Unit::SECTION])->default(Unit::VIDEO);
+            $table->string('unit_type');
             $table->string('title');
-            $table->text('content')->nullable();
+            $table->text('url')->nullable();
             $table->string('file')->nullable();
             $table->boolean('free')->default(false);
             $table->unsignedTinyInteger('unit_time')->nullable()->comment('Total minutes if apply');

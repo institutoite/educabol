@@ -31,17 +31,11 @@ class UnitRequest extends FormRequest
             {
                 return [
                     'title' => 'required|min:1|max:200',
-                    'content' => 'required_if:unit_type,'.Unit::VIDEO,
                     'course_id' => [
                         'required',
                         Rule::exists('courses', 'id')
                     ],
-                    'unit_type' => [
-                        'required',
-                        Rule::in(Unit::unitTypes())
-                    ],
-                    'file' => 'required_if:unit_type,'.Unit::ZIP.'|file',
-                    'unit_time' => 'required_if:unit_type,'.Unit::VIDEO,
+                    'file' => 'required|file',
                 ];
             }
             case 'PUT':

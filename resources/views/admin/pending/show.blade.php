@@ -20,7 +20,7 @@
                             <!-- Invoice Left -->
                             <div class="invoice-left">
                                 @if($course->picture)
-                                    <div class="logo mb-3"><img alt="{{ $title }}" class="img-fluid" width="150" src="{{ $course->imagePath() }}" /></div>
+                                    <div class="logo mb-3"><img alt="{{ $title }}" class="img-fluid" width="250" src="{{ $course->imagePath() }}" /></div>
                                 @endif
                             </div>
                             <!-- End Invoice Left -->
@@ -77,7 +77,7 @@
                                             @break
                                             @case(\App\Models\Unit::VIDEO)
 
-                                            {!! $unit->video_html !!}
+                                            <iframe src="https://drive.google.com/uc?id=1wfA7oCTUZiM7PvBFZ7TEgh2VKvjVwke2&export=media" width="640" height="480"></iframe>
 
                                             @break
                                         @endswitch

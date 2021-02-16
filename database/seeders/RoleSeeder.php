@@ -33,10 +33,13 @@ class RoleSeeder extends Seeder
         $teacher = User::find(2); 
         $teacher->assignRole('TEACHER');
 
-        $student1 = User::find(3); 
+        $teacher = User::find(3); 
+        $teacher->assignRole('TEACHER');
+
+        $student1 = User::find(4); 
         $student1->assignRole('STUDENT');
 
-        $student2 = User::find(4); 
+        $student2 = User::find(5); 
         $student2->assignRole('STUDENT');
     }
 }

@@ -12,7 +12,7 @@ class Unit extends Model
     use HasFactory;
 
     protected $fillable = [
-        "title", "content", "course_id", "user_id",
+        "title", "url", "course_id", "user_id",
         "unit_type", "unit_time", "file", "order", "free" , "status"
     ];
 
@@ -56,7 +56,7 @@ class Unit extends Model
 
     public function getVideoHtmlAttribute()
     {
-        $embed = Embed::make($this->content)->parseUrl();
+        $embed = Embed::make($this->url)->parseUrl();
 
         if (!$embed)
             return '';

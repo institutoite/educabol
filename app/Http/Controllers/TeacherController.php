@@ -10,6 +10,7 @@ use App\Http\Requests\UnitRequest;
 use App\Helpers\Uploader;
 use App\Http\Requests\CourseRequest;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller
 {
@@ -117,10 +118,28 @@ class TeacherController extends Controller
 	public function storeUnit(UnitRequest $request) {
         $file = null;
         if ($request->hasFile("file")) {
-            $file = Uploader::uploadFile("file", "units");
+            $save = $request->file("file")->store("", "google");
+            if($save){
+                $url = Storage::disk('google')->url($save);
+                $details = Storage::disk('google')->getMetadata($save);
+                $extension = $details["extension"];
+                $unit = Unit::create([
+                    "course_id" => $request["course_id"],
+                    "title" => $request["title"],
+                    "url" => $url,
+                    "file" => $save,
+                    "unit_type" => $extension,
+                    "unit_time" => $request["unit_time"],
+                    "free" => $request["free"],
+                    'status' => 1,
+                ]);
+                alert()->success('','Unidad Agregada Correctamente')->persistent('Cerrar')->autoclose(3500);
+            }else{
+                alert()->error('Intentalo de nuevo', 'Ocurrio un error');
+            }
         }
 
-        $unit = Unit::create($this->unitInput($file));
+        
 
         alert()->success('','Unidad Agregada Correctamente')->persistent('Cerrar')->autoclose(3500);
 
@@ -162,19 +181,6 @@ class TeacherController extends Controller
         $unit->save();
         alert()->error('Satisfactoriamente', 'Area Eliminada');
         return redirect(route('teacher.units'));
-    }
-
-    protected function unitInput(string $file = null): array {
-        return [
-            "course_id" => request("course_id"),
-            "title" => request("title"),
-            "content" => request("content"),
-            "file" => $file,
-            "unit_type" => request("unit_type"),
-            "unit_time" => request("unit_time"),
-            "free" => request("free"),
-            'status' => 1,
-        ];
     }
 
     public function students (Course $course) {
