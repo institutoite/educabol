@@ -12,12 +12,12 @@ class Unit extends Model
     use HasFactory;
 
     protected $fillable = [
-        "title", "url", "course_id", "user_id",
+        "title", "url", "path", "course_id", "user_id",
         "unit_type", "unit_time", "file", "order", "free" , "status"
     ];
 
-    const ZIP = 'ZIP';
-    const VIDEO = 'VIDEO';
+    const ZIP = 'pdf';
+    const VIDEO = 'mp4';
     const SECTION = 'SECTION';
 
     protected static function boot()

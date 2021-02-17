@@ -57,12 +57,11 @@ class User extends Authenticatable
     }
 
     public function courses_learning() {
-        return $this->belongsToMany(Course::class, 'course_student', 'course_id', 'user_id');
+        return $this->belongsToMany(Course::class, "course_student");
     }
-    
+
     public function scopePurchasedCourses() {
         return $this->courses_learning()->with("categories")->paginate();
     }
-
     
 }

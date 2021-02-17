@@ -3,16 +3,9 @@
 @section('content')
     <div class="course-grid">
         <div class="container">
-            <div class="flat-portfolio">
-                <ul class="flat-filter-isotype">
-                </ul>
-                <div class="search-course">
-                    <form action="#" class="search-form">
-                        <input type="search" placeholder="Buscar">
-                        <button class="search-button">
-                            <i class="fa fa-search" aria-hidden="true"></i> 
-                        </button>
-                    </form>
+            <div class="title-section text-center">
+                <div class="flat-title medium">
+                    Mis cursos
                 </div>
             </div>
             <div class="flat-courses clearfix isotope-courses">

@@ -123,10 +123,12 @@ class TeacherController extends Controller
                 $url = Storage::disk('google')->url($save);
                 $details = Storage::disk('google')->getMetadata($save);
                 $extension = $details["extension"];
+                $path = $details["path"];
                 $unit = Unit::create([
                     "course_id" => $request["course_id"],
                     "title" => $request["title"],
                     "url" => $url,
+                    "path" => "https://drive.google.com/file/d/$path/preview",
                     "file" => $save,
                     "unit_type" => $extension,
                     "unit_time" => $request["unit_time"],

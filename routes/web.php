@@ -92,7 +92,10 @@ Route::get('/email', function () {
 
 Route::get('/welcome', function () {
     $files = Storage::disk("google")->allFiles();
-    $firstFileName = $files[2];
+    $firstFileName = $files[0];
+    dump($firstFileName);
+    $urlprueba = "https://drive.google.com/file/d/$firstFileName/preview";
+    dump($urlprueba);
     $details = Storage::disk('google')->getMetadata($firstFileName);
     dump($details);
     $extension = $details["extension"];

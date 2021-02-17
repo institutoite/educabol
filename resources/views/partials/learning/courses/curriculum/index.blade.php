@@ -1,11 +1,16 @@
-<!-- curriculum -->
-<div class="card" id="course-curriculum">
+<div class="requirements-sg text clearfix">
+    <div class="title">
+        <a href="#">Contenido</a>
+    </div>
     @forelse($course->units as $unit)
-        @include("partials.learning.courses.curriculum." . strtolower($unit->unit_type))
+        <ul class="request">
+            <li>
+                {{ $unit->title }}
+            </li>
+        </ul>
     @empty
         <div class="empty-results">
             {{ __("El contenido de este curso todavía no está definido") }}
         </div>
     @endforelse
 </div>
-<!-- end curriculum -->

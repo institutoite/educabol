@@ -1,46 +1,25 @@
 <div class="col-xs-12 col-xl-3 col-md-4 col-sm-4 col-lg-3">
     <div class="card">
         <div class="card-header bg-brand text-white text-center">
-            {{ __("Duración total: :time", ["time" => $course->totalTime()]) }}
+            {{ __("Contenido") }}
         </div>
         <div class="card-body p-0">
             @php $index = 1 @endphp
             @forelse($course->units as $unit)
-                @switch($unit->unit_type)
-                    @case(\App\Models\Unit::SECTION)
-                        <div class="bg-dark text-white p-0 text-center">
+
+                    <div class="card-text p-2 border-bottom unit">
+                        <a
+                            id="unit-{{ $index }}"
+                            href="#"
+                            class="text-black-50"
+                            data-type="{{ \App\Models\Unit::VIDEO }}"
+                            data-unit="{{ $unit }}"
+                            data-index="{{ $index }}"
+                        >
                             {{ $unit->title }}
-                        </div>
-                    @break
-                    @case(\App\Models\Unit::ZIP)
-                        <div class="card-text p-2 border-bottom unit">
-                            <a
-                                id="unit-{{ $index }}"
-                                href="#"
-                                class="text-black-50"
-                                data-type="{{ \App\Models\Unit::ZIP }}"
-                                data-unit="{{ $unit }}"
-                                data-index="{{ $index }}"
-                            >
-                                <i class="fa fa-file-zip-o"></i> {{ $unit->title }}
-                            </a>
-                        </div>
-                    @break
-                    @case(\App\Models\Unit::VIDEO)
-                        <div class="card-text p-2 border-bottom unit">
-                            <a
-                                id="unit-{{ $index }}"
-                                href="#"
-                                class="text-black-50"
-                                data-type="{{ \App\Models\Unit::VIDEO }}"
-                                data-unit="{{ $unit }}"
-                                data-index="{{ $index }}"
-                            >
-                                <i class="fa fa-file-video-o"></i> {{ $unit->title }}
-                            </a>
-                        </div>
-                    @break
-                @endswitch
+                        </a>
+                    </div>
+                    
                 @if($unit->unit_type !== \App\Models\Unit::SECTION)
                     @php $index++ @endphp
                 @endif
@@ -82,28 +61,16 @@
             const prevUnitText = '{{ __("Anterior unidad") }}';
             const nextUnitText = '{{ __("Siguiente unidad") }}';
             visorHeader.text(unit.title);
-            if (type === '{{ \App\Models\Unit::ZIP }}') {
-                const url = `/storage/units/${unit.file}`;
-                const html = `
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td width="90%">${unit.file}</td>
-                                <td><a href="#" onclick="window.location.href = '${url}'">${downloadText}</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                `;
-                visorBody.html(html);
-            }
-            if (type === '{{ \App\Models\Unit::VIDEO }}') {
                 const html = `
                     <div class="embed-responsive embed-responsive-16by9">
-                    {!! $unit->video_html !!}
+                        <iframe
+                            src="${unit.path}"
+                            allowfullscreen
+                            allow="autoplay"
+                        ></iframe>
                     </div>
                `;
                 visorBody.html(html);
-            }
 
             let footerButtons = '';
             if ($(`#unit-${index+1}`).length) {

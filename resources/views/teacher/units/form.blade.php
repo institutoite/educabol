@@ -15,7 +15,7 @@
                         <!-- Form Group -->
                         <div class="form-group">
                             {!! Form::label('title', __("Título")) !!}
-                            {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => __("Ingresa el titulo de la unidad")]) !!}
                         </div>
                         <!-- End Form Group -->
                         
@@ -23,12 +23,6 @@
                         <div class="form-group">
                             {!! Form::label('course_id', __("Selecciona el curso")) !!}
                             {!! Form::select('course_id', $courses->pluck("title", "id"), null, ["class" => "form-control"]) !!}
-                        </div>
-                        <!-- End Form Group -->
-                        
-                        <!-- Form Group -->
-                        <div class="custom-file">
-                            <input type="file" class="form-control" name="file">
                         </div>
                         <!-- End Form Group -->
                     </div>
@@ -46,15 +40,11 @@
                         <!-- End Form Group -->
                         
                         <!-- Form Group -->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                                {!! Form::number('unit_time', null, ['class' => 'form-control', 'placeholder' => __("Duración de la unidad si es vídeo")]) !!}
-                            </div>
+
+                        <!-- Form Group -->
+                        <div class="custom-file">
+                            {!! Form::label('file', __("Selecciona un archivo")) !!}
+                            <input type="file" class="form-control" name="file">
                         </div>
                         <!-- End Form Group -->
                     </div>

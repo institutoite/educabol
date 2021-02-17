@@ -24,6 +24,7 @@ class CreateUnitsTable extends Migration
             $table->string('unit_type');
             $table->string('title');
             $table->text('url')->nullable();
+            $table->string('path')->nullable();
             $table->string('file')->nullable();
             $table->boolean('free')->default(false);
             $table->unsignedTinyInteger('unit_time')->nullable()->comment('Total minutes if apply');

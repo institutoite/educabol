@@ -8,6 +8,7 @@ class StudentController extends Controller
 {
     public function courses() {
         $courses = auth()->user()->purchasedCourses();
+        
         return view('student.courses.index', compact('courses'));
     }
 }
