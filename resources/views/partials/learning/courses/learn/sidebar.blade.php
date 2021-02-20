@@ -64,7 +64,7 @@
                 const html = `
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe
-                            src="${unit.path}"
+                            src="${unit.url}"
                             allowfullscreen
                             allow="autoplay"
                         ></iframe>

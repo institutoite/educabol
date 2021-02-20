@@ -10,9 +10,18 @@
                             <div class="featured-post">
                                 <div class="entry-image">
                                     <div class="videobox">
-                                        <a class="fancybox" data-type="iframe" href="https://www.youtube.com/embed/A-BL8Ir7puE">
-                                            <img style="width:770px; height:450px;" src="{{ $course->imagePath() }}" alt="images">
-                                        </a>
+                                    @if ( $videopresentation != null )
+                                        <iframe
+                                            src="{{ $videopresentation->url }}" width="770" height="450"
+                                            allowfullscreen
+                                            allow="autoplay"
+                                        ></iframe>
+                                    @else
+                                        <div class="alert alert-dark">
+                                            <i class="fa fa-info-circle"></i>
+                                            {{ __("Este curso todavía no tiene un video de presentacion") }}
+                                        </div>
+                                    @endif
                                     </div>
                                 </div>
                             </div>
@@ -80,16 +89,16 @@
                                         <span>{{ $course->created_at->format("d/m/Y") }}</span>
                                     </li>
                                     <li>
-                                        <a href="#">Archivos</a>
-                                        <span>{{ $course->totalFileUnits() }}</span>
+                                        <a href="#">PDF</a>
+                                        <span>{{ $course->totalPdfUnits() }}</span>
                                     </li>
                                     <li>
                                         <a href="#">Videos</a>
                                         <span>{{ $course->totalVideoUnits() }}</span>
                                     </li>
                                     <li>
-                                        <a href="#">Duracion</a>
-                                        <span>{{ $course->totalTime() }}h</span>
+                                        <a href="#">Archivos Zip</a>
+                                        <span>{{ $course->totalFileUnits() }}</span>
                                     </li>
                                     <li>
                                         <a href="#">Certificado</a>

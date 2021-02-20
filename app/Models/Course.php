@@ -82,6 +82,10 @@ class Course extends Model
         return $this->units->where("unit_type", Unit::VIDEO)->count();
     }
 
+    public function totalPdfUnits() {
+        return $this->units->where("unit_type", Unit::PDF)->count();
+    }
+
     public function totalFileUnits() {
         return $this->units->where("unit_type", Unit::ZIP)->count();
     }

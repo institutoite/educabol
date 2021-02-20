@@ -79,6 +79,12 @@ Route::get('/cart/destroy/{itemId}', [App\Http\Controllers\CartController::class
 
 Route::get('/send-email', [App\Http\Controllers\MailController::class, 'sendEmail'])->name('send-email');
 
+Route::get('/payment', function () {
+    return view('cart.payment');
+});
+
+Route::resource('orders', App\Http\Controllers\OrderController::class);
+
 
 
 //pruebas
@@ -98,6 +104,11 @@ Route::get('/welcome', function () {
     dump($urlprueba);
     $details = Storage::disk('google')->getMetadata($firstFileName);
     dump($details);
+    $name = $details["name"];
+    dump($name);
+    $response = Storage::disk('google')->delete($firstFileName);
+    
+    dump($response);
     $extension = $details["extension"];
     dump($extension);
     $url = Storage::disk('google')->url($firstFileName);

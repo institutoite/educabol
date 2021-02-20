@@ -38,7 +38,7 @@
                                 </li>
                                 <li class="col">
                                     <a href="<?php echo url('/receipt')?>">
-                                        <span class="step-item" data-text="Informacion de la Compra">
+                                        <span class="step-item" data-text="Detalle de la Compra">
                                             <span>3</span>
                                         </span>
                                     </a>

@@ -120,15 +120,14 @@ class TeacherController extends Controller
         if ($request->hasFile("file")) {
             $save = $request->file("file")->store("", "google");
             if($save){
-                $url = Storage::disk('google')->url($save);
                 $details = Storage::disk('google')->getMetadata($save);
                 $extension = $details["extension"];
                 $path = $details["path"];
                 $unit = Unit::create([
                     "course_id" => $request["course_id"],
                     "title" => $request["title"],
-                    "url" => $url,
-                    "path" => "https://drive.google.com/file/d/$path/preview",
+                    "url" => "https://drive.google.com/file/d/$path/preview",
+                    "path" => $path,
                     "file" => $save,
                     "unit_type" => $extension,
                     "unit_time" => $request["unit_time"],
@@ -140,10 +139,6 @@ class TeacherController extends Controller
                 alert()->error('Intentalo de nuevo', 'Ocurrio un error');
             }
         }
-
-        
-
-        alert()->success('','Unidad Agregada Correctamente')->persistent('Cerrar')->autoclose(3500);
 
         return redirect(route('teacher.units'));
     }
@@ -163,23 +158,37 @@ class TeacherController extends Controller
     }
 
     public function updateUnit(UnitRequest $request, Unit $unit) {
-        $file = $unit->file;
-        if ($request->hasFile('file')) {
-            if ($unit->file) {
-                Uploader::removeFile("units", $unit->file);
-            }
-            $file = Uploader::uploadFile('file', 'units');
+        $response = Storage::disk('google')->delete($unit->path);
+        $save = $request->file("file")->store("", "google");
+        if($save){
+            $details = Storage::disk('google')->getMetadata($save);
+            $extension = $details["extension"];
+            $path = $details["path"];
+            $unit = $unit->fill([
+                "course_id" => $request["course_id"],
+                "title" => $request["title"],
+                "url" => "https://drive.google.com/file/d/$path/preview",
+                "path" => $path,
+                "file" => $save,
+                "unit_type" => $extension,
+                "unit_time" => $request["unit_time"],
+                "free" => $request["free"],
+                'status' => 1,
+            ])->save();
+            alert()->success('','Unidad Agregada Correctamente')->persistent('Cerrar')->autoclose(3500);
+        }else{
+            alert()->error('Intentalo de nuevo', 'Ocurrio un error');
         }
-
-        $unit->fill($this->unitInput($file))->save();
-
-        alert()->success('','Datos Actualizados')->persistent('Cerrar')->autoclose(3500);
-
+        
         return redirect(route('teacher.units'));
     }
 
     public function destroyUnit(Unit $unit) {
+        $response = Storage::disk('google')->delete($unit->path);
         $unit->status = 0;
+        $unit->url = 0;
+        $unit->path = 0;
+        $unit->file = 0;
         $unit->save();
         alert()->error('Satisfactoriamente', 'Area Eliminada');
         return redirect(route('teacher.units'));
@@ -190,10 +199,6 @@ class TeacherController extends Controller
         $students = User::join('course_student as cc','users.id','=','cc.user_id')->where("course_id", $course->id)->get();
 
 		return view('teacher.courses.students', compact('students'));
-    }
-
-    public function profits() {
-        return view('teacher.profits.index');
     }
 
 }

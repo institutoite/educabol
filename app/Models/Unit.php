@@ -16,9 +16,13 @@ class Unit extends Model
         "unit_type", "unit_time", "file", "order", "free" , "status"
     ];
 
-    const ZIP = 'pdf';
+    const ZIP = 'zip';
+    const RAR = 'rar';
+    const PDF = 'pdf';
     const VIDEO = 'mp4';
-    const SECTION = 'SECTION';
+    const JPG = 'jpg';
+    const PNG = 'pngd';
+    const SECTION = 'section';
 
     protected static function boot()
     {
