@@ -13,16 +13,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                     <div class="imagebox-courses-type1">
                         <div class="featured-post">
-                            <img src="{{ $category->imagePath() }}" alt="images">
+                            <img src="{{ $category->imagePath() }}" style="width:470px; height:220px;" alt="images">
                         </div>
                         <div class="author-info">
                             <div class="name">
                                 <a href="{{ route('courses.category', ['category' => $category]) }}">{{ $category->name }}</a> 
-                            </div>
-                            <div class="border-bt">
-                                <div class="category">
-                                    {{ __(":total cursos", ['total' => $category->courses_count]) }}
-                                </div>
+                                <p style="color:#FFF";>{{ __(":total cursos", ['total' => $category->courses_count]) }}</p>
                             </div>
                         </div>
                     </div>

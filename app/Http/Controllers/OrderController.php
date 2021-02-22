@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Helpers\Uploader;
 
 class OrderController extends Controller
 {
@@ -41,26 +43,25 @@ class OrderController extends Controller
         ]);
 
         $order = new Order();
-
         $order->order_number = uniqid('OrderNumber-');
-        $order->user_id = auth()->user()->id;
-        $order->total_amount = \Cart::getTotal();
-        $order->picture = $request->input('file');
-        
+        $order->user_id = auth()->id();
+        if ($request->hasFile("file")) {
+            $file = Uploader::uploadFile("file", "receipts");
+        }
+        $order->picture = $file;
+        $order->item_count = \Cart::session(auth()->id())->getContent()->count();
+        $order->total_amount = \Cart::session(auth()->id())->getTotal();
         $order->save();
 
-        //save order items
-
-        $cartItems = \Cart::getContent();
-
+        $cartItems = \Cart::session(auth()->id())->getContent();
         foreach($cartItems as $item) {
+            
             $order->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
         }
 
         \Cart::clear();
-        
 
-        return redirect()->route('home')->withMessage('Pedido existoso');
+        return view('cart.receipt',compact('order'));
     }
 
     /**

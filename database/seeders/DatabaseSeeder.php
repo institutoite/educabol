@@ -29,5 +29,8 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('units');
 
         $this->call(RoleSeeder::class);
+
+        Storage::deleteDirectory('receipts');
+        Storage::makeDirectory('receipts');
     }
 }

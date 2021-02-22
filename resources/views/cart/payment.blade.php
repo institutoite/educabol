@@ -25,22 +25,22 @@
                     <div class="col-lg-8">
                         <div class="steps steps-sm">
                             <ul class="row">
-                                <li class="col">
-                                    <a href="<?php echo url('/cart')?>">
+                                <li class="col  active">
+                                    <a href="{{ url('/cart') }}">
                                         <span class="step-item" data-text="Carrito">
                                             <span>1</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li class="col  current">
-                                    <a href="<?php echo url('/payment')?>">
-                                        <span class="step-item" data-text="Comprobante de pago">
+                                    <a href="{{ url('/payment') }}">
+                                        <span class="step-item" data-text="Metodos de pago">
                                             <span>2</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li class="col">
-                                    <a href="<?php echo url('/receipt')?>">
+                                    <a href="{{ url('/receipt') }}">
                                         <span class="step-item" data-text="Detalle de la Compra">
                                             <span>3</span>
                                         </span>
@@ -62,7 +62,7 @@
                     
                     <div class="accordion br-sm" id="accordionPaymentExample">
                         <div class="card card-fill mb-3 shadow-sm rounded">
-                            {!! Form::open(['route' => 'orders.store', 'method' => 'post']) !!}
+                            {!! Form::open(['route' => 'orders.store', 'method' => 'post', 'files' => true]) !!}
                             @csrf
                                 <div class="card-header py-4 p-3 p-md-5">
                                     <div class="row align-items-center">
@@ -119,12 +119,13 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <br><br>
-                                                    <input type="file" class="form-control" name="file">
+                                                    <input type="file" class="form-control" name="file" id="file">
                                                     <input type="submit" class="btn btn-sm btn-block btn-danger" value="Subir Comprobante">
                                                     
                                                 </div>
                                             </div>
                                         </div>
+                                        @include("partials.form_errors")
                                     </div>
                                 </div>
                             {!! Form::close() !!}
@@ -138,9 +139,6 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col-6">
                                 <a href="<?php echo url('/cart')?>" class="btn btn-dark btn-primary btn-rounded px-lg-5">Volver</a>
-                            </div>
-                            <div class="col-6 text-right">
-                                <a href="<?php echo url('/receipt')?>" class="btn btn-primary btn-rounded px-lg-5">Confirmar pago</a>
                             </div>
                         </div>
                     </div>

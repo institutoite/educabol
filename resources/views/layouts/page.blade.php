@@ -75,7 +75,7 @@
                 <div class="container">
                     <div class="menu-bar-wrap clearfix">
                         <div id="logo" class="logo">
-                            <a href="index.html"><img src="{{ asset('images/logo/02.png') }}" alt="images"></a>
+                            <a href="{{ url('/') }}"><img src="{{ asset('images/logo/02.png') }}" alt="images"></a>
                         </div>
                         <div class="mobile-button"><span></span></div>
                         <div class="header-menu">

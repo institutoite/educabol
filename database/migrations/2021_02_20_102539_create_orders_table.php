@@ -18,8 +18,9 @@ class CreateOrdersTable extends Migration
             $table->string('order_number');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->float("total_amount")->comment("Coste total del pedido");
             $table->string('picture');
+            $table->integer('item_count');
+            $table->float("total_amount");
             $table->enum('status', ['pendiente','procesando','completado','cancelado'])->default('pendiente');
             $table->timestamps();
         });

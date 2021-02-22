@@ -23,21 +23,21 @@
                         <div class="steps steps-sm">
                             <ul class="row">
                                 <li class="col  current">
-                                    <a href="<?php echo url('/cart')?>">
+                                    <a href="{{ url('/cart') }}">
                                         <span class="step-item" data-text="Carrito">
                                             <span>1</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li class="col">
-                                    <a href="<?php echo url('/payment')?>">
+                                    <a href="{{ url('/payment') }}">
                                         <span class="step-item" data-text="Metodos de Pago">
                                             <span>2</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li class="col">
-                                    <a href="<?php echo url('/receipt')?>">
+                                    <a href="#">
                                         <span class="step-item" data-text="Detalle de la Compra">
                                             <span>3</span>
                                         </span>
