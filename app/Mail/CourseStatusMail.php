@@ -29,6 +29,6 @@ class CourseStatusMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Gracias por subir tu curso')->view('emails.CourseStatus');
+        return $this->subject('Educabol')->view('emails.CourseStatus');
     }
 }

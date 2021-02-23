@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Unit;
+use App\Models\Order;
 use App\Helpers\Uploader;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Storage;
@@ -131,8 +132,53 @@ class AdminController extends Controller
 
             break;
         }
+    }
 
+    public function receipt () {
+        $orders = Order::where('status', 'pendiente')->get();
+		return view('admin.receipt.index', compact('orders'));
+    }
+
+    public function processreceipt(Order $order) {
+        return view('admin.receipt.process', compact('order'));
+    }
+
+    public function updateStatusReceipt(Request $request, Order $order) {
+
+        switch($request->submitbutton) {
+
+            case 'Rechazar Inscripcion': 
+                
+                $details=[
+                    'title' => $order->order_number,
+                    'status' => ' ha sido rechazado',
+                    'message'=> $request->textarea1
+                ];
+                $email = $order->user->email;
+                $order->status = 'completado';
+                $order->save();
+                Mail::to($email)->send(new CourseStatusMail($details));
+                $orders = Order::where('status', 'pendiente')->get();
+                return view('admin.pending.index', compact('orders'));
+
+            break;
         
+            case 'Aceptar Inscripcion': 
+                
+                $details=[
+                    'title' => $order->order_number,
+                    'status' => ' ha sido aceptado',
+                    'message'=> $request->textarea1
+                ];
+                $email = $order->user->email;
+                $order->status = 1;
+                $order->save();
+                Mail::to($email)->send(new CourseStatusMail($details));
+                $orders = Order::where('status', 'pendiente')->get();
+                return view('admin.receipt.index', compact('orders'));
+
+            break;
+        }
     }
 
 }

@@ -162,6 +162,12 @@
                                     <span class="link-title">Cursos pendientes</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.receipt') }}">
+                                    <i class="icofont-ebook"></i>
+                                    <span class="link-title">Comprobantes pendientes</span>
+                                </a>
+                            </li>
                         @endcan
                         @can('teacher.courses')
                         <li class="nav-category">Modulo Profesores</li>

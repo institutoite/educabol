@@ -66,6 +66,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['permission
     Route::get('/courses/{course}', [App\Http\Controllers\AdminController::class, 'show'])->name('pending.show');
     Route::get('/download/{unit}', [App\Http\Controllers\AdminController::class, 'download'])->name('pending.download');
     Route::put('/courses/{course}', [App\Http\Controllers\AdminController::class, 'updateStatus'])->name('course.status');
+
+    Route::get('/receipt', [App\Http\Controllers\AdminController::class, 'receipt'])->name('receipt');
+    Route::get('/receipt/{order}', [App\Http\Controllers\AdminController::class, 'processreceipt'])->name('receipt.process');
+    Route::put('/receipt/{order}', [App\Http\Controllers\AdminController::class, 'updateStatusReceipt'])->name('receipt.status');
 });
 
 Route::group(['prefix' => "solicitude"], function() {
