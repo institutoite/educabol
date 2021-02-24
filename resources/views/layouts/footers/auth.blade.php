@@ -7,21 +7,6 @@
                         {{ __('Inicio') }}
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        {{ __('Acerca de nosotros') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        {{ __('Blog') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        {{ __('Contactenos') }}
-                    </a>
-                </li>
             </ul>
         </nav>
     <div class="copyright float-right">
