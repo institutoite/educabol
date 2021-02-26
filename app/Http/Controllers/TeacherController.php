@@ -196,7 +196,7 @@ class TeacherController extends Controller
 
     public function students (Course $course) {
 		
-        $students = User::join('course_student as cc','users.id','=','cc.user_id')->where("course_id", $course->id)->get();
+        $students = User::join('course_students as cc','users.id','=','cc.user_id')->where("course_id", $course->id)->get();
 
 		return view('teacher.courses.students', compact('students'));
     }
