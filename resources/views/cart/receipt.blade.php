@@ -147,11 +147,8 @@
 
                 <div class="py-3">
                     <div class="row align-items-center no-gutters">
-                        <div class="col-6">
-                            <a href="profile-orders.html" class="btn btn-dark btn-primary btn-rounded px-lg-5">Order history</a>
-                        </div>
                         <div class="col-6 text-right">
-                            <a href="profile-whishlist.html" class="btn btn-primary btn-rounded px-lg-5">My whishlist</a>
+                            <a href="{{ url('/') }}" class="btn btn-primary btn-rounded px-lg-5">Aceptar</a>
                         </div>
                     </div>
                 </div>

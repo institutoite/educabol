@@ -27,8 +27,6 @@ class CourseController extends Controller
     public function show(Course $course) {
         $course->load("units", "students", "reviews.author");
         $videopresentation = $course->units->where('course_id', $course->id)->where('unit_type', 'mp4')->where('free', 1)->first();
-        //$videopresentation  = $videopresentation->url;
-        //dd($videopresentation);
 
         return view('learning.courses.show', compact('course', 'videopresentation'));
     }

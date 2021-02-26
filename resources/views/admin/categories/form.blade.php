@@ -16,7 +16,7 @@
                             <!-- Form Group -->
                             <div class="form-group">
                                 {!! Form::label('name', __("Nombre")) !!}
-                                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('name', null, ['class' => 'form-control','required']) !!}
                             </div>
                             <!-- End Form Group -->
                             
@@ -27,7 +27,7 @@
                             <!-- Form Group -->
                             <div class="custom-file">
                                 {!! Form::file('picture', ['class' => 'custom-file-input', 'id' => 'picture']) !!}
-                                {!! Form::label('picture', __("Selecciona la imagen de tu categoria"), ['class' => 'custom-file-label']) !!}
+                                {!! Form::label('picture', __("Selecciona la imagen de tu categoria"), ['class' => 'custom-file-label','required']) !!}
                             </div>
                             <!-- End Form Group -->
                         </div>
@@ -36,7 +36,7 @@
                             <!-- Form Group -->
                             <div class="form-group">
                                 {!! Form::label('description', __("Descripcion")) !!}
-                                {!! Form::text('description', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('description', null, ['class' => 'form-control','required']) !!}
                             </div>
                             <!-- End Form Group -->
                             
@@ -60,7 +60,7 @@
                     <!-- Form Row -->
                     <div class="form-row">
                             <div class="col-12 text-right">
-                                {!! Form::submit($textButton, ['class' => 'btn long']); !!}
+                                {!! Form::submit($textButton, ['class' => 'btn long','required']); !!}
                             </div>
                         </div>
                         <!-- End Form Row -->

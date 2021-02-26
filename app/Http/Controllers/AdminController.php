@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Unit;
 use App\Models\Order;
+use App\Models\CourseStudent;
 use App\Helpers\Uploader;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Support\Facades\Storage;
@@ -155,7 +156,7 @@ class AdminController extends Controller
                     'message'=> $request->textarea1
                 ];
                 $email = $order->user->email;
-                $order->status = 'completado';
+                $order->status = 'cancelado';
                 $order->save();
                 Mail::to($email)->send(new CourseStatusMail($details));
                 $orders = Order::where('status', 'pendiente')->get();
@@ -164,14 +165,25 @@ class AdminController extends Controller
             break;
         
             case 'Aceptar Inscripcion': 
-                
+                $items = Order::join('order_items as oi','orders.id','=','oi.order_id')->where("order_id", $order->id)->get();
+
+                $courseStudens = [];
+                foreach ($items as $item) {
+                    $courseStudens[] = [
+                        "course_id" => $item->course_id,
+                        "user_id" => $item->user_id,
+                        "created_at" => now()
+                    ];
+                }
+                CourseStudent::insert($courseStudens);
+
                 $details=[
                     'title' => $order->order_number,
                     'status' => ' ha sido aceptado',
                     'message'=> $request->textarea1
                 ];
                 $email = $order->user->email;
-                $order->status = 1;
+                $order->status = 'completado';
                 $order->save();
                 Mail::to($email)->send(new CourseStatusMail($details));
                 $orders = Order::where('status', 'pendiente')->get();

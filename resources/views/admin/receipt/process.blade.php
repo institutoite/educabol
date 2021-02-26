@@ -68,8 +68,8 @@
                                     <!-- End Form Group -->
 
                                     <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
-                                        {!! Form::submit( 'Rechazar Inscripcion', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '1'])!!}
-                                        {!! Form::submit( 'Aceptar Inscripcion', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '3']) !!}
+                                        {!! Form::submit( 'Rechazar Inscripcion', ['class' => 'btn', 'name' => 'submitbutton', 'value' => '1'])!!}
+                                        {!! Form::submit( 'Aceptar Inscripcion', ['class' => 'btn', 'name' => 'submitbutton', 'value' => '3']) !!}
                                     </div>
 
                                 {!! Form::close() !!}

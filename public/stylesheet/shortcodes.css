@@ -107,7 +107,7 @@
 .heading-type5:after{
     content: "";
     width: 70px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 1px;
     bottom: 1px;
@@ -125,7 +125,7 @@
 .heading-type7:after{
     content: "";
     width: 50px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 2px;
     bottom: 4px;
@@ -188,7 +188,7 @@
 .heading-type14:after{
     content: "";
     width: 50px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 2px;
     bottom: 4px;
@@ -197,7 +197,7 @@
 .heading-type15:after{
     content: "";
     width: 50px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 2px;
     bottom: -2px;
@@ -224,7 +224,7 @@
 .heading-type18:after{
     content: "";
     width: 46px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 2px;
     bottom: -23px;
@@ -421,7 +421,7 @@
     line-height: 24px;
 }
 .imagebox-courses-type1 .author-info .name a:hover{
-	color: #fbb545;
+	color: #26BAA5;
 	-webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
@@ -486,7 +486,7 @@
     box-shadow: 0px 0px 10px 20px rgba(63,76,153,0.05);
 }
 .browse-all-courses a.btn-browse-courses:hover{
-    background: #fbb545;
+    background: #26BAA5;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
@@ -913,13 +913,13 @@
 .latest-blog-type2 .post .post-content .category{
     font-size: 14px;
     font-weight: 600;
-    color: #fbb545;
+    color: #26BAA5;
     position: relative;
 }
 .latest-blog-type2 .post .post-content .category:after{
     content: "";
     width: 30px;
-    background: #fbb545;
+    background: #26BAA5;
     position: absolute;
     height: 1px;
     bottom: 7px;
@@ -1187,8 +1187,8 @@
     font-size: 16px;
     line-height: 26px;
     font-weight: 500;
-    color: #fbb545;
-    border: 1px solid #fbb545;
+    color: #26BAA5;
+    border: 1px solid #26BAA5;
     border-radius: 30px;
     padding: 0 20px;
     float: right;
@@ -1206,7 +1206,7 @@
     border-right: 1px solid #f1f1f1;
 }
 .flat-course .course-content .wrap-rating-price .meta-rate .rating i{
-    color: #fbb545;
+    color: #26BAA5;
     font-size: 14px;
 }
 .flat-course .course-content .wrap-rating-price .meta-rate .price{
@@ -1220,7 +1220,7 @@
 }
 .flat-course .course-content .wrap-rating-price .meta-rate .price-now {
     font-size: 17px;
-    color: #fbb545;
+    color: #26BAA5;
     font-weight: 600;
 }
 
@@ -1241,11 +1241,11 @@
     transition: all 0.3s ease-in-out;
 }
 .tab-title.type1 li.active{
-    background: #fbb545;
+    background: #26BAA5;
 }
 
 .tab-title.type1 li:hover{
-    background: #fbb545;
+    background: #26BAA5;
 }
 .tab-title.type1 li:hover span{
     color: #fff;
@@ -1307,7 +1307,7 @@
     content: "";
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
-    border-top: 12px solid #fbb545;
+    border-top: 12px solid #26BAA5;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -1331,7 +1331,7 @@
 
 /*owl-dots*/
 .client-style2 .owl-dots .owl-dot.active{
-    background: #fbb545 !important;
+    background: #26BAA5 !important;
 }
 .client-style2 .owl-dots .owl-dot{
     width: 11px;
@@ -1351,7 +1351,7 @@
     margin-right: 10px;
     display: inline-block;
     border-radius: 50%;
-    background: #fbb545;
+    background: #26BAA5;
     position: relative;
 }
 .client-style3 .owl-dots .owl-dot .btn-dots{
@@ -1374,7 +1374,7 @@
 .cta-cr .cta-content .caption {
     font-size: 18px;
     line-height: 38px;
-    color: #fbb545;
+    color: #26BAA5;
     letter-spacing: 0.1px;
 }
 .cta-cr .cta-content h3{
@@ -1391,7 +1391,7 @@
     font-weight: 600;
     font-size: 17px;
     line-height: 42px;
-    background: #fbb545;
+    background: #26BAA5;
     border-radius: 40px;
     letter-spacing: 0.2px;
     display: inline-block;
@@ -1406,7 +1406,7 @@
     border-left: 1px solid #fff;
 }
 .cta-cr .cta-information .phone{
-    color: #fbb545;
+    color: #26BAA5;
     letter-spacing: 1px;
     margin-bottom: 18px;
 }
