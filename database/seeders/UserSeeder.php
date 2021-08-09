@@ -23,39 +23,15 @@ class UserSeeder extends Seeder
                 "name" => "David Emanuel",
                 "email" => "iteeducabol@gmail.com",
                 'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'password' => '$2y$10$P3CHwy7R7.RcboDCkKx4ZOFltzwZarWVjzfn.Nrknc75JrGGb5Fx6', // emanuel1326*
                 'remember_token' => Str::random(10),
             ],
             [
-                "role" => User::TEACHER,
+                "role" => User::ADMIN,
                 "name" => "Edward Carrillo",
                 "email" => "eduardcp20@gmail.com",
                 'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'remember_token' => Str::random(10),
-            ],
-            [
-                "role" => User::TEACHER,
-                "name" => "Eduardo Justiniano",
-                "email" => "edwardcp001@gmail.com",
-                'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'remember_token' => Str::random(10),
-            ],
-            [
-                "role" => User::STUDENT,
-                "name" => "Jose Eduardo Ortiz",
-                "email" => "edwardcp26@gmail.com",
-                'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'remember_token' => Str::random(10),
-            ],
-            [
-                "role" => User::STUDENT,
-                "name" => "Carlos Eduardo Cabrera",
-                "email" => "edwardcp27@gmail.com",
-                'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'password' => '$2y$10$70VoJ.dgpTs0k3d98aqXouDqj3eRmxxTsCo5akCU9o5Lyf50JSNC.', // 11387469
                 'remember_token' => Str::random(10),
             ],
         ];

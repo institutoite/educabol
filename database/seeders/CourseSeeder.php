@@ -16,6 +16,7 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
+        /*
         $courses = [
             [
                 "title" => "Curso de Laravel 8",
@@ -171,7 +172,7 @@ class CourseSeeder extends Seeder
             unset($course['bg']);
             $model = Course::create($course);
             $model->categories()->sync($categories);
-        }
+        }*/
 
     }
 }

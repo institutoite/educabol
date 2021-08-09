@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use ConsoleTVs\Charts\Registrar as Charts;
 use App\Charts\TeacherProfitChart;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,9 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Charts $charts)
     {
-        $charts->register([
-            TeacherProfitChart::class
-        ]);
-
+        Schema::defaultStringLength(191);
     }
 }

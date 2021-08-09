@@ -14,6 +14,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        /*
         $categories = [
             "Laravel" => "F35144",
             "Node.js" => "8DBC58",
@@ -27,6 +28,6 @@ class CategorySeeder extends Seeder
                 "name" => $category,
                 "picture" => Image::image(storage_path('app/public/categories'), $category, $bg, 470, 220, false),
             ]); 
-        }
+        }*/
     }
 }
