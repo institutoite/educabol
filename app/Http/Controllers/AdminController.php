@@ -21,11 +21,6 @@ class AdminController extends Controller
 		return view('admin.categories.index', compact('categories'));
     }
 
-    public function categories2 () {
-        $categories = Category::withCount("courses")->get();
-		return view('admin.categories.index2', compact('categories'));
-    }
-
     public function createCategory() {
         $category = new Category;
         $title = __("Nueva categoria");

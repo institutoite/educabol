@@ -56,8 +56,6 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['permission:admin.categories|admin.pending']], function () {
     Route::get('/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('categories');
-    
-    Route::get('/categories2', [App\Http\Controllers\AdminController::class, 'categories2'])->name('categories2');
 
     Route::get('/categories/create', [App\Http\Controllers\AdminController::class, 'createCategory'])->name('categories.create');
     Route::post('/categories/store', [App\Http\Controllers\AdminController::class, 'storeCategory'])->name('categories.store');
