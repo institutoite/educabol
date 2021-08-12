@@ -1,4 +1,4 @@
-@extends('layouts.dashmin')
+@extends('layouts.admin')
 
 @push('css')
     <link

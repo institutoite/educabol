@@ -36,19 +36,19 @@
                 <li>
                     <a href="side-menu-light-file-manager.html" class="menu menu--active">
                         <div class="menu__icon"> <i data-feather="hard-drive"></i> </div>
-                        <div class="menu__title"> File Manager </div>
+                        <div class="menu__title"> Precios </div>
                     </a>
                 </li>
                 <li>
                     <a href="side-menu-light-point-of-sale.html" class="menu">
                         <div class="menu__icon"> <i data-feather="credit-card"></i> </div>
-                        <div class="menu__title"> Point of Sale </div>
+                        <div class="menu__title"> Pendientes </div>
                     </a>
                 </li>
                 <li>
                     <a href="side-menu-light-chat.html" class="menu">
                         <div class="menu__icon"> <i data-feather="message-square"></i> </div>
-                        <div class="menu__title"> Chat </div>
+                        <div class="menu__title"> Comprobantes </div>
                     </a>
                 </li>
                 <li>
@@ -494,31 +494,31 @@
                     <li>
                         <a href="side-menu-light-file-manager.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                            <div class="side-menu__title"> File Manager </div>
+                            <div class="side-menu__title"> Precios </div>
                         </a>
                     </li>
                     <li>
                         <a href="side-menu-light-point-of-sale.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                            <div class="side-menu__title"> Point of Sale </div>
+                            <div class="side-menu__title"> Pendientes </div>
                         </a>
                     </li>
                     <li>
                         <a href="side-menu-light-chat.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                            <div class="side-menu__title"> Chat </div>
+                            <div class="side-menu__title"> Comprobantes </div>
                         </a>
                     </li>
                     <li>
                         <a href="side-menu-light-post.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                            <div class="side-menu__title"> Post </div>
+                            <div class="side-menu__title">  </div>
                         </a>
                     </li>
                     <li>
                         <a href="side-menu-light-calendar.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
-                            <div class="side-menu__title"> Calendar </div>
+                            <div class="side-menu__title">  </div>
                         </a>
                     </li>
                     <li class="side-nav__devider my-6"></li>
