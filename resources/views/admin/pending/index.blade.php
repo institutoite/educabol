@@ -30,7 +30,7 @@
                                 <td>{{ $course->price }}</td>
                                 <td>{{ $course->created_at->format("d/m/Y H:i") }}</td>
                                 <td>@include('partials.courses.status')</td>
-                                <td><a href="{{ route('admin.pending.show', ['course' => $course]) }}" class="details-btn">{{ __("Detalles del Curso") }} <i class="icofont-arrow-right"></i></a></td>
+                                <td><a href="{{ route('admin.pending.show', ['course' => $course]) }}" class="btn btn-primary btn-sm">{{ __("Detalles del Curso") }} <i class="icofont-arrow-right"></i></a></td>
                             </tr>
                         @empty
                             <div class="container">

@@ -32,7 +32,7 @@
                                 <td>{{ $order->user->name }}</td>
                                 <td>{{ $order->created_at->format("d/m/Y H:i") }}</td>
                                 <td>Bs. {{ $order->total_amount }}</td>
-                                <td><a href="{{ route('admin.receipt.process', ['order' => $order]) }}" class="details-btn">{{ __("Ver Comprobante") }} <i class="icofont-arrow-right"></i></a></td>
+                                <td><a href="{{ route('admin.receipt.process', ['order' => $order]) }}" class="table table-report -mt-2">{{ __("Ver Comprobante") }} <i class="icofont-arrow-right"></i></a></td>
                             </tr>
                         @empty
                             <div class="container">

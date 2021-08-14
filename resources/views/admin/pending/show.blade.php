@@ -1,4 +1,4 @@
-@extends('layouts.dashmin')
+@extends('layouts.admin')
 @push('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -6,52 +6,30 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
 @endpush
 @section("content")
-<div class="row">
-    <div class="col-12">
-    
-        <div class="form-element with-icons mb-30">
-            
-
-            <!-- Invoice Top -->
-            
-            <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
-                <div class="row">
-                    <div class="col-md-6">
-                            <!-- Invoice Left -->
-                            <div class="invoice-left">
-                                @if($course->picture)
-                                    <div class="logo mb-3"><img alt="{{ $title }}" class="img-fluid" width="250" src="{{ $course->imagePath() }}" /></div>
-                                @endif
-                            </div>
-                            <!-- End Invoice Left -->
+        <!-- BEGIN: Invoice -->
+        <div class="intro-y box overflow-hidden mt-5">
+        {!! Form::open(['route'=>['admin.course.status', $course],'method'=>'PUT']) !!}
+            <div class="border-b border-gray-200 dark:border-dark-5 text-center sm:text-left">
+                <div class="px-5 py-10 sm:px-20 sm:py-20">
+                    <div class="text-theme-1 dark:text-theme-10 font-semibold text-3xl">Informacion del Curso</div>
+                    <div class="mt-2"> <span class="font-medium">{{ $course->title }}</span> </div>
+                    <div class="mt-1">{{ $course->description }}</div>
+                </div>
+                <div class="flex flex-col lg:flex-row px-5 sm:px-20 pt-10 pb-10 sm:pb-20">
+                    <div>
+                        <div class="text-base text-gray-600">Detalle del curso</div>
+                        <div class="mt-1">{{ $course->created_at->format("d/m/Y H:i") }}</div>
+                        <div class="mt-1">@include('partials.courses.status')</div>
                     </div>
-
-                    <div class="col-md-6">
-                        <!-- Invoice Right -->
-                        <div class="invoice-right mt-5 mt-md-0">
-                            <h3 class="white font-20 mb-3">Informacion del Curso</h3>
-
-                            <ul class="status-list">
-                            <li><span class="key font-14">Nombre:</span> <span class="white bold font-17">{{ $course->title }}</span></li>
-                            <li><span class="key font-14">Descripcion:</span> <span class="white bold font-17">{{ $course->description }}</span></li>
-                            <li><span class="key font-14">Precio:</span> <span class="white bold font-17">{{ $course->price }}</span></li>
-                            <li><span class="key font-14">Subido:</span> <span class="white bold font-17">{{ $course->created_at->format("d/m/Y H:i") }}</span></li>
-                            <li><span class="key font-14">Estado:</span>@include('partials.courses.status')</li>
-                            </ul>
-                        </div>
-                        <!-- End Invoice Right -->
+                    <div class="lg:text-right mt-10 lg:mt-0 lg:ml-auto">
+                        <div class="text-base text-gray-600">Precio</div>
+                        <div class="mt-1">Bs. {{ $course->price }}</div>
                     </div>
-                    
                 </div>
             </div>
-            
-            <!-- End Invoice Top -->
-
-            <!-- Invoice Details List Wrapper -->
-            <div class="card_color-bg details-list-wrap">
-                <div class="table-responsive">
-                    <!-- Invoice List Table -->
-                    <table class="invoice-list-table style-two some-center text-nowrap" id="usuarios">
+            <div class="px-5 sm:px-16 py-10 sm:py-20">
+                <div class="overflow-x-auto">
+                    <table class="table">
                         <thead>
                             <tr>
                             <th>{{ __("Nombre") }}</th>
@@ -66,21 +44,11 @@
                                     <td>{{ $unit->title }}</td>
                                     <td>{{ $unit->unit_type }}</td>
                                     <td>
-                                        @switch($unit->unit_type)
-                                            @case(\App\Models\Unit::SECTION)
-                                                
-                                                    {{ $unit->title }}
-                                                
-                                            @break
-                                            @case(\App\Models\Unit::ZIP)
-                                                <a href="{{ route('admin.pending.download', $unit) }}">Descargar archivo</a>
-                                            @break
-                                            @case(\App\Models\Unit::VIDEO)
-
-                                            <iframe src="https://drive.google.com/uc?id=1wfA7oCTUZiM7PvBFZ7TEgh2VKvjVwke2&export=media" width="640" height="480"></iframe>
-
-                                            @break
-                                        @endswitch
+                                        <iframe
+                                            src="{{ $unit->url }}"
+                                            allowfullscreen
+                                            allow="autoplay"
+                                        ></iframe>
                                     </td>
                                 </tr>
                                 @empty
@@ -92,46 +60,19 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <!-- End Invoice List Table -->
                 </div>
-
             </div>
-            <!-- End Invoice Details List Wrapper -->
-
-            <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Touchspin -->
-                            <div class="form-element touchspin mb-30">
-                                <!-- Form -->
-                                {!! Form::open(['route'=>['admin.course.status', $course],'method'=>'PUT']) !!}
-
-                                    <!-- Form Group -->
-                                    <div class="form-group mb-4">
-                                        <h4 class="font-20 mb-3">Mensaje</h4>
-
-                                        <textarea id="textarea1" name="textarea1" class="theme-input-style style--seven" placeholder="Mensaje de aceptacion o rechazo del curso"></textarea>
-
-                                    </div>
-                                    <!-- End Form Group -->
-
-                                    <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
-                                        {!! Form::submit( 'Rechazar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '1'])!!}
-                                        {!! Form::submit( 'Aceptar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '3']) !!}
-                                    </div>
-
-                                {!! Form::close() !!}
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Touchspin -->
-                        </div>
-                    </div>
-                </div>  
+            <div class="px-5 sm:px-20 pb-10 sm:pb-20 flex flex-col-reverse sm:flex-row">
+                <div class="text-center sm:text-left mt-10 sm:mt-0">
+                    {!! Form::submit( 'Rechazar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '1'])!!}
+                </div>
+                <div class="text-center sm:text-right sm:ml-auto">
+                {!! Form::submit( 'Aceptar Curso', ['class' => 'btn btn-default', 'name' => 'submitbutton', 'value' => '3']) !!}
+                </div>
+            </div>
+        {!! Form::close() !!}
         </div>
-    </div>
-    
-</div>
+        <!-- END: Invoice -->
 @endsection
 @push("js")
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

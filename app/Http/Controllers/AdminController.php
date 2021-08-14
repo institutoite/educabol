@@ -108,10 +108,10 @@ class AdminController extends Controller
                     'status' => ' ha sido rechazado',
                     'message'=> $request->textarea1
                 ];
-                $email = $course->user->email;
+                //$email = $course->user->email;
                 $course->status = 3;
                 $course->save();
-                Mail::to($email)->send(new CourseStatusMail($details));
+                //Mail::to($email)->send(new CourseStatusMail($details));
                 $courses = Course::where('status', 2)->get();
                 return view('admin.pending.index', compact('courses'));
 
@@ -124,10 +124,10 @@ class AdminController extends Controller
                     'status' => ' ha sido aceptado',
                     'message'=> $request->textarea1
                 ];
-                $email = $course->user->email;
+                //$email = $course->user->email;
                 $course->status = 1;
                 $course->save();
-                Mail::to($email)->send(new CourseStatusMail($details));
+                //Mail::to($email)->send(new CourseStatusMail($details));
                 $courses = Course::where('status', 2)->get();
                 return view('admin.pending.index', compact('courses'));
 

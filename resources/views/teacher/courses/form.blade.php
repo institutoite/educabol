@@ -77,6 +77,14 @@
                     {!! Form::text('title', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('description', __("Descripcion del curso")) !!}
+                    {!! Form::text('description', old('description') ?? $course->description, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="custom-file">
+                    {!! Form::file('picture', ['class' => 'custom-file-input', 'id' => 'picture']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('price', __("Escoge un precio para tu curso")) !!}
                     {!! Form::select('price', \App\Models\Course::prices, null, ["class" => "form-control"]) !!}
                 </div>
@@ -85,6 +93,7 @@
                     {!! Form::label('categories[]', __("Selecciona las categorías")) !!}
                     {!! Form::select('categories[]', \App\Models\Category::pluck("name", "id"), null, ["class" => "form-control", "multiple" => true]) !!}
                 </div>
+                
                 @isset($update)
                 <div class="form-group">
                     <h3 class="text-muted text-center mb-2">
@@ -117,20 +126,14 @@
                             </li>
                         @empty
                             <div class="empty-results">
-                                {!! __("No tienes ninguna unidad todavía: :link", ["link" => "<a href='".route('teacher.units.create')."'>Añade nuevas unidades para tu curso</a>"]) !!}
+                                {!! __("No tienes ninguna unidad todavía: :link", ["link" => "<a href='".route('teacher.units.create')."'></a>"]) !!}
+                                <a href="{{ route('teacher.units.create', ['course' => $course]) }}" class="btn btn-primary btn-sm">{{ __("Añadir Unidad") }} <i class="icofont-arrow-right"></i></a>
                             </div>
                         @endforelse
                     </ul>
                 </div>
                 @endisset
-                <div class="form-group">
-                    {!! Form::label('description', __("Descripcion del curso")) !!}
-                    {!! Form::text('description', old('description') ?? $course->description, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="custom-file">
-                    {!! Form::file('picture', ['class' => 'custom-file-input', 'id' => 'picture']) !!}
-                </div>
+                
 
                 <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
                     <a href="{{ route('teacher.courses') }}" class="btn btn-primary shadow-md mr-2">{{ __("Volver al listado de cursos") }}</a>

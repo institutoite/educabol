@@ -18,4 +18,9 @@ class Category extends Model
     public function imagePath() {
         return sprintf('%s/%s', 'storage/categories', $this->picture);
     }
+
+    public function getUrlPathAttribute()
+    {
+        return \Storage::url($this->picture);
+    }
 }

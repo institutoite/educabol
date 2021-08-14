@@ -41,12 +41,6 @@
                             <div class="menu__title"> Pendientes </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="side-menu-light-chat.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="message-square"></i> </div>
-                            <div class="menu__title"> Comprobantes </div>
-                        </a>
-                    </li>
                     <li class="menu__devider my-6"></li>
                 
                 </ul>
@@ -66,7 +60,7 @@
                     @can('admin.categories')
                         <li class="side-nav__devider my-6"></li>
                         <li>
-                            <a href="{{ route('admin.categories') }}" class="side-menu side-menu--active">
+                            <a href="{{ route('admin.categories') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                                 <div class="side-menu__title"> Categorias </div>
                             </a>
@@ -75,12 +69,6 @@
                             <a href="{{ route('admin.pending') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
                                 <div class="side-menu__title"> Cursos pendientes </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.receipt') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                                <div class="side-menu__title"> Comprobantes pendientes </div>
                             </a>
                         </li>
                     @endcan
