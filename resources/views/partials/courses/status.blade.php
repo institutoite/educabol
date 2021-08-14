@@ -1,9 +1,9 @@
 <div class="btn-group">
     @if((int) $course->status === \App\Models\Course::PUBLISHED)
-        <button type="button" class="status-btn completed">Publicado</button>
+        <div class="flex items-center justify-center text-theme-9"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Publicado </div>
     @elseif((int) $course->status === \App\Models\Course::PENDING)
-        <button type="button" class="status-btn on_hold">Pendiente</button>
+        <div class="flex items-center justify-center text-theme-6"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Pendiente </div>
     @else
-        <button type="button" class="status-btn un_paid">Rechazado</button>
+        <div class="flex items-center justify-center text-theme-6"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Rechazado </div>
     @endif
 </div>

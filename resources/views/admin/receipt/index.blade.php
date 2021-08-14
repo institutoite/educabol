@@ -1,4 +1,4 @@
-@extends('layouts.dashmin')
+@extends('layouts.admin')
 @push('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -6,17 +6,16 @@
     <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
 @endpush
 @section('content')
-<div class="row">
-    <div class="col-12">
-        <div class="card mb-30">
-            <div class="card-body">
-                <div class="d-sm-flex justify-content-between align-items-center">
-                    <h4 class="font-20">Comprobantes pendientes</h4>
-                </div>
-            </div>
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
+            <div class="hidden md:block mx-auto text-gray-600">Comprobantes pendientes</div>
+            
+        </div>
+        <!-- BEGIN: Data List -->
+        <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
             <div class="table-responsive">
                 <!-- Invoice List Table -->
-                <table class="table-striped" id="usuarios">
+                <table class="table table-report -mt-2" id="usuarios">
                     <thead>
                         <tr>
                             <th>Orden</th>
@@ -38,7 +37,7 @@
                         @empty
                             <div class="container">
                                 <div class="empty-results">
-                                    {{ __("No tienes ningún curso pendiente de aprobacion") }}
+                                    {{ __("No tiene comprobantes pendiente de aprobacion") }}
                                 </div>
                             </div>
                         @endforelse
@@ -48,8 +47,8 @@
                 <!-- End Invoice List Table -->
             </div>
         </div>
+        <!-- END: Data List -->
     </div>
-</div>
 @endsection
 @push("js")
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -64,8 +63,6 @@
             language: {
                     url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
-            
-            "order": [[ 2, 'desc' ]]
         });
         
     </script>

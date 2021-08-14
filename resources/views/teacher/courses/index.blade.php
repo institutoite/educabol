@@ -14,7 +14,7 @@
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-            <table class="table-striped" id="usuarios">
+            <table class="table table-report -mt-2" id="usuarios">
                 <thead>
                     <tr>
                         <th>Titulo</th>
@@ -32,8 +32,8 @@
                             <td>{{ __(":count Estudiantes", ['count' => $course->students_count]) }}</td>
                             <td>@include('partials.courses.status')</td>
                             <td>
-                            <a href="{{ route('teacher.courses.edit', ['course' => $course]) }}" class="details-btn">{{ __("Gestionar Curso") }} <i class="icofont-arrow-right"></i></a>
-                            <a href="{{ route('teacher.courses.students', ['course' => $course]) }}" class="details-btn">{{ __("Listado Alumnos") }} <i class="icofont-arrow-right"></i></a>
+                            <a href="{{ route('teacher.courses.edit', ['course' => $course]) }}" class="btn btn-primary btn-sm">{{ __("Gestionar Curso") }} <i class="icofont-arrow-right"></i></a>
+                            <a href="{{ route('teacher.courses.students', ['course' => $course]) }}" class="btn btn-primary btn-sm">{{ __("Listado Alumnos") }} <i class="icofont-arrow-right"></i></a>
                             </td>
                         </tr>
                     @empty

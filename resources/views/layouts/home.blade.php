@@ -37,7 +37,7 @@
             <div class="site-header-inner">
                 <div class="container">
                     <div id="logo" class="logo">
-                        <a href="{{ url('/') }}" style="color:white; font-size:28px;"><img src="{{ asset('images/logo/02.png') }}" alt="images">Educabol</a>
+                        <a href="{{ url('/') }}" style="color:white; font-size:28px;"><img src="{{ asset('images/logo/logo.png') }}" alt="images"></a>
                     </div>
                     <div class="mobile-button"><span></span></div>
                     <div class="header-menu">

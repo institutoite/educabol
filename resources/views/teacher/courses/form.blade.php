@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @push('css')
     <link
         href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
@@ -50,43 +49,18 @@
         }
     </style>
 @endpush
-
 @section("content")
-<div class="row">
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <!-- BEGIN: Vertical Form -->
+            <div class="row">
     <div class="col-12">
         <div class="form-element with-icons mb-30">
             @include('partials.form_errors')
 
             <!-- Invoice Top -->
             @isset($update)
-            <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
-                <div class="row">
-                    <div class="col-md-6">
-                            <!-- Invoice Left -->
-                            <div class="invoice-left">
-                                @if($course->picture)
-                                    <div class="logo mb-3"><img alt="{{ $title }}" class="img-fluid" width="150" src="{{ $course->imagePath() }}" /></div>
-                                @endif
-                            </div>
-                            <!-- End Invoice Left -->
-                    </div>
-
-                    <div class="col-md-6">
-                        <!-- Invoice Right -->
-                        <div class="invoice-right mt-5 mt-md-0">
-                            <h3 class="white font-20 mb-3">Informacion del Curso</h3>
-
-                            <ul class="status-list">
-                            <li><span class="key font-14">Subido:</span> <span class="white bold font-17">{{ $course->created_at->format("d/m/Y H:i") }}</span></li>
-                            
-                            <li><span class="key font-14">Estado:</span>@include('partials.courses.status')</li>
-                            </ul>
-                        </div>
-                        <!-- End Invoice Right -->
-                    </div>
-                    
-                </div>
-            </div>
+            
             @endisset
             <!-- End Invoice Top -->
 
@@ -156,11 +130,10 @@
 
                 <div class="custom-file">
                     {!! Form::file('picture', ['class' => 'custom-file-input', 'id' => 'picture']) !!}
-                    {!! Form::label('picture', __("Selecciona la imagen de tu curso"), ['class' => 'custom-file-label']) !!}
                 </div>
 
                 <div class="proceed-to-checkout invoice-edit d-flex align-items-center justify-content-end mr-20 mt-4">
-                    <a href="{{ route('teacher.courses') }}" class="btn preview">{{ __("Volver al listado de cursos") }}</a>
+                    <a href="{{ route('teacher.courses') }}" class="btn btn-primary shadow-md mr-2">{{ __("Volver al listado de cursos") }}</a>
                     {!! Form::submit($textButton, ['class' => 'btn']); !!}
                 </div>
 
@@ -168,32 +141,8 @@
         </div>
     </div>
 </div>
+            <!-- END: Vertical Form -->
+            
+        </div>
+    </div>
 @endsection
-
-@push("js")
-    <script src="/js/drag-arrange.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <script>
-        jQuery(document).ready(function () {
-            $('#summernote').summernote({
-                height: 300,
-            });
-
-            $('li').arrangeable({dragSelector: '.drag-area'});
-            $('.drag-list').on('drag.end.arrangeable', function () {
-                let orderedUnits = [];
-                const listItems = $(".drag-list li");
-                let order = 1;
-                for (let li of listItems) {
-                    const id = $(li).data("id");
-                    orderedUnits.push({
-                        id,
-                        order
-                    });
-                    order++;
-                }
-                $("input[name=orderedUnits]").val(JSON.stringify(orderedUnits));
-            });
-        });
-    </script>
-@endpush

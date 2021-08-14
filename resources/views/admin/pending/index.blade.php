@@ -13,7 +13,7 @@
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-                <table class="table-striped" id="usuarios">
+                <table class="table table-report -mt-2"" id="usuarios">
                     <thead>
                         <tr>
                             <th>Nombre</th>

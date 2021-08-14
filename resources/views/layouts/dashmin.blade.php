@@ -17,6 +17,7 @@
    <link href="{{ asset('icon/favicon.ico') }}" rel="shortcut icon">
 
     <!-- ======= DATATABLE STYLES ======= -->
+    
     @stack('css')
     <!-- ======= END DATATABLE STYLES ======= -->
 
