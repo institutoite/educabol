@@ -36,7 +36,7 @@
                                     <td>{{ $category->created_at->format("d/m/Y") }}</td>
                                     <td>{{ $category->updated_at->format("d/m/Y") }}</td>
                                     <td>
-                                    <a href="{{ route('admin.categories.edit', ['category' => $category]) }}"><img src="{{ asset('../../assets/img/svg/c-edit.svg') }}" alt="" class="svg"></a>
+                                    <a href="{{ route('admin.categories.edit', ['category' => $category]) }}" class="flex items-center mr-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                     </td>
                                     
                                 </tr>
