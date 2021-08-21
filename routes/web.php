@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['permission
     Route::get('/receipt', [App\Http\Controllers\AdminController::class, 'receipt'])->name('receipt');
     Route::get('/receipt/{order}', [App\Http\Controllers\AdminController::class, 'processreceipt'])->name('receipt.process');
     Route::put('/receipt/{order}', [App\Http\Controllers\AdminController::class, 'updateStatusReceipt'])->name('receipt.status');
+
+
+    
+    Route::resource('users', UserController::class)->names('users');
 });
 
 Route::group(['prefix' => "solicitude"], function() {
@@ -89,4 +94,3 @@ Route::get('/payment', function () {
 });
 
 Route::resource('orders', App\Http\Controllers\OrderController::class);
-

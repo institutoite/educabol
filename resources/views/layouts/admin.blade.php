@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
         <!-- END: CSS Assets-->
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        @livewireStyles
     </head>
     <!-- END: Head -->
     <body class="main">
@@ -27,14 +28,14 @@
             </div>
             @can('admin.categories')
                 <ul class="border-t border-theme-29 py-5 hidden">
-                
+
                     <li>
-                        <a href="{{ route('admin.categories') }}" class="menu menu--active">
+                        <a href="{{ route('admin.categories') }}" class="menu menu">
                             <div class="menu__icon"> <i data-feather="inbox"></i> </div>
                             <div class="menu__title"> Categorias </div>
                         </a>
                     </li>
-                
+
                     <li>
                         <a href="side-menu-light-point-of-sale.html" class="menu">
                             <div class="menu__icon"> <i data-feather="credit-card"></i> </div>
@@ -59,6 +60,12 @@
                     
                     @can('admin.categories')
                         <li class="side-nav__devider my-6"></li>
+                        <li>
+                            <a href="{{ route('admin.users.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i data-feather="user"></i> </div>
+                                <div class="side-menu__title"> Usuarios </div>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ route('admin.categories') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
@@ -132,5 +139,6 @@
         @include('sweet::alert')
         
         <!-- END: JS Assets-->
+        @livewireScripts
     </body>
 </html>
