@@ -9,13 +9,11 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["user_id", "course_id", "stars", "review"];
-
-    public function course() {
-        return $this->belongsTo(Course::class);
+    public function user() {
+        return $this->belongsTo('App\Models\User');
     }
 
-    public function author() {
-        return $this->belongsTo(User::class, "user_id");
+    public function course() {
+        return $this->belongsTo('App\Models\Course');
     }
 }

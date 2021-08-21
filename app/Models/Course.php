@@ -4,119 +4,39 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Course;
 
 class Course extends Model
 {
-	use HasFactory;
+    use HasFactory;
 
-    protected $fillable = [
-        "user_id", "title", "description",
-        "picture", "price", "featured", "status"
-    ];
+    const BORRADOR = 1;
+    const REVISION = 2;
+    const PUBLICADO = 3;
 
-    const PUBLISHED = 1;
-    const PENDING = 2;
-    const REJECTED = 3;
-
-    protected $withCount = ['reviews', 'students'];
-
-    const prices = [
-        '30' => 'Bs. 30',
-        '35' => 'Bs. 35',
-        '40' => 'Bs. 40',
-        '45' => 'Bs. 45',
-        '50' => 'Bs. 50'
-    ];
-
-    protected $appends = [
-        "rating", "formatted_price"
-    ];
-
-    protected static function boot() {
-        parent::boot();
-        if ( !app()->runningInConsole()) {
-            self::saving(function ($table) {
-                $table->user_id = auth()->id();
-            });
-        }
-    }
-
-    public function imagePath() {
-        return sprintf('%s/%s', '/storage/courses', $this->picture);
-    }
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-
-    public function categories () {
-        return $this->belongsToMany(Category::class);
-    }
-
-    public function students() {
-        return $this->belongsToMany(User::class, "course_students",'course_id','user_id');
+    public function reviews() {
+        return $this->hasMany('App\Models\Review');
     }
 
     public function teacher() {
-        return $this->belongsTo(User::class, "user_id");
+        return $this->belongsTo('App\Models\User','user_id');
     }
 
-    public function reviews() {
-        return $this->hasMany(Review::class);
+    public function level() {
+        return $this->belongsTo('App\Models\Level');
     }
 
-    public function units() {
-        return $this->hasMany(Unit::class)->orderBy("order", "asc");
+    public function category() {
+        return $this->belongsTo('App\Models\Level');
+    }
+    
+    public function price() {
+        return $this->belongsTo('App\Models\Price');
     }
 
-    public function getRatingAttribute () {
-        return $this->reviews->avg('stars');
+    public function students() {
+        return $this->belongsToMany('App\Models\User');
     }
 
-    public function getFormattedPriceAttribute() {
-        return $this->price;
-    }
-
-    public function totalVideoUnits() {
-        return $this->units->where("unit_type", Unit::VIDEO)->count();
-    }
-
-    public function totalPdfUnits() {
-        return $this->units->where("unit_type", Unit::PDF)->count();
-    }
-
-    public function totalFileUnits() {
-        return $this->units->where("unit_type", Unit::ZIP)->count();
-    }
-
-    public function totalTime() {
-        $minutes = $this->units->where("unit_type", Unit::VIDEO)->sum("unit_time");
-        return gmdate("H:i", $minutes * 60);
-    }
-
-    public function scopeFiltered(Builder $builder, Category $category = null) {
-        $builder->with("teacher");
-        $builder->withCount("students");
-        $builder->where("status", Course::PUBLISHED);
-        if (session()->has('search[courses]')) {
-            $builder->where('title', 'LIKE', '%' . session('search[courses]') . '%');
-        }
-
-        if ($category) {
-            $builder->whereHas("categories", function (Builder $table) use ($category) {
-                $table->where("id", $category->id);
-            });
-        }
-
-        return $builder->paginate();
-    }
-
-    public function scopeForTeacher(Builder $builder) {
-        return $builder
-            ->withCount('students')
-            ->where("user_id", auth()->id())
-            ->paginate();
-    }
     
 }
