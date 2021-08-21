@@ -48,20 +48,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isTeacher() {
-        return $this->role === User::TEACHER;
+    public function profile() {
+        return $this->hasOne('App\Models\Profile');
     }
 
-    public function isAdmin() {
-        return $this->role === User::ADMIN;
+    public function courses_ditacted() {
+        return $this->hasMany('App\Models\Course');
     }
 
-    public function courses_learning() {
-        return $this->belongsToMany(Course::class, "course_students");
-    }
-
-    public function scopePurchasedCourses() {
-        return $this->courses_learning()->with("categories")->paginate();
+    public function reviews() {
+        return $this->hasMany('App\Models\Review');
     }
     
+    public function courses_enrolled() {
+        return $this->belongsToMany('App\Models\Course');
+    }
 }
