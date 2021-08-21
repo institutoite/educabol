@@ -18,7 +18,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <a href="{{ route('admin.users.edit', $user) }}" class="flex items-center mr-3" href="javascript:;"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                                
                             </td>
                         </tr>
                     @endforeach
