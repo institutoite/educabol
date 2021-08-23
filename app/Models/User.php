@@ -6,16 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\User;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
-
-    const ADMIN = 'ADMIN';
-    const TEACHER = 'TEACHER';
-    const STUDENT = 'STUDENT';
+    use HasFactory;
+    use Notifiable;
     
     /**
      * The attributes that are mass assignable.
@@ -26,7 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
     ];
 
     /**
@@ -37,6 +32,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -48,19 +45,47 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile() {
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    //Relacion uno a uno
+
+    public function profile(){
         return $this->hasOne('App\Models\Profile');
     }
 
-    public function courses_ditacted() {
+    //Relacion uno a muchos
+
+    public function courses_dictated(){
         return $this->hasMany('App\Models\Course');
     }
 
-    public function reviews() {
+    public function reviews(){
         return $this->hasMany('App\Models\Review');
     }
-    
-    public function courses_enrolled() {
+
+    public function comments(){
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function reactions(){
+        return $this->hasMany('App\Models\Reaction');
+    }
+
+    //Relacion muchos a muchos
+
+    public function courses_enrolled(){
         return $this->belongsToMany('App\Models\Course');
     }
+
+    public function lessons(){
+        return $this->belongsToMany('App\Models\Lesson');
+    }
 }
+
