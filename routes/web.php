@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\UserController;
 
 /*
@@ -15,9 +16,11 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', HomeController::class, 'index')->name('home');
 
-Auth::routes();
+
+/////////////////////////////////////////////////////////////////////////////////////
+Route::get('/', [App\Http\Controllers\HomeController::class])->name('home');
 
 Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
