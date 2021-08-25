@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Helpers\Image;
+
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -14,20 +15,16 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        /*
-        $categories = [
-            "Laravel" => "F35144",
-            "Node.js" => "8DBC58",
-            "Vuejs" => "41B881",
-            "React" => "0CC1E9",
-            "Deno" => "0098B6",
-            "Amplify" => "FF9733",
-        ];
-        foreach($categories as $category => $bg) {
-            \App\Models\Category::factory()->create([
-                "name" => $category,
-                "picture" => Image::image(storage_path('app/public/categories'), $category, $bg, 470, 220, false),
-            ]); 
-        }*/
+        Category::create([
+            'name' => 'Desarrollo web'
+        ]);
+
+        Category::create([
+            'name' => 'Diseño web'
+        ]);
+
+        Category::create([
+            'name' => 'Programación'
+        ]);
     }
 }

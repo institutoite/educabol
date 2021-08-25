@@ -21,7 +21,8 @@ class CreateCoursesTable extends Migration
             $table->string('subtitle');
             $table->text('description');
             $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
-            
+            $table->string('slug');
+
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('level_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();

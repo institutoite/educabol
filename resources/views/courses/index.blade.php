@@ -24,6 +24,14 @@
     <link rel="stylesheet" href="stylesheet/jquery.mCustomScrollbar.min.css">
     
     <link href="icon/favicon.ico" rel="shortcut icon">
+
+
+    @livewireStyles
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
 </head>
 <body>
     <div id="loading-overlay">
@@ -1154,6 +1162,8 @@
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js"></script>
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js"></script>
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
+
+    @livewireScripts
 
 </body>
 </html>

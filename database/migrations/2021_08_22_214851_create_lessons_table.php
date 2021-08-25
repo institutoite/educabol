@@ -18,14 +18,14 @@ class CreateLessonsTable extends Migration
 
             $table->string('name');
             $table->string('url');
-            $table->string('iframe');
+            $table->text('iframe');
 
             $table->unsignedBigInteger('platform_id')->nullable();
             $table->unsignedBigInteger('section_id');
 
             $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('set null');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

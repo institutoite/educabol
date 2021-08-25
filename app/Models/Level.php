@@ -9,6 +9,8 @@ class Level extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function couses() {
         return $this->hasMany('App\Models\Course');
     }

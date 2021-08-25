@@ -2,10 +2,15 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Helpers\Image;
+use App\Models\Audience;
 use App\Models\Course;
-use App\Models\User;
+use App\Models\Description;
+use App\Models\Goal;
+use App\Models\Image;
+use App\Models\Lesson;
+use App\Models\Requirement;
+use App\Models\Section;
+use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
 {
@@ -16,163 +21,35 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        /*
-        $courses = [
-            [
-                "title" => "Curso de Laravel 8",
-                "description" => "Aprende Laravel 8 desde 0 con las mejores prácticas.",
-                "price" => 30,
-                "featured" => 1,
-                "bg" => "F35144",
-                "categories" => [1],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Laravel y Voyager",
-                "description" => "Desarrollo de sistemas de administración brutales con Laravel Voyager.",
-                "price" => 40,
-                "bg" => "F35144",
-                "categories" => [1],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Laravel y Vuejs",
-                "description" => "Laravel y Vuejs, dos poderosas herramientas para el desarrollo de sitios web.",
-                "price" => 40,
-                "bg" => "F35144",
-                "categories" => [1, 3]
-            ],
-            [
-                "title" => "Node.js y Express",
-                "description" => "Node.js en el servidor con su Framework por excelencia, Express, fácil y rápido de aprender",
-                "price" => 40,
-                "featured" => 1,
-                "bg" => "8DBC58",
-                "categories" => [2],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "MVC con Node.js y TypeScrpt",
-                "description" => "Vamos a crear un sistema MVC con Node.js y TypeScript desde 0 para aprender a crear nuestros propios proyectos desde 0",
-                "price" => 40,
-                "bg" => "8DBC58",
-                "categories" => [2]
-            ],
-            [
-                "title" => "Vuejs y Vuex",
-                "price" => 40,
-                "description" => "Vuex es el almacén de datos por excelencia para Vuejs, un objeto global que nos facilita la vida a los programadores",
-                "featured" => 1,
-                "bg" => "41B881",
-                "categories" => [3],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Vue 3",
-                "description" => "La nueva versión de Vuejs, Vue 3 nos ofrece una nueva API y una nueva forma de escribir nuestros proyectos sin perder lo que ya conocíamos",
-                "price" => 30,
-                "bg" => "41B881",
-                "categories" => [3],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Vue y TypeScript",
-                "description" => "De forma alternativa Vuejs nos ofrece la posibilidad de tipar nuestro código utilizando TypeScript, aquí aprenderás cómo hacerlo",
-                "price" => 30,
-                "featured" => 1,
-                "bg" => "41B881",
-                "categories" => [3],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Reactjs CRUD",
-                "description" => "Para aprender cualquier lenguaje de programación/framework una de las mejores vías para entender muchas cosas",
-                "price" => 40,
-                "bg" => "0CC1E9",
-                "categories" => [4]
-            ],
-            [
-                "title" => "React Native y Expo",
-                "price" => 50,
-                "description" => "Aprende a desarrrollar aplicaciones móviles con React Native y Expo paso a paso con este súper curso",
-                "featured" => 1,
-                "bg" => "0CC1E9",
-                "categories" => [4],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Deno from Scratch",
-                "description" => "Deno -> Node es la nueva herramienta que nos ofrece Ryan Dahl, el creador de Node.js, para desarrollar software en el servidor con JavaScript",
-                "price" => 30,
-                "featured" => 1,
-                "bg" => "0098B6",
-                "categories" => [5],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "MVC con Deno",
-                "description" => "Vamos a crear un pequeño sistema MVC con Deno y Alosaur, dos poderosas herramientas que gracias a los decoradores nos permiten hacer cosas increíbles",
-                "price" => 30,
-                "bg" => "0098B6",
-                "categories" => [5]
-            ],
-            [
-                "title" => "API REST con Deno",
-                "description" => "Algo muy típico cuando estamos empezando es desarrollar una pequeña API REST, por llamarle de alguna forma, que nos permite interactuar con Deno en este caso",
-                "price" => 30,
-                "bg" => "0098B6",
-                "categories" => [5]
-            ],
-            [
-                "title" => "Primer proyecto Amplify",
-                "description" => "Aprende a desarrollar tu primer proyecto básico con Amplify Framework, una poderosa herramienta de Amazon Web Services",
-                "price" => 30,
-                "featured" => 1,
-                "bg" => "FF9733",
-                "categories" => [6],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Cognito y Amplify",
-                "description" => "Cognite en Amplify Framework nos permite desarrollar un completo sistema de autenticación fácil y seguro para nuestros usuarios",
-                "price" => 40,
-                "bg" => "FF9733",
-                "categories" => [6]
-            ],
-            [
-                "title" => "DynamoDB y Amplify",
-                "description" => "Con DynamoDB podemos crear bases de datos utilizando NoSQL que gracias a Amplify Framework podemos combinar con GraphQL, ¡no te pierdas este curso!",
-                "price" => 40,
-                "featured" => 1,
-                "bg" => "FF9733",
-                "categories" => [6],
-                "status" => Course::PUBLISHED
-            ],
-            [
-                "title" => "Lambda y Amplify",
-                "description" => "Las funciones Lambda son una gran herramienta para llevar a cabo muchas tareas comunes, eventos de Cognito, Triggers para gestionar eventos y mucho más",
-                "price" => 40,
-                "bg" => "FF9733",
-                "categories" => [6]
-            ],
-        ];
+        $courses = Course::factory(40)->create();
 
         foreach ($courses as $course) {
-            $categories = $course['categories'];
-            $course['picture'] = Image::image(
-                storage_path('app/public/courses'),
-                $course['title'],
-                $course['bg'],
-                470,
-                220,
-                false
-            );
-            $course['user_id'] = User::whereRole(User::TEACHER)->get()->random()->id;
-            unset($course['categories']);
-            unset($course['bg']);
-            $model = Course::create($course);
-            $model->categories()->sync($categories);
-        }*/
+            Image::factory(1)->create([
+                'imageable_id' => $course->id,
+                'imageable_type' => 'App\Models\Course'
+            ]);
 
+            Requirement::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+            Goal::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+            Audience::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+            $sections = Section::factory(4)->create(['course_id' => $course->id]);
+
+            foreach ($sections as $section) {
+                $lessons = Lesson::factory(4)->create(['section_id' => $section->id]);
+
+                foreach ($lessons as $lesson) {
+                    Description::factory(1)->create(['lesson_id' => $lesson->id]);
+                }
+            }
+        }
     }
 }
