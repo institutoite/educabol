@@ -295,51 +295,79 @@
         </div>
     </section><!-- partner-clients -->
     <section class="online-courses online-courses-style1">
-        <div class="container">
-            <div class="title-section text-center">
-                <p class="sub-title lt-sp17">Most popular courses</p>
-                <div class="flat-title medium">
-                   Ultimos Cursos
+        <div class="course-grid">
+            <div class="container">
+                <div class="flat-portfolio">
+                    <ul class="flat-filter-isotype">
+                        <li class="active"><a href="#" data-filter="*">Show all</a></li>
+                        <li><a href="#" data-filter=".Certificate">Certificate</a></li>
+                        <li><a href="#" data-filter=".Marketing"> Marketing </a></li>
+                        <li><a href="#" data-filter=".Popular"> Popular </a></li>
+                        <li><a href="#" data-filter=".Learning">Learning</a></li>
+                    </ul>
+                    <div class="search-course">
+                        <form action="#" class="search-form">
+                            <input type="search" placeholder="Search here....">
+                            <button class="search-button">
+                                <i class="fa fa-search" aria-hidden="true"></i> 
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="online-courses-wrap">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="imagebox-courses-type1">
-                            <div class="featured-post">
-                                <img src="images/home1/05.png" alt="images">
-                            </div>
-                            <div class="author-info">
-                                <div class="avatar">
-                                    <img src="images/home1/11.png" alt="images">
-                                </div>
-                                <div class="category">
-                                    design
-                                </div>
-                                <div class="name">
-                                    <a href="#">Learn Photoshop CC ...</a> 
-                                </div>
-                                <div class="border-bt">
-                                    
-                                </div>
-                                <div class="evaluate">
-                                    <div class="price">
-                                        <span class="price-now">$269</span>
-                                        <span class="price-previou"><del>$169</del></span>
+                <div class="flat-courses clearfix isotope-courses">
+                    @foreach ($courses as $course)
+                        <div class="course clearfix Marketing Certificate Popular">    
+                            <div class="flat-course">
+                                <div class="featured-post post-media">
+                                    <div class="entry-image pic">
+                                        <img class="h-36 w-full object cover" src="storage/cursos/32e00145b77212858543a9a28cf13f3a.png" alt="images">
+                                        <div class="hover-effect"></div>
+                                        <div class="links">
+                                            <a href="{{route('course.show', $course)}}">Mas informacion</a>
+                                        </div>
                                     </div>
-                                    <div class="review">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span>(4)</span>
+                                </div>
+                                <div class="course-content clearfix">
+                                    <div class="wrap-course-content">
+                                        <h4>
+                                            <a href="#">{{ Str::limit($course->title, 40) }}</a>
+                                        </h4>
+                                        <p>
+                                            <i class="fa fa-users"></i>
+                                            <span>({{$course->students_count}}) estudiantes</span>. 
+                                        </p>
+                                        <div class="author-info">
+                                            <div class="author-name">
+                                                {{$course->teacher->name}}
+                                            </div>
+                                            <div class="enroll">
+                                                <a href="#">Enroll</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrap-rating-price">
+                                        <div class="meta-rate">
+                                            <div>
+                                                <i class="fa fa-star text-{{$course->rating >= 1 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
+                                                <i class="fa fa-star text-{{$course->rating >= 2 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
+                                                <i class="fa fa-star text-{{$course->rating >= 3 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
+                                                <i class="fa fa-star text-{{$course->rating >= 4 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
+                                                <i class="fa fa-star text-{{$course->rating == 5 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
+                                                
+                                            </div>
+                                            <div class="price">
+                                                <span class="price-previou">
+                                                    <del>$169</del>
+                                                </span>
+                                                <span class="price-now">$169</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                </div> 
             </div>
             <div class="title-section text-center">
                 <div class="flat-title medium">
@@ -350,7 +378,7 @@
             <div class="browse-all-courses pd-browse-course text-center">
                 <a href="{{ route('courses.index') }}" class="btn-browse-courses">Catalogo de Cursos</a>
             </div>
-        </div>
+        </div><!-- course-grid -->
     </section><!-- online-courses -->
     <section class="flat-services style1 parallax parallax1 clearfix">
         <div class="section-overlay"></div>
