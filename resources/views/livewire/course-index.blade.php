@@ -1,7 +1,7 @@
 <div>
     <div class="bg-gray-200 py-4 mb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
-            <button class="bg shadow h-12 px-4 rounded-lg text-gray-700 mr-4">
+            <button class="focus:outline-non bg shadow h-12 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
                 <i class="far fa-file-alt text-xs mr-4"></i>
                 Todos los cursos
             </button>
@@ -15,13 +15,9 @@
                 </button>
                 <!-- Dropdown Body -->
                 <div class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open" x-on:click.away="open = false">   
-                    <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white">Settings</a>
-                    <div class="py-2">
-                        <hr></hr>
-                    </div>
-                    <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white">    
-                        Logout
-                    </a>
+                    @foreach ($categories as $category)
+                        <a class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white" wire:click="$set('category_id', {{$category->id}})" x-on:click="open = false" >{{$category->name}}</a>
+                    @endforeach
                 </div>
                 <!-- // Dropdown Body -->
             </div>
@@ -35,13 +31,9 @@
                 </button>
                 <!-- Dropdown Body -->
                 <div class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open" x-on:click.away="open = false">   
-                    <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white">Settings</a>
-                    <div class="py-2">
-                        <hr></hr>
-                    </div>
-                    <a href="#" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white">    
-                        Logout
-                    </a>
+                    @foreach ($levels as $level)
+                    <a class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-gray-500 hover:text-white" wire:click="$set('level_id', {{$level->id}})" x-on:click="open = false">{{$level->name}}</a>
+                    @endforeach
                 </div>
                 <!-- // Dropdown Body -->
             </div>
@@ -50,66 +42,13 @@
         </div>
     </div>
 
-    <div class="course-grid">
-        <div class="container">
-            <div class="flat-courses clearfix isotope-courses">
-                @foreach ($courses as $course)
-                    <div class="course clearfix Marketing Certificate Popular">    
-                        <div class="flat-course">
-                            <div class="featured-post post-media">
-                                <div class="entry-image pic">
-                                    <img class="h-36 w-full object cover" src="storage/cursos/32e00145b77212858543a9a28cf13f3a.png" alt="images">
-                                    <div class="hover-effect"></div>
-                                    <div class="links">
-                                        <a href="{{route('course.show', $course)}}">Mas informacion</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-content clearfix">
-                                <div class="wrap-course-content">
-                                    <h4>
-                                        <a href="#">{{ Str::limit($course->title, 40) }}</a>
-                                    </h4>
-                                    <p>
-                                        <i class="fa fa-users"></i>
-                                        <span>({{$course->students_count}}) estudiantes</span>. 
-                                    </p>
-                                    <div class="author-info">
-                                        <div class="author-name">
-                                            {{$course->teacher->name}}
-                                        </div>
-                                        <div class="enroll">
-                                            <a href="#">Enroll</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wrap-rating-price">
-                                    <div class="meta-rate">
-                                        <div>
-                                            <i class="fa fa-star text-{{$course->rating >= 1 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
-                                            <i class="fa fa-star text-{{$course->rating >= 2 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
-                                            <i class="fa fa-star text-{{$course->rating >= 3 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
-                                            <i class="fa fa-star text-{{$course->rating >= 4 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
-                                            <i class="fa fa-star text-{{$course->rating == 5 ? 'yellow' : 'gray'}}-400" aria-hidden="true"></i>
-                                            
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-previou">
-                                                <del>$169</del>
-                                            </span>
-                                            <span class="price-now">$169</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div> 
-        </div>
-    </div><!-- course-grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 gap-x-6 gap-y-8">
+        @foreach ($courses as $course)
+            <x-course-card :course="$course" />
+        @endforeach
+    </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt:8 mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
         {{$courses->links()}}
     </div>
 

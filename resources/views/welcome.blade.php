@@ -294,6 +294,9 @@
             </div>
         </div>
     </section><!-- partner-clients -->
+    
+    
+    
     <section class="online-courses online-courses-style1">
         <div class="course-grid">
             <div class="container">
@@ -380,6 +383,33 @@
             </div>
         </div><!-- course-grid -->
     </section><!-- online-courses -->
+    <section class="mt-24">
+        <h1 class="text-gray-600 text-center text-3xl mb-6">Contenido</h1>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 gap-6">
+            <article>
+                <figure>
+                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
+                </figure>
+            </article>
+        </div>
+
+    </section>
     <section class="flat-services style1 parallax parallax1 clearfix">
         <div class="section-overlay"></div>
         <div class="container-fluid">
