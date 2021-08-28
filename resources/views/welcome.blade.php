@@ -2,27 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>edukin</title>
+    <title>Educabol</title>
 
     <!-- Mobile Specific Metas-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <!-- Bootstrap-->
-    <link rel="stylesheet" href="stylesheet/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('stylesheet/bootstrap.css') }}">
 
     <!-- Template Style-->
-    <link rel="stylesheet" href="stylesheet/font-awesome.css"> 
-    <link rel="stylesheet" href="stylesheet/animate.css">
-    <link rel="stylesheet" href="stylesheet/style.css">
-    <link rel="stylesheet" href="stylesheet/shortcodes.css">
-    <link rel="stylesheet" href="stylesheet/jquery-fancybox.css">
-    <link rel="stylesheet" href="stylesheet/responsive.css">
-    <link rel="stylesheet" href="stylesheet/flexslider.css">
-    <link rel="stylesheet" href="stylesheet/owl.theme.default.min.css">
-    <link rel="stylesheet" href="stylesheet/owl.carousel.min.css">
-    <link rel="stylesheet" href="stylesheet/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/font-awesome.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('stylesheet/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/shortcodes.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/jquery-fancybox.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('stylesheet/jquery.mCustomScrollbar.min.css') }}">
     
-    <link href="icon/favicon.ico" rel="shortcut icon">
+    <link href="{{ asset('images/logo/icono.png') }}" rel="shortcut icon">
+
+
+    @livewireStyles
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+
 </head>
 <body>
     <div id="loading-overlay">
@@ -33,13 +43,13 @@
             <div class="site-header-inner">
                 <div class="container">
                     <div id="logo" class="logo">
-                        <a href="index.html"><img src="images/logo/02.png" alt="images"></a>
+                        <a href="{{ url('/') }}" style="color:white; font-size:28px;"><img src="{{ asset('images/logo/logo.png') }}" alt="images"></a>
                     </div>
                     <div class="mobile-button"><span></span></div>
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
-                                <li><a href="#">Home</a>
+                                <li><a href="#">Inicio</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item active"><a href="index.html">Home 1</a></li>
                                         <li class="menu-item"><a href="home2.html">Home 2</a></li>
@@ -48,27 +58,27 @@
                                         <li class="menu-item"><a href="home5.html">Home 5</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
-                                <li><a href="course.html">Course</a>
+                                <li><a href="course.html">Cursos</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="course.html">Course</a></li>
                                         <li class="menu-item"><a href="course-list.html">Course list</a></li>
                                         <li class="menu-item"><a href="course-single.html">Course single</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
-                                <li><a href="#">Explore</a>
+                                <li><a href="#">Acerca de Nosotros</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="about.html">About</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
-                                <li><a href="#">Degrees</a>
+                                <li><a href="#">Contactanos</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="blog.html">Blog</a></li>
                                         <li class="menu-item"><a href="blog-single.html">Blog single</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
                                 <li class="nav-sing">
-                                    <a class="sing-in" href="#">Sing In</a>
-                                    <a class="sing-up" href="#">Sing Up</a>
+                                    <a class="sing-in" href="#">Iniciar Sesion</a>
+                                    <a class="sing-up" href="#">Registrate</a>
                                 </li>
                             </ul>
                         </nav>
@@ -105,7 +115,7 @@
                         data-start="1000" 
                         data-splitin="none" 
                         data-splitout="none" 
-                        data-responsive_offset="on"> <div class="education-text text-white">Education for all</div> </div>
+                        data-responsive_offset="on"> <div class="education-text text-white">Cursos en linea</div> </div>
 
                         <div class="tp-caption tp-resizeme text-white complete text-edukin"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
@@ -124,7 +134,7 @@
                         data-splitin="none" 
                         data-splitout="none" 
                         data-responsive_offset="on" 
-                        data-paddingright="['550','155','50','2']" >Complete your educution record collection. Discover Educution's full discography. Education is not key to success in life.</div>
+                        data-paddingright="['550','155','50','2']" >Aprende a tu ritmo desde cualquier dispositivo.</div>
 
                         <div class="tp-caption"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
@@ -160,7 +170,7 @@
                         data-splitout="none" 
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
-                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
+                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +591 71039910</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
                     </li>
 
                     <!-- Slide 2 -->
@@ -242,7 +252,7 @@
                         data-splitout="none" 
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
-                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
+                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +591 71039910</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
                     </li>
                 </ul>
             </div>
@@ -252,20 +262,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <div class="slide-client owl-carousel" data-auto="false" data-item="4" data-nav="false" data-dots="false" data-gap="0">
-                        <ul>
-                            <li><img src="images/home1/01.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/02.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/03.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/04.png" alt="images"></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="iconbox-style1">
@@ -302,11 +299,6 @@
             <div class="container">
                 <div class="flat-portfolio">
                     <ul class="flat-filter-isotype">
-                        <li class="active"><a href="#" data-filter="*">Show all</a></li>
-                        <li><a href="#" data-filter=".Certificate">Certificate</a></li>
-                        <li><a href="#" data-filter=".Marketing"> Marketing </a></li>
-                        <li><a href="#" data-filter=".Popular"> Popular </a></li>
-                        <li><a href="#" data-filter=".Learning">Learning</a></li>
                     </ul>
                     <div class="search-course">
                         <form action="#" class="search-form">
@@ -343,9 +335,6 @@
                                             <div class="author-name">
                                                 {{$course->teacher->name}}
                                             </div>
-                                            <div class="enroll">
-                                                <a href="#">Enroll</a>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="wrap-rating-price">
@@ -359,10 +348,7 @@
                                                 
                                             </div>
                                             <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
+                                                <span class="price-now">Bs.100</span>
                                             </div>
                                         </div>
                                     </div>
@@ -383,33 +369,6 @@
             </div>
         </div><!-- course-grid -->
     </section><!-- online-courses -->
-    <section class="mt-24">
-        <h1 class="text-gray-600 text-center text-3xl mb-6">Contenido</h1>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 gap-6">
-            <article>
-                <figure>
-                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
-                </figure>
-            </article>
-            <article>
-                <figure>
-                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
-                </figure>
-            </article>
-            <article>
-                <figure>
-                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
-                </figure>
-            </article>
-            <article>
-                <figure>
-                    <img src="{{asset('storage/cursos/32e00145b77212858543a9a28cf13f3a.png')}}" alt="">
-                </figure>
-            </article>
-        </div>
-
-    </section>
     <section class="flat-services style1 parallax parallax1 clearfix">
         <div class="section-overlay"></div>
         <div class="container-fluid">
