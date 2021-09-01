@@ -19,3 +19,11 @@ Route::get('/', HomeController::class)->name('home');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('cursos', function(){
+    return "aqui se mostrara la lista de cursos";
+})->name('courses.index');
+
+Route::get('cursos/{course}', function($course){
+    return "aqui se va a mostrar la informacion del curso";
+})->name('course.show');
