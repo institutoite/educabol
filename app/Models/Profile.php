@@ -11,7 +11,9 @@ class Profile extends Model
 
     protected $guarded = ['id'];
 
-    public function user() {
+    //Relacion uno a uno inversa
+
+    public function user(){
         return $this->belongsTo('App\Models\User');
     }
 }

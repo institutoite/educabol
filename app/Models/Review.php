@@ -11,11 +11,13 @@ class Review extends Model
 
     protected $guarded = ['id'];
 
-    public function user() {
+    //Relacion uno a muchos inversa
+
+    public function user(){
         return $this->belongsTo('App\Models\User');
     }
 
-    public function course() {
+    public function course(){
         return $this->belongsTo('App\Models\Course');
     }
 }

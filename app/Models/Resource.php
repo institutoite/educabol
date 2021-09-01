@@ -15,4 +15,3 @@ class Resource extends Model
         return $this->morphTo();
     }
 }
-

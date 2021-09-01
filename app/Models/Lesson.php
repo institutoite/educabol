@@ -46,4 +46,5 @@ class Lesson extends Model
     public function reactions(){
     return $this->morphMany('App\Models\Reaction', 'reactionable');
     }
+
 }

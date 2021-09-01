@@ -11,7 +11,8 @@ class Price extends Model
 
     protected $guarded = ['id'];
 
-    public function couses() {
+    //Relacion uno a muchos
+    public function courses(){
         return $this->hasMany('App\Models\Course');
     }
 }

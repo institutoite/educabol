@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reaction extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = ['id'];
 
     const LIKE = 1;

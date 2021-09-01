@@ -10,38 +10,10 @@ class Course extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'status'];
-    protected $withCount = ['students', 'reviews'];
-    
+
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
-
-    public function getRatingAttribute(){
-
-        if($this->reviews_count){
-            return round($this->reviews->avg('rating'), 1);
-        }else{
-            return 5;
-        }
-        
-    }
-
-    //Query Scopes
-    public function scopeCategory($query, $category_id){
-        if($category_id){
-            return $query->where('category_id', $category_id);
-        }
-    }
-
-    public function scopeLevel($query, $level_id){
-        if($level_id){
-            return $query->where('level_id', $level_id);
-        }
-    }
-
-    public function getRouteKeyName(){
-        return 'slug';
-    }
 
     //Relacion uno a muchos
 
@@ -97,5 +69,4 @@ class Course extends Model
     public function lessons(){
         return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
     }
-    
 }

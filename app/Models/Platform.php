@@ -15,4 +15,5 @@ class Platform extends Model
     public function lessons(){
         return $this->hasMany('App\Models\Lesson');
     }
+
 }

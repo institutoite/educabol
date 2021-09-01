@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Audience extends Model
 {
-    use HasFactory;
 
     protected $guarded = ['id'];
 
