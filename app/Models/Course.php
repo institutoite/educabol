@@ -75,11 +75,11 @@ class Course extends Model
     }
 
     public function category(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo('App\Models\Category');
     }
 
     public function price(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo('App\Models\Price');
     }
 
     //Relacion muchos a muchos
@@ -96,5 +96,10 @@ class Course extends Model
     //Relacion hasManyThrough
     public function lessons(){
         return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
+    }
+
+
+    public function imagePath() {
+        return sprintf('%s/%s', 'storage', $this->image->url);
     }
 }
