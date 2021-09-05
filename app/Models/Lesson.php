@@ -12,7 +12,7 @@ class Lesson extends Model
     protected $guarded = ['id'];
 
     public function getCompletedAttribute(){
-        return $this->users->contains(auth()->user()->id);
+        return $this->users->contains(auth()->id());
     }
 
     //Relacion uno a uno
