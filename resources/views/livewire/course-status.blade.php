@@ -24,47 +24,49 @@
                 <div class="card-body flex text-gray-500 font-bold">
                     
                     @if ($this->previous)
-                        <a class="cursor-pointer">Tema anterior</a>
+                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer">Tema anterior</a>
                     @endif
 
                     @if ($this->next)
-                        <a class="ml-auto cursor-pointer">Siguiente tema</a>
+                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer">Siguiente tema</a>
                     @endif
                 </div>
             </div>
 
-            <p>Indice: {{$this->index}}</p>
-            <p>Previus: @if ($this->previous)
-                {{$this->previous->id}}
-            @endif</p>
-            <p>Next: @if ($this->next)
-                {{$this->next->id}}
-            @endif</p>
         </div>
     
         <div class="bg-white shadow-lg rounded overflow-hidden">
             <div class="px-6 py-4">
-                <h1>{{$course->title}}</h1>
+                <h1 class="text-2xl leading-8 text-center mb-4">{{$course->title}}</h1>
 
                 <div class="flex items-center">
                     <figure>
-                        <img class="h-8 w-8 object-cover rounded-full shadow-lg" src="{{$course->teacher->profile_photo_url}}" alt="">
+                        <img class="w-12 h-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
                     </figure>
 
                     <div>
                         <p>{{$course->teacher->name}}</p>
                     </div>
                 </div>
+
+                <p class="text-gray-600 text-sm mt-2">20% Completado</p>
+
+                <div class="relative pt-1">
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
+                        <div style="width:30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500"></div>
+                    </div>
+                </div>
                 <ul>
                     @foreach ($course->sections as $section)
-                        <li>
-                            <a class="font-bold" href="">{{$section->name}}</a>
+                        <li class="text-gray-600 mb-4">
+                            <a class="font-bold text-base inline-block mb-2" href="">{{$section->name}}</a>
                             <ul>
                                 @foreach ($section->lessons as $lesson)
-                                    <li>
-                                        <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->id}} @if ($lesson->completed)
-                                            (Completado)
-                                        @endif</a>
+                                    <li class="flex">
+                                        <div>
+                                            <span class="inline-block w-4 h-4 bg-gray-500 rounded-full mr-2 mt-1"></span>
+                                        </div>
+                                        <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}} </a>
                                     </li>
                                 @endforeach
                             </ul>
