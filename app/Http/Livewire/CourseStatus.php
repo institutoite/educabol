@@ -16,11 +16,12 @@ class CourseStatus extends Component
             if (!$lesson->completed) {
                 $this->current = $lesson;
 
-                //indice
-                
-                
                 break;
             }
+        }
+
+        if (!$this->current) {
+            $this->current = $course->lessons->last();
         }
     }
 
@@ -32,6 +33,17 @@ class CourseStatus extends Component
     public function changeLesson(Lesson $lesson){
         $this->current = $lesson;
     
+    }
+
+    public function completed(){
+        if($this->current->completed){
+            $this->current->users()->detach(auth()->user()->id);
+        }else{
+            $this->current->users()->attach(auth()->user()->id);
+        }
+
+        $this->current = Lesson::find($this->current->id);
+        $this->course = Course::find($this->course->id);
     }
 
     public function getIndexProperty(){
@@ -52,6 +64,19 @@ class CourseStatus extends Component
         }else{
             return $this->course->lessons[$this->index + 1];
         }
+    }
+
+    public function getAdvanceProperty(){
+        $i = 0;
+        foreach ($this->course->lessons as $lesson) {
+            if ($lesson->completed) {
+                $i++;
+            }
+        }
+
+        $advance = ($i * 100)/($this->course->lessons->count());
+
+        return round($advance, 1);
     }
 
 }
