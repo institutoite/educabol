@@ -25,7 +25,7 @@
                             Estado
                         </th>
                         <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
+                        <span class="sr-only">Editar</span>
                         </th>
                     </tr>
                 </thead>
@@ -98,7 +98,7 @@
 
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <a href="{{route('instructor.courses.edit', $course)}}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
                             </td>
                         </tr>
                     @endforeach
