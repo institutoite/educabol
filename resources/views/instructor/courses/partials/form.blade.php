@@ -1,21 +1,37 @@
 <div class="mb-4">
     {!! Form::label('title', 'Titulo del curso') !!}
-    {!! Form::text('title', null, ['class'=> 'form-input block w-full mt-1']) !!}
+    {!! Form::text('title', null, ['class'=> 'form-input block w-full mt-1' . ($errors->has('title') ? ' border-red-600' : '')]) !!}
+
+    @error('title')
+        <strong class="text-xs text-red-600">{{$message}}</strong>
+    @enderror
 </div>
 
 <div class="mb-4">
     {!! Form::label('slug', 'Slug del curso') !!}
-    {!! Form::text('slug', null, ['class'=> 'form-input block w-full mt-1']) !!}
+    {!! Form::text('slug', null, [ 'readonly' => 'readonly' ,'class'=> 'form-input block w-full mt-1' . ($errors->has('slug') ? ' border-red-600' : '') ]) !!}
+
+    @error('slug')
+        <strong class="text-xs text-red-600">{{$message}}</strong>
+    @enderror
 </div>
 
 <div class="mb-4">
     {!! Form::label('subtitle', 'Subtitulo del curso') !!}
-    {!! Form::text('subtitle', null, ['class'=> 'form-input block w-full mt-1']) !!}
+    {!! Form::text('subtitle', null, ['class'=> 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '')]) !!}
+
+    @error('subtitle')
+        <strong class="text-xs text-red-600">{{$message}}</strong>
+    @enderror
 </div>
 
 <div class="mb-4">
     {!! Form::label('description', 'Descripcion del curso') !!}
-    {!! Form::textarea('description', null, ['class'=> 'form-input block w-full mt-1']) !!}
+    {!! Form::textarea('description', null, ['class'=> 'form-input block w-full mt-1' . ($errors->has('description') ? ' border-red-600' : '')]) !!}
+
+    @error('description')
+        <strong class="text-xs text-red-600">{{$message}}</strong>
+    @enderror
 </div>
 
 <div class="grid grid-cols-3 gap-4">
@@ -39,7 +55,7 @@
 
 <div class="grid grid-cols-2 gap-2">
     <figure>
-        @isset($course)
+        @isset($course->image)
             <img id="picture" class="w-full h-64 object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">
         @else
             <img id="picture" class="w-full h-64 object-cover object-center" src="https://cdn.pixabay.com/photo/2016/12/19/04/18/upload-1917380_960_720.png" alt="">
