@@ -29,7 +29,7 @@
 
                         <div>
                             <i class="fas fa-edit cursor-pointer text-blue-500" wire:click="edit({{$item}})"></i>
-                            <i class="fas fa-eraser cursor-pointer text-red-500"></i>
+                            <i class="fas fa-eraser cursor-pointer text-red-500" wire:click="destroy({{$item}})"></i>
                         </div>
                     </header>
                 @endif
@@ -39,22 +39,26 @@
 
     @endforeach
 
-    <div>
-        <a class="flex items-center cursor-pointer">
+    <div x-data="{open: false}">
+        <a x-show="!open" x-on:click="open = true" class="flex items-center cursor-pointer">
             <i class="far fa-plus-square text-2xl text-teal-400 mr-2"></i>
             Agregar nueva seccion
         </a>
 
-        <article class="card">
+        <article class="card" x-show="open">
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font-bold mb-4">Agregar nueva seccion</h1>
 
-                <div>
-                    <input class="form-input w-full" placeholder="Escriba el nombre de la seccion">
+                <div class="mb-4">
+                    <input wire:model="name" class="form-input w-full" placeholder="Escriba el nombre de la seccion">
+                    @error('name')
+                        <span class="text-xs text-red-500">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <div class="flex justify-end">
-                    <button class="btn btn-danger">Cancelar</button>
+                    <button class="btn btn-danger" x-on:click="open = false">Cancelar</button>
+                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
                 </div>
             </div>
         </article>
