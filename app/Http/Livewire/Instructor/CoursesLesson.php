@@ -12,7 +12,8 @@ class CoursesLesson extends Component
 
     protected $rules = [
         'name' => 'required',
-        'platform_id' => 'requiered'
+        'platform_id' => 'requiered',
+        'lesson.url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
     ];
 
     public function mount(Section $section){
@@ -25,4 +26,18 @@ class CoursesLesson extends Component
     {
         return view('livewire.instructor.courses-lesson');
     }
+
+    public function edit(Lesson $lesson){
+        $this->lesson = $lesson;
+    }
+
+    public function update(){
+        $this->validate();
+
+        $this->lesson->save();
+        $this->lesson = new Lesson();
+
+        $this->section = Section::find($this->section->id);
+    }
+
 }
