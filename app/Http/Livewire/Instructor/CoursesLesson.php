@@ -8,11 +8,10 @@ use Livewire\Component;
 
 class CoursesLesson extends Component
 {
-    public $section, $lesson;
+    public $section, $lesson, $name, $url;
 
     protected $rules = [
-        'name' => 'required',
-        'platform_id' => 'requiered',
+        'lesson.name' => 'required',
         'lesson.url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
     ];
 
@@ -27,7 +26,27 @@ class CoursesLesson extends Component
         return view('livewire.instructor.courses-lesson');
     }
 
+    public function store(){
+        $rules = [
+            'name' => 'required',
+            'url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
+        ];
+
+        $this->validate($rules);
+
+        Lesson::create([
+            'name' => $this->name,
+            'url' => $this->url,
+            'section_id' => $this->section->id,
+            'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/DgDxAzbkOSs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' 
+        ]);
+
+        $this->reset(['name', 'url']);
+        $this->section = Section::find($this->section->id);
+    }
+
     public function edit(Lesson $lesson){
+        $this->resetValidation();
         $this->lesson = $lesson;
     }
 
@@ -38,6 +57,15 @@ class CoursesLesson extends Component
         $this->lesson = new Lesson();
 
         $this->section = Section::find($this->section->id);
+    }
+
+    public function destroy(Lesson $lesson){
+        $lesson->delete();
+        $this->section = Section::find($this->section->id);
+    }
+
+    public function cancel(){
+        $this->lesson = new Lesson();
     }
 
 }

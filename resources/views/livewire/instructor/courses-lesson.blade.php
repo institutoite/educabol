@@ -24,7 +24,7 @@
                         @enderror
 
                         <div class="mt-4 flex justify-end">
-                            <button class="btn btn-danger">Cancelar</button>
+                            <button class="btn btn-danger" wire:click="cancel">Cancelar</button>
                             <button class="btn btn-primary ml-2" wire:click="update">Actualizar</button>
                         </div>
 
@@ -43,7 +43,7 @@
                     
                         <div class="mt-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
-                            <button class="btn btn-danger text-sm">Eliminar</button>
+                            <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
                         </div>
 
                     </div>
@@ -63,11 +63,24 @@
 
         <article class="card" x-show="open">
             <div class="card-body">
-                <h1 class="text-xl font-bold mb-4">Agregar nueva seccion</h1>
+                <h1 class="text-xl font-bold mb-4">Agregar nueva leccion</h1>
 
                 <div class="mb-4">
-                    <input wire:model="name" class="form-input w-full" placeholder="Escriba el nombre de la seccion">
+                    <div class="flex items-center">
+                        <label class="w-32">Nombre</label>
+                        <input wire:model="name" class="form-input w-full">
+                    </div>
+
                     @error('name')
+                        <span class="text-xs text-red-500">{{$message}}</span>
+                    @enderror
+
+                    <div class="flex items-center mt-4">
+                        <label class="w-32">Url</label>
+                        <input wire:model="url" class="form-input w-full">
+                    </div>
+
+                    @error('url')
                         <span class="text-xs text-red-500">{{$message}}</span>
                     @enderror
                 </div>
