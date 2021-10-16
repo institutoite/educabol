@@ -15,8 +15,7 @@
                         @enderror
 
                         <div class="flex items-center mt-4">
-                            <label class="w-32">Url</label>
-                            <input wire:model="lesson.url" class="form-input w-full">
+                            <input type="file" class="form-input flex-1">
                         </div>
 
                         @error('lesson.url')
@@ -39,14 +38,14 @@
                         <hr class="my-2">
 
                         
-                        <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
+                        <p class="text-sm">Vista archivo:</p>
                     
                         <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
                             <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             @livewire('instructor.lesson-description', ['lesson' => $item], key($item->id))
                         </div>
 
@@ -80,13 +79,9 @@
                     @enderror
 
                     <div class="flex items-center mt-4">
-                        <label class="w-32">Url</label>
-                        <input wire:model="url" class="form-input w-full">
+                        <input type="file" class="form-input flex-1">
                     </div>
 
-                    @error('url')
-                        <span class="text-xs text-red-500">{{$message}}</span>
-                    @enderror
                 </div>
 
                 <div class="flex justify-end">

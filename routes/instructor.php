@@ -10,4 +10,6 @@ Route::resource('courses', CourseController::class)->names('courses');
 
 Route::get('courses/{course}/curriculum', CoursesCurriculum::class)->name('courses.curriculum');
 
+Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('courses.goals');
+
 
