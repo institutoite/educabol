@@ -87,6 +87,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
+        $this->authorize('dictated', $course);
+
         $categories = Category::pluck('name', 'id');
         $levels = Level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
@@ -103,6 +105,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        $this->authorize('dictated', $course);
+        
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses,slug,' . $course->id,
@@ -148,6 +152,8 @@ class CourseController extends Controller
     }
 
     public function goals(Course $course){
+        $this->authorize('dictated', $course);
+        
         return view('instructor.courses.goals', compact('course'));
     }
 

@@ -1,11 +1,11 @@
 <div>
-    <article class="card">
+    <article class="card" x-data="{open: false}">
         <div class="card-body bg-gray-100">
             <header>
-                <h1>Descripcion de la leccion</h1>
+                <h1 x-on:click="open = !open" class="cursor-pointer">Descripcion de la leccion</h1>
             </header>
 
-            <div>
+            <div x-show="open">
                 <hr class="my-2">
 
                 @if ($lesson->description)
