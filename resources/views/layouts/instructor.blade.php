@@ -24,12 +24,12 @@
             @livewire('navigation-dropdown')
 
             <!-- Page Content -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-5 gap-6">
 
                 <aside>
                     <h1 class="font-bold text-lg mb-4">Edicion del curso</h1>
         
-                    <ul class="text-sm text-gray-600">
+                    <ul class="text-sm text-gray-600 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.edit', $course) border-teal-400 @else border-transparent @endif pl-2">
                             <a href="{{route('instructor.courses.edit', $course)}}">Informacion del curso</a>
                         </li>
@@ -47,6 +47,35 @@
                         </li>
         
                     </ul>
+                    
+                    @switch($course->status)
+                        @case(1)
+                            <form action="{{route('instructor.courses.status', $course)}}" method="POST">
+                                @csrf
+        
+                                <button class="btn btn-danger" type="submit">Solicitar revision</button>
+                            </form>
+                            @break
+                        @case(2)
+                            <div class="card text-gray-500">
+                                <div class="card-body">
+                                    Este curso se encuentra en revision
+                                </div>
+                            </div>
+                            @break
+                        @case(3)
+                            <div class="card text-gray-500">
+                                <div class="card-body">
+                                    Este curso se encuentra publicado
+                                </div>
+                            </div>
+                            @break
+                        @default
+                            
+                    @endswitch
+
+                    
+
                 </aside>
         
                 <div class="col-span-4 card">

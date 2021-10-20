@@ -16,3 +16,5 @@ Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('
 Route::get('courses/{course}/students', CoursesStudents::class)->name('courses.students');
 
 
+Route::post('courses/{course}/status', [CourseController::class, 'status'])->name('courses.status');
+
