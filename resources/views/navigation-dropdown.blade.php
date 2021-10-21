@@ -82,6 +82,10 @@
                                 Instructor
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                                Administrador
+                            </x-jet-dropdown-link>
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -128,7 +132,7 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
                                                                 this.closest('form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Cerrar Sesion') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
