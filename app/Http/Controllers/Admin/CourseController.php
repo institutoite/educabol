@@ -31,4 +31,23 @@ class CourseController extends Controller
 
         return redirect()->route('admin.courses.index')->with('info', 'El curso se publico con exito');
     }
+
+    public function observation(Course $course){
+        return view('admin.courses.observation', compact('course'));
+    }
+
+    public function reject(Request $request, Course $course){
+
+        $request->validate([
+            'body' => 'required'
+        ]);
+
+        $course->observation()->create($request->all());
+
+        $course->status = 1;
+        $course->save();
+
+        return redirect()->route('admin.courses.index')->with('info', 'El curso se ha rechazado con exito');
+    }
+
 }
