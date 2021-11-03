@@ -3,6 +3,7 @@
 @section('title', 'Educabol')
 
 @section('content_header')
+    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.categories.create')}}">Nueva Categoria</a>
     <h1>Lista de categorias</h1>
 @stop
 

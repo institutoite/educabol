@@ -7,7 +7,24 @@
 @stop
 
 @section('content')
-    <p>Bienvenido a Educabol.</p>
+
+    <div class="card">
+        <div class="card-body">
+            {!! Form::model($category, ['route'=> ['admin.categories.update', $category], 'method' => 'put']) !!}
+            <div class="form-group">
+                {!! Form::label('name', 'Nombre') !!}
+                {!! Form::text('name', null, ['class'=> 'form-control', 'placeholder'=> 'Ingrese el nombre de la categoria']) !!}
+
+                @error('name')
+                    <span class="text-danger">{{$message}}}</span>
+                @enderror
+            </div>
+
+            {!! Form::submit('Actualizar categoria', ['class'=> 'btn btn-primary',]) !!}
+
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('css')
