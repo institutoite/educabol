@@ -7,7 +7,11 @@
 @stop
 
 @section('content')
-    <p>Bienvenido a Educabol.</p>
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'admin.levels.store']) !!}
+        </div>
+    </div>
 @stop
 
 @section('css')
