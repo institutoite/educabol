@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Level;
 
-class LevelController extends Controller
+use App\Models\Price;
+
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $levels = Level::all();
+        $prices = Price::all();
 
-        return view('admin.levels.index', compact('levels'));
+        return view('admin.prices.index', compact('prices'));
     }
 
     /**
@@ -27,7 +28,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        return view('admin.levels.create');
+        return view('admin.prices.create');
     }
 
     /**
@@ -39,65 +40,66 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:levels'
+            'name' => 'required|unique:prices',
+            'value' => 'required|numeric'
         ]);
 
-        Level::create($request->all());
+        Price::create($request->all());
 
-        return redirect()->route('admin.levels.index');
+        return redirect()->route('admin.prices.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  Level $level
+     * @param  int  Price $price
      * @return \Illuminate\Http\Response
      */
-    public function show(Level $level)
+    public function show(Price $price)
     {
-        return view('admin.levels.show', compact('level'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  Level $level
+     * @param  int  Price $price
      * @return \Illuminate\Http\Response
      */
-    public function edit(Level $level)
+    public function edit(Price $price)
     {
-        return view('admin.levels.edit', compact('level'));
+        return view('admin.prices.edit', compact('price'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  Level $level
+     * @param  int  Price $price
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Level $level)
+    public function update(Request $request, Price $price)
     {
-        
         $request->validate([
-            'name' => 'required|unique:levels'
+            'name' => 'required|unique:prices',
+            'value' => 'required|numeric'
         ]);
 
-        $level->update($request->all());
+        $price->update($request->all());
 
-        return redirect()->route('admin.levels.index');
+        return redirect()->route('admin.prices.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  Level $level
+     * @param  int  Price $price
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Level $level)
+    public function destroy(Price $price)
     {
-        $level->delete();
+        $price->delete();
 
-        return redirect()->route('admin.levels.index');
+        return redirect()->route('admin.prices.index');
     }
 }

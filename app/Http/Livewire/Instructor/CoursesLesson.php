@@ -6,13 +6,16 @@ use App\Models\Lesson;
 use App\Models\Section;
 use Livewire\Component;
 
+use Livewire\WithFileUploads;
+
 class CoursesLesson extends Component
 {
-    public $section, $lesson, $name, $url;
+    use WithFileUploads;
+
+    public $section, $lesson, $name, $url, $file;
 
     protected $rules = [
-        'lesson.name' => 'required',
-        'lesson.url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
+        'lesson.name' => 'required'
     ];
 
     public function mount(Section $section){
@@ -29,14 +32,16 @@ class CoursesLesson extends Component
     public function store(){
         $rules = [
             'name' => 'required',
-            'url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
+            'file' => 'required'
         ];
 
         $this->validate($rules);
 
+        $url = $this->file->store('resources');
+
         Lesson::create([
             'name' => $this->name,
-            'url' => $this->url,
+            'url' => $url,
             'section_id' => $this->section->id,
             'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/DgDxAzbkOSs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' 
         ]);
