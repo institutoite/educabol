@@ -15,7 +15,8 @@ class CoursesLesson extends Component
     public $section, $lesson, $name, $url, $file;
 
     protected $rules = [
-        'lesson.name' => 'required'
+        'lesson.name' => 'required',
+        'lesson.url' => 'required'
     ];
 
     public function mount(Section $section){
@@ -46,8 +47,17 @@ class CoursesLesson extends Component
             'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/DgDxAzbkOSs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' 
         ]);
 
-        $this->reset(['name', 'url']);
+        //$this->reset(['name', 'url']);
         $this->section = Section::find($this->section->id);
+
+        //$this->lesson = Lesson::find($this->lesson->id);
+
+        
+    }
+
+    public function download(){
+        dd($this->lesson->url);
+        return response()->download(storage_path('app/public/ . $this->lesson->url'));
     }
 
     public function edit(Lesson $lesson){

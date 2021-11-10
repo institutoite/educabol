@@ -37,8 +37,7 @@
 
                         <hr class="my-2">
 
-                        
-                        <p class="text-sm">Vista archivo:</p>
+                        <p><i wire:click="download" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i> {{$lesson->resource->url}}</p>
                     
                         <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>

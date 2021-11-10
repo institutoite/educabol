@@ -71,6 +71,8 @@
                 </div>
             </section>
 
+            @livewire('courses-reviews', ['course' => $course])
+
         </div>
 
         <div class="order-1 lg:order-2">
