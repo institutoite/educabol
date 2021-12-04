@@ -233,23 +233,13 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
+            'search' => false,
             'topnav' => true,
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Dashboard',
-            'route'         => 'admin.home',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
-        ],
-        [
-            'text'        => 'Lista de Roles',
-            'route'         => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
         ],
         ['header' => 'OPCIONES DE CURSOS'],
         [

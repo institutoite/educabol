@@ -93,16 +93,18 @@
         
     </section>
 
+    @role('Student')
     <section class="mt-24 bg-indigo-900 bg-opacity-100 py-12">
         <h1 class="text-center text-white text-3xl">¿Te gustaria enseñar en nuestra plataforma educativa?</h1>
         <p class="text-center text-white">Crea contenido, subelo a nuestra plataforma y comienza a ganar dinero a traves de tus conocimientos.</p>
 
         <div class="flex justify-center mt-4">
-            <a href="{{ route('courses.index') }}" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+            <a href="{{ route('solicitude.teacher') }}" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
                 Convertirme en profesor
             </a>
         </div>
     </section>
+    @endrole
 
 </x-app-layout>
 

@@ -48,5 +48,6 @@ class CoursePolicy
             return true;
         }
     }
+    
 
 }

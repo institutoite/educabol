@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         [
-            'name' => 'Home',
+            'name' => 'Inicio',
             'route' => route('home'),
             'active' => request()->routeIs('home')
         ],
@@ -25,7 +25,7 @@
 
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -71,20 +71,24 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Administrar Cuenta') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 Perfil
                             </x-jet-dropdown-link>
 
+                            @can('instructor.courses')
                             <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
                                 Instructor
                             </x-jet-dropdown-link>
+                            @endcan
 
+                            @can('admin.courses')
                             <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                 Administrador
                             </x-jet-dropdown-link>
+                            @endcan
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

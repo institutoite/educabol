@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -29,5 +30,8 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'instructor.courses.goals'])->syncRoles([$admin, $teacher]);
         Permission::create(['name' => 'instructor.courses.students'])->syncRoles([$admin, $teacher]);
         Permission::create(['name' => 'instructor.courses.observation'])->syncRoles([$admin, $teacher]);
+
+        $admin = User::find(1); 
+        $admin->assignRole('Admin');
     }
 }
