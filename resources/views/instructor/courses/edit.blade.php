@@ -8,7 +8,7 @@
         @include('instructor.courses.partials.form')
 
         <div class="flex justify-end">
-            {!! Form::submit('Actualizar Informacion', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Actualizar Informacion', ['class' => 'btn btn-ite']) !!}
         </div>
 
     {!! Form::close() !!}

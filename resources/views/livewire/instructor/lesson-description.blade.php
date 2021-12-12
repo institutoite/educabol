@@ -18,7 +18,7 @@
 
                         <div class="flex justify-end">
                             <button wire:click="destroy" class="btn btn-danger text-sm" type="button">Eliminar</button>
-                            <button class="btn btn-primary text-sm ml-2" type="submit">Actualizar</button>
+                            <button class="btn btn-ite text-sm ml-2" type="submit">Actualizar</button>
                         </div>
                     </form>
                 @else
@@ -30,7 +30,7 @@
                         @enderror
 
                         <div class="flex justify-end">
-                            <button wire:click="store" class="btn btn-primary text-sm ml-2">Agregar</button>
+                            <button wire:click="store" class="btn btn-ite text-sm ml-2">Agregar</button>
                         </div>
                     </div>
                 @endif

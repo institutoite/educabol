@@ -85,7 +85,7 @@
                             @endcan
 
                             @can('admin.courses')
-                            <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                            <x-jet-dropdown-link href="{{ route('admin.categories.index') }}">
                                 Administrador
                             </x-jet-dropdown-link>
                             @endcan
@@ -142,8 +142,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Iniciar sesion</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrate</a>
                 @endauth
             </div>
 

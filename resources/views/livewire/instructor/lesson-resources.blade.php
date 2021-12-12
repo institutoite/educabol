@@ -11,7 +11,7 @@
             <form>
                 <div class="flex items-center">
                     <input type="file" class="form-input flex-1">
-                    <button type="submit" class="btn btn-primary text-sm ml-2">Guardar</button>
+                    <button type="submit" class="btn btn-ite text-sm ml-2">Guardar</button>
                 </div>
             </form>
         </div>

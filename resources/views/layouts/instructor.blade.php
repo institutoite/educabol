@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Educabol') }}</title>
+        <title>Educabol</title>
+
+        <link rel="icon" type="image/png" href="{{ asset('img/home/icono.png') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -34,13 +36,13 @@
                             <a href="{{route('instructor.courses.edit', $course)}}">Informacion del curso</a>
                         </li>
         
-                        <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.curriculum', $course) border-teal-400 @else border-transparent @endif pl-2">
-                            <a href="{{route('instructor.courses.curriculum', $course)}}">Lecciones del curso</a>
-                        </li>
-        
                         <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.goals', $course) border-teal-400 @else border-transparent @endif pl-2">
                             <a href="{{route('instructor.courses.goals', $course)}}"> Metas del curso</a>
                         </li>
+
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.curriculum', $course) border-teal-400 @else border-transparent @endif pl-2">
+                            <a href="{{route('instructor.courses.curriculum', $course)}}">Lecciones del curso</a>
+                        </li>  
         
                         <li class="leading-7 mb-1 border-l-4 @routeIs('instructor.courses.students', $course) border-teal-400 @else border-transparent @endif pl-2">
                             <a href="{{route('instructor.courses.students', $course)}}">Estudiantes</a>

@@ -21,6 +21,12 @@ class UserSeeder extends Seeder
             'password' => bcrypt('11387469')
         ]);
 
+        User::create([
+            'name' => 'David Eduardo Flores Beltran',
+            'email' => 'informaciones.ite@gmail.com',
+            'password' => bcrypt('emanuel1326*')
+        ]);
+
         User::factory(99)->create();
     }
 }

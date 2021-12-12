@@ -18,7 +18,7 @@
                         <strong class="text-danger">{{$message}}</strong>
                     @enderror
                 </div>
-                {!! Form::submit('Rechazar curso', ['class'=> 'btn btn-primary']) !!}
+                {!! Form::submit('Rechazar curso', ['class'=> 'btn btn-ite']) !!}
             {!! Form::close() !!}
         </div>
     </div>

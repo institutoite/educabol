@@ -14,7 +14,7 @@
                     @include('instructor.courses.partials.form')
 
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear nuevo curso', ['class' => 'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Crear nuevo curso', ['class' => 'btn btn-ite cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

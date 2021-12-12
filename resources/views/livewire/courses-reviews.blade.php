@@ -7,7 +7,7 @@
                 <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Ingrese una reseña del curso"></textarea>
 
                 <div class="flex">
-                    <button class="btn btn-primary mr-2" wire:click="store">Guardar</button>
+                    <button class="btn btn-ite mr-2" wire:click="store">Guardar</button>
 
                     <ul class="flex items-center">
                         <li class="mr-1 cursor-pointer" wire:click="$set('rating', 1)">

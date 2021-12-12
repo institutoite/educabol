@@ -14,18 +14,12 @@
                     {!! Form::label('name', 'Nombre') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de este precio']) !!}
 
-                    @error('name')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('value', 'Valor:') !!}
                     {!! Form::number('value', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el valor del precio']) !!}
                     
-                    @error('value')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
                 </div>
 
                 {!! Form::submit('Actualizar precio', ['class' => 'btn btn-primary']) !!}
@@ -40,5 +34,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> console.log('ok!'); </script>
 @stop

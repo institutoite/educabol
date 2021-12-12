@@ -25,7 +25,7 @@
                         <h1 class="cursor-pointer"><strong>Seccion:</strong> {{$item->name}}</h1>
 
                         <div>
-                            <i class="fas fa-edit cursor-pointer text-blue-500" wire:click="edit({{$item}})"></i>
+                            <i class="fas fa-edit cursor-pointer text-teal-500" wire:click="edit({{$item}})"></i>
                             <i class="fas fa-eraser cursor-pointer text-red-500" wire:click="destroy({{$item}})"></i>
                         </div>
                     </header>
@@ -60,7 +60,7 @@
 
                 <div class="flex justify-end">
                     <button class="btn btn-danger" x-on:click="open = false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="btn btn-ite ml-2" wire:click="store">Agregar</button>
                 </div>
             </div>
         </article>

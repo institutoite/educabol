@@ -24,7 +24,7 @@
 
                         <div class="mt-4 flex justify-end">
                             <button type="button" class="btn btn-danger" wire:click="cancel">Cancelar</button>
-                            <button type="submit" class="btn btn-primary ml-2" >Actualizar</button>
+                            <button type="submit" class="btn btn-ite ml-2" >Actualizar</button>
                         </div>
 
                     </form>
@@ -37,10 +37,13 @@
 
                         <hr class="my-2">
 
-                        <p><i wire:click="download" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i> {{$lesson->resource->url}}</p>
-                    
+                        <video width="320" height="240" controls>
+                            <source src="{{URL::asset("/storage/$item->url")}}" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                        
                         <div class="my-2">
-                            <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
+                            <button class="btn btn-ite text-sm" wire:click="edit({{$item}})">Editar</button>
                             <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
                         </div>
 
@@ -93,7 +96,7 @@
 
                 <div class="flex justify-end">
                     <button class="btn btn-danger" x-on:click="open = false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="btn btn-ite ml-2" wire:click="store">Agregar</button>
                 </div>
             </div>
         </article>

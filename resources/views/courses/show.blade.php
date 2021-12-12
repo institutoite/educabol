@@ -87,13 +87,10 @@
 
                     @can('enrolled', $course)
 
-                        <a class="block text-center w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="{{route('courses.status', $course)}}">Continuar con el curso</a>
+                        <a class="block text-center w-full mt-4 bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" href="{{route('courses.status', $course)}}">Continuar con el curso</a>
 
                     @else
-                        <form action="{{route('courses.enrolled', $course)}}" method="POST">
-                            @csrf
-                            <button class="block text-center w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">LLevar este curso</button>
-                        </form>
+                        <a class="block text-center w-full mt-4 bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" href="https://api.whatsapp.com/send?phone=59171039910&text=Hola, me interesa comprar el curso {{ $course->title }} ">LLevar este curso</a>
                     @endcan
 
                 </div>

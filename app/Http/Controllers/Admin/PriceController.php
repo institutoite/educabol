@@ -80,10 +80,6 @@ class PriceController extends Controller
      */
     public function update(Request $request, Price $price)
     {
-        $request->validate([
-            'name' => 'required|unique:prices',
-            'value' => 'required|numeric'
-        ]);
 
         $price->update($request->all());
 

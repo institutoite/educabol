@@ -42,7 +42,7 @@
                 @enderror
 
                 <div class="flex justify-end mt-2">
-                    <button type="submit" class="btn btn-primary">Agregar requirimiento</button>
+                    <button type="submit" class="btn btn-ite">Agregar requirimiento</button>
                 </div>
             </form>
         </div>

@@ -63,6 +63,10 @@
                             <ul class="grid grid-cols-1 gap-2">
                                 @foreach ($section->lessons as $lesson)
                                     <li class="text-gray-700 text-base"><i class="fas fa-play-circle mr-2 text-gray-600"></i>{{$lesson->name}}</li>
+                                    <video  controls>
+                                        <source src="{{URL::asset("/storage/$lesson->url")}}" type="video/mp4">
+                                      Your browser does not support the video tag.
+                                    </video>
                                 @endforeach
                             </ul>
                         </div>
@@ -114,7 +118,7 @@
 
                     <form action="{{route('admin.courses.approved', $course)}}" class="mt-4" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-primary w-full">Aprobar Curso</button>
+                        <button type="submit" class="btn btn-ite w-full">Aprobar Curso</button>
                     </form>
 
                     <a href="{{route('admin.courses.observation', $course)}}" class="btn btn-danger w-full block text-center mt-4">Observar curso</a>

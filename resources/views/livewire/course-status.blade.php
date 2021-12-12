@@ -1,9 +1,12 @@
 <div class="mt-8">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
-            <div class="embed-responsive">
-                {!!$current->iframe!!}
-            </div>
+            
+            <video  controls>
+                <source src="{{URL::asset("/storage/$current->url")}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+           
 
             <h1 class="text-3xl text-gray-600 font-bold mt-4">
                 {{$current->name}}

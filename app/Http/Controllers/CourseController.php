@@ -32,4 +32,10 @@ class CourseController extends Controller
         return redirect()->route('courses.status', $course);
     }
 
+    public function enroll(){
+    
+        return redirect()->route('admin.courses.enroll');
+    }
+    
+    
 }

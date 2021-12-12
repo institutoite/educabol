@@ -16,11 +16,6 @@ class PriceSeeder extends Seeder
     public function run()
     {
         Price::create([
-            'name' => 'Gratis',
-            'value' => 0
-        ]);
-
-        Price::create([
             'name' => 'Bs. 30',
             'value' => 30
         ]);

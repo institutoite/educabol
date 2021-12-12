@@ -7,6 +7,7 @@
 
         <title>Educabol</title>
 
+        <link rel="icon" type="image/png" href="{{ asset('img/home/icono.png') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
