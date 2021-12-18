@@ -63,7 +63,7 @@
     </figure>
 
     <div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, veritatis consectetur ullam eaque nesciunt eius. Nihil illo repellendus sint et, nam deleniti corporis. Sint, inventore ut possimus est culpa assumenda.</p>
+        <p></p>
         {!! Form::file('file', ['class'=> 'form-input w-full'  . ($errors->has('file') ? ' border-red-600' : ''), 'id' => 'file', 'accept' => 'image/*']) !!}
         
         @error('file')

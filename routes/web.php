@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SolicitudeController;
+use App\Http\Controllers\EnrolledController;
 
 use App\Http\Livewire\CourseStatus;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 
 Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
+
+Route::get('courses/{course}', [EnrolledController::class, 'show'])->name('courses.enrolled');
 
 
 

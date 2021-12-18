@@ -22,7 +22,7 @@
                 {!! Form::hidden('user_id', $user->id) !!}
 
                 <div class="form-group">
-                    {!! Form::label('course_id', 'Course:') !!}
+                    {!! Form::label('course_id', 'Seleccione el curso:') !!}
                     {!! Form::select('course_id', $courses, null, ['class'=> 'form-control']) !!}
                 </div>
 

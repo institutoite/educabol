@@ -3,7 +3,7 @@
     type="search" name="search" placeholder="Search">
 
 
-    <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 mt-2">
+    <button type="submit" class="btn btn-ite text-white font-bold py-2 px-4 rounded absolute right-0 top-0 mt-2">
         Buscar
     </button>
 
