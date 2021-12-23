@@ -1,19 +1,34 @@
-<div class="card">
+<div class="card" x-data="{open: false}">
     <div class="card-body bg-gray-100">
 
         <header>
-            <h1>Recursos de la leccion</h1>
+            <h1 x-on:click="open = !open" class="cursor-pointer">Complemento de la leccion</h1>
         </header>
 
-        <div>
+        <div x-show="open">
             <hr class="my-2">
 
-            <form>
-                <div class="flex items-center">
-                    <input type="file" class="form-input flex-1">
-                    <button type="submit" class="btn btn-ite text-sm ml-2">Guardar</button>
+            @if ($lesson->resource)
+                <div class="flex justify-between items-center">
+                    <p><i wire:click="download" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>{{$lesson->resource->url}}</p>
+                    <i wire:click="destroy" class="fas fa-trash text-red-500 cursor-pointer"></i>
                 </div>
-            </form>
+            @else  
+                <form wire:submit.prevent="save">
+                    <div class="flex items-center">
+                        <input wire:model="file" type="file" class="form-input flex-1">
+                        <button type="submit" class="btn btn-ite text-sm ml-2">Guardar</button>
+                    </div>
+
+                    <div class="text-teal-500 font-bold mt-1" wire:loading wire:target="file">
+                        Cargando ...
+                    </div>
+
+                    @error('file')
+                        <span class="text-xs text-red-500">{{$message}}</span>
+                    @enderror
+                </form>
+            @endif
         </div>
 
     </div>

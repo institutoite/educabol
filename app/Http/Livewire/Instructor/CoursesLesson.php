@@ -55,11 +55,6 @@ class CoursesLesson extends Component
         
     }
 
-    public function download(){
-        dd($this->lesson->url);
-        return response()->download(storage_path('app/public/ . $this->lesson->url'));
-    }
-
     public function edit(Lesson $lesson){
         $this->resetValidation();
         $this->lesson = $lesson;
