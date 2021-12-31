@@ -13,6 +13,7 @@ class CourseStatus extends Component
 
     public $course, $current;
 
+
     public function mount(Course $course){
         $this->course = $course;
         
@@ -38,7 +39,7 @@ class CourseStatus extends Component
 
     public function changeLesson(Lesson $lesson){
         $this->current = $lesson;
-    
+        
     }
 
     public function completed(){

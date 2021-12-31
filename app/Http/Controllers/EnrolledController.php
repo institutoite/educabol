@@ -49,6 +49,10 @@ class EnrolledController extends Controller
         return view('courses.enrolled', compact('course'));
     }
 
+    public function download(){
+        return response()->download(storage_path('app/public/' . $this->lesson->resource->url));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

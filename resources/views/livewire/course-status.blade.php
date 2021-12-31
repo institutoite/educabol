@@ -2,14 +2,26 @@
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             
-            <video  controls>
-                <source src="{{URL::asset("/storage/$current->url")}}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-           
+            
+            <div>
+                @if ($current->url === 'resources/tBaavoyGcWbgttNe9AWUL49YUqgbWUhyqyenCuh4.mp4')
+                    <video  controls >
+                        <source src="resources/tBaavoyGcWbgttNe9AWUL49YUqgbWUhyqyenCuh4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                @else
+                    <video  controls >
+                        <source src="{{URL::asset("/storage/$current->url")}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                @endif
+                
+            </div>
 
             <h1 class="text-3xl text-gray-600 font-bold mt-4">
+                ok
                 {{$current->name}}
+                {{$current->url}}
             </h1>
 
             @if ($current->description)
@@ -89,7 +101,8 @@
                                                 @endif
                                             @endif
                                         </div>
-                                        <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}} </a>
+                                        <a id="play" name="play"
+                                             class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}} ok2 </a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -100,3 +113,9 @@
         </div>
     </div>
 </div>
+
+<x-slot name="js">
+
+    <script src="{{asset('js/instructor/courses/video.js')}}"></script>
+    
+</x-slot>

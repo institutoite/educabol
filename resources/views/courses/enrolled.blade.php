@@ -33,22 +33,6 @@
         @endif
 
         <div class="order-2 lg:col-span-2 lg:order-1">
-            <section class="bg-white shadow-lg rounded overflow-hidden mb-12">
-                <div class="px-6 py-4">
-                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderas</h1>
-
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
-
-                        @forelse ($course->goals as $goal)
-                            <li class="text-gray-700 text-base"><i class="fas fa-check text-gray-600 mr-2"></i> {{$goal->name}}</li>
-                        @empty
-                            <li class="text-gray-700 text-base">Este curso no tiene asignado ninguna meta</li>
-                        @endforelse
-
-                    </ul>
-                </div>
-            </section>
-
             <section class="mb-12">
                 <h1 class="font-fold text-3xl mb-2">Temario</h1>
 
@@ -63,10 +47,19 @@
                             <ul class="grid grid-cols-1 gap-2">
                                 @foreach ($section->lessons as $lesson)
                                     <li class="text-gray-700 text-base"><i class="fas fa-play-circle mr-2 text-gray-600"></i>{{$lesson->name}}</li>
+                                    @if ($lesson->description)
+                                        <p>{{$lesson->description->name}}</p>
+                                    @endif
                                     <video  controls>
                                         <source src="{{URL::asset("/storage/$lesson->url")}}" type="video/mp4">
                                       Your browser does not support the video tag.
                                     </video>
+                                    @if ($lesson->resource)
+                                        <div class="flex items-center text-gray-600 cursor-pointer" wire:click="download">
+                                            <i class="fas fa-download text-lg "></i>
+                                            <p class="text-sm ml-2">Descargar complemento de la leccion</p>
+                                        </div>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -82,26 +75,6 @@
                     </article>
 
                 @endforelse
-            </section>
-
-            <section class="mb-8">
-                <h1 class="font-bold text-3xl">Requisitos</h1>
-
-                <ul class="list-disc list-inside">
-                    @forelse ($course->requirements as $requirement)
-                        <li class="text-gray-700 text-base">{{$requirement->name}}</li>
-                    @empty
-                        <li class="text-gray-700 text-base">Este curso no tiene ningun requerimiento</li>
-                    @endforelse
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h1 class="font-bold text-3xl">Descripcion</h1>
-
-                <div class="text-gray-700 text-base">
-                    {!!$course->description!!}
-                </div>
             </section>
 
         </div>

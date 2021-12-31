@@ -36,6 +36,11 @@ class CourseController extends Controller
     
         return redirect()->route('admin.courses.enroll');
     }
+
+    public function learn(Course $course){
+    
+        return view('courses.learn', compact('course'));
+    }
     
     
 }

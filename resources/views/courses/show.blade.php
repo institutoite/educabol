@@ -87,7 +87,6 @@
 
                     @can('enrolled', $course)
 
-                        <a class="btn btn-primary" href="{{route('admin.courses.show', $course)}}">Revisar</a>
                         <a class="block text-center w-full mt-4 btn btn-ite text-white font-bold py-2 px-4 rounded" href="{{route('courses.enrolled', $course)}}">Continuar con el curso</a>
 
                     @else

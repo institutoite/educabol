@@ -32,8 +32,8 @@ Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.
 
 Route::get('courses/{course}', [EnrolledController::class, 'show'])->name('courses.enrolled');
 
-
-
 Route::get('course-status/{course}', CourseStatus::class)->name('courses.status')->middleware('auth');
+
+Route::get('course-learn/{course}', [CourseController::class, 'learn'])->name('courses.learn')->middleware('auth');
 
 Route::get('/solicitude/teacher', [SolicitudeController::class, 'becometeacher'])->name('solicitude.teacher');
