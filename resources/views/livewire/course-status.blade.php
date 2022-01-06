@@ -1,118 +1,145 @@
-<div class="mt-8">
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+@push('css')
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+@endpush
+
+<div class="py-8">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8"
+        x-data="{current_id: @entangle('current_id')}">
+
         <div class="lg:col-span-2">
             
-            <div wire:ignore x-data="{video_url: @entangle('video_url')}" x-init="
-                $refs.video.load();
+            <div class="relative">
+                <div wire:ignore x-data="{player: null, video: @entangle('video_url')}" 
+                x-init="player = new Plyr($refs.player, {ratio: '16:9'});
 
-                $watch('video_url', value => {
-                    $refs.video.load();
-                })
-            ">
-                
-                <video controls x-ref="video">
-                    <source x-bind:src="video_url" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                    player.source = {
+                        type: 'video',
+                        title: 'Example title',
+                        sources: [
+                            {
+                                src: video,
+                                type: 'video/mp4',
+                            }
+                        ],
+                        poster: 'https://cdn.pixabay.com/photo/2016/03/27/16/24/smartphone-1283016_960_720.jpg'
+                    };
+                    
+                    $watch('video', value => {
+                        player.source = {
+                            type: 'video',
+                            title: 'Example title',
+                            sources: [
+                                {
+                                    src: value,
+                                    type: 'video/mp4',
+                                }
+                            ],
+                            poster: 'https://cdn.pixabay.com/photo/2016/03/27/16/24/smartphone-1283016_960_720.jpg'
+                        };
+                    })
+                ">
+                    
+                    <video playsinline controls x-ref="player">
+                    </video>
 
+                </div>
+
+                {{-- Cargando --}}
+                <div wire:loading.flex
+                    class="absolute left-0 top-0 w-full h-full bg-black bg-opacity-25 items-center justify-center">
+                    <div class="w-14 h-14 border-4 border-dashed rounded-full animate-spin border-gray-400">
+                    </div>
+                </div>
             </div>
 
             <h1 class="text-3xl text-gray-600 font-bold mt-4">
-                {{$current->name}}
+                {{$this->current->name}}
             </h1>
 
-            @if ($current->description)
+            @if ($this->current->description)
                 <div class="text-gray-600">
-                    {{$current->description->name}}
+                    {{$this->current->description->name}}
                 </div>
             @endif
 
-            <div class="flex items-center mt-4 cursor-pointer" wire:click="completed">
+            <x-toggle wire:model="active">
+                Marcar esta unidad como culminada
+            </x-toggle>
 
-                @if ($current->completed)
-                    <i class="fas fa-toggle-on text-2xl text-teal-400"></i>
-                @else
-                    <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
-                @endif
-
-                <p class="text-sm ml-2">Marcar esta unidad como culminada</p>
-            </div>
+            {{-- {{$this->previous->id}}
+            <hr>
+            {{$this->next->id}} --}}
 
             <div class="card mt-2">
                 <div class="card-body flex text-gray-500 font-bold">
                     
                     @if ($this->previous)
-                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer">Tema anterior</a>
+                        <a wire:click="$set('current_id', {{$this->previous ? $this->previous->id : null}})" class="cursor-pointer">Tema anterior</a>
                     @endif
 
                     @if ($this->next)
-                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer">Siguiente tema</a>
+                        <a wire:click="$set('current_id', {{$this->next ? $this->next->id : null}})" class="ml-auto cursor-pointer">Siguiente tema</a>
                     @endif
                 </div>
             </div>
 
         </div>
     
-        <div class="card">
-            <div class="px-6 py-4">
-                <h1 class="text-2xl leading-8 text-center mb-4">{{$course->title}}</h1>
+        <div>
+            <div class="card">
+                <div class="px-6 py-4">
+                    <h1 class="text-2xl leading-8 text-center mb-4">{{$course->title}}</h1>
 
-                <div class="flex items-center">
-                    <figure>
-                        <img class="w-12 h-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
-                    </figure>
+                    <div class="flex items-center">
+                        <figure>
+                            <img class="w-12 h-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
+                        </figure>
 
-                    <div>
-                        <p>{{$course->teacher->name}}</p>
+                        <div>
+                            <p>{{$course->teacher->name}}</p>
+                        </div>
                     </div>
-                </div>
 
-                <p class="text-gray-400 text-sm mt-2">{{$this->advance . '%'}} Completado</p>
+                    <p class="text-gray-400 text-sm mt-2">{{$this->advance . '%'}} Completado</p>
 
-                <div class="relative pt-1">
-                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
-                        <div style="width:{{$this->advance . '%'}}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-400 transition-all duration-500"></div>
+                    <div class="relative pt-1">
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-teal-200">
+                            <div style="width:{{$this->advance . '%'}}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-400 transition-all duration-500"></div>
+                        </div>
                     </div>
-                </div>
-                <ul>
-                    @foreach ($course->sections as $section)
-                        <li class="text-gray-600 mb-4">
-                            <a class="font-bold text-base inline-block mb-2" href="">{{$section->name}}</a>
-                            <ul>
-                                @foreach ($section->lessons as $lesson)
-                                    <li class="flex mb-1">
-                                        <div>
-                                            @if ($lesson->completed)
+                    <ul>
+                        @foreach ($course->sections as $section)
+                            <li class="text-gray-600 mb-4">
+                                <a class="font-bold text-base inline-block mb-2" href="">{{$section->name}}</a>
+                                <ul class="space-y-1">
+                                    @foreach ($section->lessons as $lesson)
+                                        <li>
+                                            <a class="flex w-full cursor-pointer"
+                                                x-on:click="current_id = {{ $lesson->id }}">
+                                                <span class="inline-block w-5 h-5 rounded-full mt-0.5 mr-2"
+                                                    x-bind:class="{{ $lesson->id }} == current_id ? 
+                                                        'border-4 ' + '{{ $lesson->completed ? 'border-yellow-300' : 'border-gray-400' }}' : 
+                                                        '{{ $lesson->completed ? 'bg-yellow-300' : 'bg-gray-400' }}'">
+                                                </span>
+
+                                                <span class="inline-block flex-1 text-left">
+                                                    {{ $lesson->name }}
+                                                </span>
                                                 
-                                                @if ($current->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 border-teal-300 rounded-full mr-2 mt-1"></span>
-                                                @else
-                                                    <span class="inline-block w-4 h-4 bg-teal-300 rounded-full mr-2 mt-1"></span>
-                                                @endif
-
-                                            @else
-                                                @if ($current->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 border-gray-500 rounded-full mr-2 mt-1"></span>
-                                                @else
-                                                    <span class="inline-block w-4 h-4 bg-gray-500 rounded-full mr-2 mt-1"></span>
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <a id="play" name="play"
-                                             class="cursor-pointer" wire:click="changeLesson({{$lesson}})">{{$lesson->name}} ok2 </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    @endforeach
-                </ul>
+                                            </a>
+                                        </li>
+                                    
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<x-slot name="js">
-
-    <script src="{{asset('js/instructor/courses/video.js')}}"></script>
-    
-</x-slot>
+@push('js')
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+@endpush
