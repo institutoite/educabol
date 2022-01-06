@@ -6,6 +6,7 @@ use App\Models\Lesson;
 use Livewire\Component;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 
 class CourseStatus extends Component
 {
@@ -13,6 +14,7 @@ class CourseStatus extends Component
 
     public $course, $current;
 
+    public $video_url;
 
     public function mount(Course $course){
         $this->course = $course;
@@ -29,6 +31,8 @@ class CourseStatus extends Component
             $this->current = $course->lessons->last();
         }
 
+        $this->video_url = Storage::url($this->current->url);
+
         $this->authorize('enrolled', $course);
     }
 
@@ -39,7 +43,7 @@ class CourseStatus extends Component
 
     public function changeLesson(Lesson $lesson){
         $this->current = $lesson;
-        
+        $this->video_url = Storage::url($this->current->url);
     }
 
     public function completed(){

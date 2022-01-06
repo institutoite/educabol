@@ -2,15 +2,23 @@
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             
-            <video  controls>
-                <source src="{{URL::asset("/storage/$current->url")}}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <div wire:ignore x-data="{video_url: @entangle('video_url')}" x-init="
+                $refs.video.load();
+
+                $watch('video_url', value => {
+                    $refs.video.load();
+                })
+            ">
+                
+                <video controls x-ref="video">
+                    <source x-bind:src="video_url" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
 
             <h1 class="text-3xl text-gray-600 font-bold mt-4">
-                ok
                 {{$current->name}}
-                {{$current->url}}
             </h1>
 
             @if ($current->description)

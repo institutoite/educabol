@@ -33,7 +33,7 @@ class CoursesLesson extends Component
     public function store(){
         $rules = [
             'name' => 'required',
-            'file' => 'required'
+            'file' => 'required|file|mimes:mp4,mov,ogg,qt|max:1228800'
         ];
 
         $this->validate($rules);
