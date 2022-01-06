@@ -15,12 +15,16 @@
                         @enderror
 
                         <div class="flex items-center mt-4">
-                            <input type="file" class="form-input flex-1">
+                            <input wire:model="file" type="file" class="form-input flex-1">
                         </div>
 
                         @error('lesson.url')
                             <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
+
+                        <div class="text-teal-500 font-bold mt-1" wire:loading wire:target="file">
+                            Cargando ...
+                        </div>
 
                         <div class="mt-4 flex justify-end">
                             <button type="button" class="btn btn-danger" wire:click="cancel">Cancelar</button>

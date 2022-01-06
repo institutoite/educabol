@@ -21,7 +21,7 @@
                                 type: 'video/mp4',
                             }
                         ],
-                        poster: 'https://cdn.pixabay.com/photo/2016/03/27/16/24/smartphone-1283016_960_720.jpg'
+                        poster: 'https://cdn.pixabay.com/photo/2022/01/06/19/46/19-46-01-616_1280.png'
                     };
                     
                     $watch('video', value => {
@@ -34,7 +34,7 @@
                                     type: 'video/mp4',
                                 }
                             ],
-                            poster: 'https://cdn.pixabay.com/photo/2016/03/27/16/24/smartphone-1283016_960_720.jpg'
+                            poster: 'https://cdn.pixabay.com/photo/2022/01/06/19/46/19-46-01-616_1280.png'
                         };
                     })
                 ">
@@ -57,7 +57,7 @@
             </h1>
 
             @if ($this->current->description)
-                <div class="text-gray-600">
+                <div class="text-gray-600 mb-4">
                     {{$this->current->description->name}}
                 </div>
             @endif
@@ -118,8 +118,8 @@
                                                 x-on:click="current_id = {{ $lesson->id }}">
                                                 <span class="inline-block w-5 h-5 rounded-full mt-0.5 mr-2"
                                                     x-bind:class="{{ $lesson->id }} == current_id ? 
-                                                        'border-4 ' + '{{ $lesson->completed ? 'border-yellow-300' : 'border-gray-400' }}' : 
-                                                        '{{ $lesson->completed ? 'bg-yellow-300' : 'bg-gray-400' }}'">
+                                                        'border-4 ' + '{{ $lesson->completed ? 'border-teal-300' : 'border-gray-400' }}' : 
+                                                        '{{ $lesson->completed ? 'bg-teal-300' : 'bg-gray-400' }}'">
                                                 </span>
 
                                                 <span class="inline-block flex-1 text-left">

@@ -63,6 +63,8 @@ class CoursesLesson extends Component
     public function update(){
         $this->validate();
 
+        $this->lesson->url = $this->file->store('resources');
+
         $this->lesson->save();
         $this->lesson = new Lesson();
 
