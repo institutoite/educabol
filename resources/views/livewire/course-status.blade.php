@@ -56,6 +56,13 @@
                 {{$this->current->name}}
             </h1>
 
+            @if ($this->current->resource)
+                <div class="flex justify-end text-gray-600 cursor-pointer" wire:click="download">
+                    <i class="fas fa-download text-lg"></i>
+                    <p class="text-sm ml-2">Descargar Complemento</p>
+                </div>
+            @endif
+
             @if ($this->current->description)
                 <div class="text-gray-600 mb-4">
                     {{$this->current->description->name}}
@@ -65,6 +72,8 @@
             <x-toggle wire:model="active">
                 Marcar esta unidad como culminada
             </x-toggle>
+
+            
 
             {{-- {{$this->previous->id}}
             <hr>
