@@ -120,7 +120,6 @@ class CourseStatus extends Component
     }
 
     public function download(){
-        dd("ok");
         return response()->download(storage_path('app/public/' . $this->current->resource->url));
     }
 

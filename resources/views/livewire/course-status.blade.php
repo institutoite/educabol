@@ -64,7 +64,7 @@
             @endif
 
             @if ($this->current->description)
-                <div class="text-gray-600 mb-4">
+                <div class="text-gray-600 mt-4 mb-4">
                     {{$this->current->description->name}}
                 </div>
             @endif
