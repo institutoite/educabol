@@ -21,7 +21,7 @@
                                 type: 'video/mp4',
                             }
                         ],
-                        poster: 'https://cdn.pixabay.com/photo/2022/01/06/19/46/19-46-01-616_1280.png'
+                        poster: 'https://cdn.pixabay.com/photo/2022/01/09/21/35/21-35-10-530_960_720.png'
                     };
                     
                     $watch('video', value => {
@@ -34,7 +34,7 @@
                                     type: 'video/mp4',
                                 }
                             ],
-                            poster: 'https://cdn.pixabay.com/photo/2022/01/06/19/46/19-46-01-616_1280.png'
+                            poster: 'https://cdn.pixabay.com/photo/2022/01/09/21/35/21-35-10-530_960_720.png'
                         };
                     })
                 ">
