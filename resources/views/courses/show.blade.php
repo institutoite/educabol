@@ -21,7 +21,7 @@
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="bg-white shadow-lg rounded overflow-hidden mb-12">
                 <div class="px-6 py-4">
-                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderas</h1>
+                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderás</h1>
 
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @foreach ($course->goals as $goal)
@@ -64,7 +64,7 @@
             </section>
 
             <section class="mb-8">
-                <h1 class="font-bold text-3xl text-gray-800">Descripcion</h1>
+                <h1 class="font-bold text-3xl text-gray-800">Descripción</h1>
 
                 <div class="text-gray-700 text-base">
                     {!!$course->description!!}

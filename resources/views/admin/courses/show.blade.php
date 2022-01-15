@@ -35,7 +35,7 @@
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="bg-white shadow-lg rounded overflow-hidden mb-12">
                 <div class="px-6 py-4">
-                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderas</h1>
+                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderás</h1>
 
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
 
@@ -97,7 +97,7 @@
             </section>
 
             <section class="mb-8">
-                <h1 class="font-bold text-3xl">Descripcion</h1>
+                <h1 class="font-bold text-3xl">Descripción</h1>
 
                 <div class="text-gray-700 text-base">
                     {!!$course->description!!}
