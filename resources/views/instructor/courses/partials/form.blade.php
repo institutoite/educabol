@@ -17,12 +17,9 @@
 </div>
 
 <div class="mb-4">
-    {!! Form::label('subtitle', 'Subtitulo del curso') !!}
-    {!! Form::text('subtitle', null, ['class'=> 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '')]) !!}
+    {!! Form::hidden('subtitle', 'Subtitulo del curso') !!}
+    {!! Form::hidden('subtitle', null, ['class'=> 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '')]) !!}
 
-    @error('subtitle')
-        <strong class="text-xs text-red-600">{{$message}}</strong>
-    @enderror
 </div>
 
 <div class="mb-4">

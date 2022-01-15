@@ -44,10 +44,10 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->slug);
         $request->validate([
             'title' => 'required',
-            'slug' => 'required|unique:courses',
-            'subtitle' => 'required',
+            'slug' => 'unique:courses',
             'description' => 'required',
             'category_id' => 'required',
             'level_id' => 'required',
@@ -110,7 +110,6 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses,slug,' . $course->id,
-            'subtitle' => 'required',
             'description' => 'required',
             'category_id' => 'required',
             'level_id' => 'required',
